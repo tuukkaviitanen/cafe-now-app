@@ -1,7 +1,7 @@
 import express from "express";
 
 const app = express();
-const port = 8080 ?? process.env.PORT;
+const port = Number(process.env.PORT) ?? 8080;
 
 app.get("/healthz", (req, res) => {
   res.sendStatus(200);
