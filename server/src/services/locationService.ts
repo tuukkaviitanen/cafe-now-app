@@ -1,10 +1,10 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   placesNearbySearchResponseSchema,
   type Place,
-} from "../schemas/placesNearbySearchResponseSchema";
-import { googleApiKey, mockApiUrl, nodeEnv } from "../config";
-import type { PlacesNearbySearchRequest } from "../schemas/placesNearbySearchRequestSchema";
+} from '../schemas/placesNearbySearchResponseSchema';
+import { googleApiKey, mockApiUrl, nodeEnv } from '../config';
+import type { PlacesNearbySearchRequest } from '../schemas/placesNearbySearchRequestSchema';
 
 const getNearbyCafes = async ({
   latitude,
@@ -12,7 +12,7 @@ const getNearbyCafes = async ({
   radius,
 }: PlacesNearbySearchRequest): Promise<Place[]> => {
   const apiUrl =
-    nodeEnv === "production"
+    nodeEnv === 'production'
       ? `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=${radius}&type=cafe&key=${googleApiKey}`
       : mockApiUrl!; // Program would have aborted in config.ts if nodeEnv is not production and mockApiUrl doesn't exist
 
