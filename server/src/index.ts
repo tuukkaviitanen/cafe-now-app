@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.get("/locations", async (req, res) => {
 
-  const placesNearbySearchRequest = await placesNearbySearchRequestSchema.parseAsync(req.body);
+  const placesNearbySearchRequest = await placesNearbySearchRequestSchema.parseAsync(req.query);
 
   res.send(await locationService.getNearbyCafes(placesNearbySearchRequest))
 })

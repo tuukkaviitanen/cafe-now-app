@@ -13,5 +13,3 @@ export const errorHandler: ErrorRequestHandler = (error, req, res, next) => {
 
   return res.status(500).json({error: "unexpected error occured"})
 }
-
-

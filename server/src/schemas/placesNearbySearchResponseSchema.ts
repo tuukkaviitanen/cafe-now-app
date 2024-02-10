@@ -1,5 +1,9 @@
 import {z} from "zod";
-import { locationSchema } from "./locationSchema";
+
+export const locationSchema = z.object({
+  lat: z.number(),
+  lng: z.number(),
+})
 
 const placeGeometrySchema = z.object({
   location: locationSchema,
@@ -64,3 +68,5 @@ export const placesNearbySearchResponseSchema = z.object({
 export type PlacesNearbySearchResponse = z.infer<typeof placesNearbySearchResponseSchema>;
 
 export type Place = z.infer<typeof placeSchema>;
+
+export type Location = z.infer<typeof locationSchema>;
