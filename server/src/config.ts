@@ -11,8 +11,10 @@ if (!nodeEnv) {
   process.abort();
 }
 
-if (nodeEnv === "production" && !googleApiKey) {
-  console.error('Program is running in production mode and GOOGLE_API_KEY not provided. Program will abort.');
+if (nodeEnv === 'production' && !googleApiKey) {
+  console.error(
+    'Program is running in production mode and GOOGLE_API_KEY not provided. Program will abort.',
+  );
   process.abort();
 }
 
