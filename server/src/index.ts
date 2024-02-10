@@ -9,7 +9,7 @@ import { port } from "./config";
 const app = express();
 app.use(express.json());
 
-app.get("/locations", async (req, res) => {
+app.get("/nearbyCafes", async (req, res) => {
 
   const placesNearbySearchRequest = await placesNearbySearchRequestSchema.parseAsync(req.query);
 
