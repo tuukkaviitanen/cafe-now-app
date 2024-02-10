@@ -13,6 +13,8 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile.dev
+    volumes:
+      - ./server:/usr/src/app
     environment:
       - PORT=8080
       - MOCK_API_URL=http://mock-api:3000/nearbyPlaces
