@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+
+  mock-api:
+    image: nearby-places-mock-api
+    build: ./mock-api
+    ports:
+      - 3000:3000
+
+  server:
+    image: server
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./server:/usr/src/app
+    environment:
+      - PORT=8080
+      - MOCK_API_URL=http://mock-api:3000/nearbyPlaces
+    ports:
+      - 8080:8080

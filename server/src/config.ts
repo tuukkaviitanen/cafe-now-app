@@ -6,13 +6,15 @@ export const nodeEnv = process.env.NODE_ENV;
 
 export const mockApiUrl = process.env.MOCK_API_URL;
 
-if (!googleApiKey) {
-  console.error('GOOGLE_API_KEY not set. Program will abort.');
+if (!nodeEnv) {
+  console.error('NODE_ENV not set. Program will abort.');
   process.abort();
 }
 
-if (!nodeEnv) {
-  console.error('NODE_ENV not set. Program will abort.');
+if (nodeEnv === 'production' && !googleApiKey) {
+  console.error(
+    'Program is running in production mode and GOOGLE_API_KEY not provided. Program will abort.',
+  );
   process.abort();
 }
 
