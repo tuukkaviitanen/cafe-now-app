@@ -1,15 +1,15 @@
-import {z} from "zod";
+import { z } from "zod";
 
 export const locationSchema = z.object({
   lat: z.number(),
   lng: z.number(),
-})
+});
 
 const placeGeometrySchema = z.object({
   location: locationSchema,
   viewport: z.object({
     northeast: locationSchema,
-    southwest: locationSchema
+    southwest: locationSchema,
   }),
 });
 
@@ -65,7 +65,9 @@ export const placesNearbySearchResponseSchema = z.object({
   status: z.string(),
 });
 
-export type PlacesNearbySearchResponse = z.infer<typeof placesNearbySearchResponseSchema>;
+export type PlacesNearbySearchResponse = z.infer<
+  typeof placesNearbySearchResponseSchema
+>;
 
 export type Place = z.infer<typeof placeSchema>;
 
