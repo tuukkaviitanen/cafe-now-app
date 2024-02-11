@@ -6,5 +6,5 @@ docker-compose*
 .gitignore
 README.md
 .vscode
-.env
+.env*
 .editorconfig

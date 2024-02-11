@@ -31,3 +31,18 @@ jobs:
 
       - name: Build bun bundle
         run: bun run build
+
+      - name: Start Mockoon CLI
+        uses: mockoon/cli-action@v1
+        with:
+          # Mockoon CLI version, default to 'latest'
+          version: 'latest'
+          # Mockoon local data file or URL
+          data-file: './mock-api/nearby-places-mock-api.json'
+          # port, default to 3000
+          port: 3000
+
+      - name: Run tests
+        env:
+          MOCK_API_URL: http://localhost:3000/nearbyPlaces
+        run: bun test
