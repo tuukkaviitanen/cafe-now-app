@@ -40,7 +40,8 @@ jobs:
         run: bun install -g @mockoon/cli@6.2.0
 
       - name: Start Mockoon CLI
-        run: mockoon-cli start --data mock-api/nearby-places-mock-api.json --port 3000 &
+        run: mockoon-cli start --data nearby-places-mock-api.json --port 3000 &
+        working-directory: ./mock-api
 
       - name: Test Mockoon healthcheck
         run: curl -X GET http://localhost:3000/healthz
