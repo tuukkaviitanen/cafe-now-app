@@ -8,20 +8,21 @@ export const mockApiUrl = process.env.MOCK_API_URL;
 
 if (!nodeEnv) {
   console.error('NODE_ENV not set. Program will abort.');
-  process.abort();
+  process.exit();
 }
 
 if (nodeEnv === 'production' && !googleApiKey) {
   console.error(
     'Program is running in production mode and GOOGLE_API_KEY not provided. Program will abort.',
   );
-  process.abort();
+  process.exit();
 }
 
 if (nodeEnv !== 'production' && !mockApiUrl) {
   console.error(
     'Program is set to run a development build, but MOCK_API_URL is not provided. Program will abort.',
   );
+  process.exit();
 }
 
 console.log(`Program is running in ${nodeEnv} mode`);
