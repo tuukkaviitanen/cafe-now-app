@@ -7,8 +7,6 @@ import { placeSchema } from '../schemas/placesNearbySearchResponseSchema';
 
 const api = supertest(app);
 
-//nock('http://localhost:3000').get('/').reply(200, mockData).persist();
-
 describe('api endpoints', () => {
   describe('/nearbyCafes', () => {
     describe('returns 200', () => {
