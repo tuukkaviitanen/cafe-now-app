@@ -32,6 +32,11 @@ jobs:
       - name: Build bun bundle
         run: bun run build
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
       - name: Start Mockoon CLI
         uses: mockoon/cli-action@v1
         with:
