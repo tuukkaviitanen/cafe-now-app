@@ -7,6 +7,13 @@ services:
     build: ./mock-api
     ports:
       - 3000:3000
+    healthcheck:
+      test: curl --fail http://localhost:3000/healthz || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
 
   server:
     image: server
@@ -21,4 +28,6 @@ services:
     ports:
       - 8080:8080
     depends_on:
-      - mock-api
+      mock-api:
+        condition: service_healthy
+    restart: unless-stopped

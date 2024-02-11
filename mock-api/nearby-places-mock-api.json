@@ -36,12 +36,45 @@
         }
       ],
       "responseMode": null
+    },
+    {
+      "uuid": "222a6d23-c93c-40f2-a580-b3091e2c3633",
+      "type": "http",
+      "documentation": "Healthcheck endpoint",
+      "method": "get",
+      "endpoint": "healthz",
+      "responses": [
+        {
+          "uuid": "e945c36a-47d5-4529-88e9-a327afddf208",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
     }
   ],
   "rootChildren": [
     {
       "type": "route",
       "uuid": "6ee85a40-ecbb-49f8-b08d-4a0985decd4f"
+    },
+    {
+      "type": "route",
+      "uuid": "222a6d23-c93c-40f2-a580-b3091e2c3633"
     }
   ],
   "proxyMode": false,
