@@ -20,3 +20,5 @@ services:
       - MOCK_API_URL=http://mock-api:3000/nearbyPlaces
     ports:
       - 8080:8080
+    depends_on:
+      - mock-api
