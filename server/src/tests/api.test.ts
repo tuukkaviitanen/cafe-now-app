@@ -11,105 +11,108 @@ const api = supertest(app);
 
 describe('api endpoints', () => {
   describe('/nearbyCafes', () => {
-    it('returns 400 when no query parameters', async () => {
-      const response = await api.get('/nearbyCafes');
-      expect(response.status).toBe(400);
+    describe('returns 400', () => {
+      it('when no query parameters', async () => {
+        const response = await api.get('/nearbyCafes');
+        expect(response.status).toBe(400);
+      });
+      it('when latitude is missing', async () => {
+        const response = await api.get(
+          '/nearbyCafes?longitude=23.78712&radius=3000',
+        );
+        expect(response.status).toBe(400);
+      });
+
+      it('when longitude is missing', async () => {
+        const response = await api.get(
+          '/nearbyCafes?latitude=61.49911&radius=3000',
+        );
+        expect(response.status).toBe(400);
+      });
+
+      it('when radius is missing', async () => {
+        const response = await api.get(
+          '/nearbyCafes?latitude=61.49911&longitude=23.78712',
+        );
+        expect(response.status).toBe(400);
+      });
+
+      it('when latitude is malformatted', async () => {
+        const response = await api.get(
+          '/nearbyCafes?latitude=61.4asd9911&longitude=23.78712&radius=3000',
+        );
+        expect(response.status).toBe(400);
+      });
+
+      it('when longitude is malformatted', async () => {
+        const response = await api.get(
+          '/nearbyCafes?latitude=61.49911&longitude=23.7871v2&radius=3000',
+        );
+        expect(response.status).toBe(400);
+      });
+
+      it('when radius is malformatted', async () => {
+        const response = await api.get(
+          '/nearbyCafes?latitude=61.49911&longitude=23.78712&radius=3s000',
+        );
+        expect(response.status).toBe(400);
+      });
+
+      it('when radius is negative', async () => {
+        const response = await api.get(
+          '/nearbyCafes?latitude=61.49911&longitude=23.78712&radius=-3000',
+        );
+        expect(response.status).toBe(400);
+      });
+
+      it('when latitude is out of range of -90 to 90', async () => {
+        const response = await api.get(
+          '/nearbyCafes?latitude=91&longitude=23.78712&radius=3000',
+        );
+        expect(response.status).toBe(400);
+      });
+
+      it('when latitude is out of range of -90 to 90', async () => {
+        const response = await api.get(
+          '/nearbyCafes?latitude=-91&longitude=23.78712&radius=3000',
+        );
+        expect(response.status).toBe(400);
+      });
+
+      it('when longitude is out of range of -180 to 180', async () => {
+        const response = await api.get(
+          '/nearbyCafes?latitude=61.49911&longitude=181&radius=3000',
+        );
+        expect(response.status).toBe(400);
+      });
+
+      it('when longitude is out of range of -180 to 180', async () => {
+        const response = await api.get(
+          '/nearbyCafes?latitude=61.49911&longitude=-181&radius=3000',
+        );
+        expect(response.status).toBe(400);
+      });
     });
 
-    it('returns 200 when valid query parameters sent', async () => {
-      const response = await api.get(
-        '/nearbyCafes?latitude=61.49911&longitude=23.78712&radius=3000',
-      );
-      expect(response.status).toBe(200);
-    });
+    describe('returns 200', () => {
+      it('when valid query parameters sent', async () => {
+        const response = await api.get(
+          '/nearbyCafes?latitude=61.49911&longitude=23.78712&radius=3000',
+        );
+        expect(response.status).toBe(200);
+      });
 
-    it('returns response body with array of places when valid query parameters sent', async () => {
-      const response = await api.get(
-        '/nearbyCafes?latitude=61.49911&longitude=23.78712&radius=3000',
-      );
+      it('and a response body with array of places when valid query parameters sent', async () => {
+        const response = await api.get(
+          '/nearbyCafes?latitude=61.49911&longitude=23.78712&radius=3000',
+        );
 
-      expect(response.body).toBeObject();
+        expect(response.body).toBeObject();
 
-      const parseResult = z.array(placeSchema).safeParse(response.body);
+        const parseResult = z.array(placeSchema).safeParse(response.body);
 
-      expect(parseResult.success).toBe(true);
-    });
-
-    it('returns 400 when latitude is missing', async () => {
-      const response = await api.get(
-        '/nearbyCafes?longitude=23.78712&radius=3000',
-      );
-      expect(response.status).toBe(400);
-    });
-
-    it('returns 400 when longitude is missing', async () => {
-      const response = await api.get(
-        '/nearbyCafes?latitude=61.49911&radius=3000',
-      );
-      expect(response.status).toBe(400);
-    });
-
-    it('returns 400 when radius is missing', async () => {
-      const response = await api.get(
-        '/nearbyCafes?latitude=61.49911&longitude=23.78712',
-      );
-      expect(response.status).toBe(400);
-    });
-
-    it('returns 400 when latitude is malformatted', async () => {
-      const response = await api.get(
-        '/nearbyCafes?latitude=61.4asd9911&longitude=23.78712&radius=3000',
-      );
-      expect(response.status).toBe(400);
-    });
-
-    it('returns 400 when longitude is malformatted', async () => {
-      const response = await api.get(
-        '/nearbyCafes?latitude=61.49911&longitude=23.7871v2&radius=3000',
-      );
-      expect(response.status).toBe(400);
-    });
-
-    it('returns 400 when radius is malformatted', async () => {
-      const response = await api.get(
-        '/nearbyCafes?latitude=61.49911&longitude=23.78712&radius=3s000',
-      );
-      expect(response.status).toBe(400);
-    });
-
-    it('returns 400 when radius is negative', async () => {
-      const response = await api.get(
-        '/nearbyCafes?latitude=61.49911&longitude=23.78712&radius=-3000',
-      );
-      expect(response.status).toBe(400);
-    });
-
-    it('returns 400 when latitude is out of range of -90 to 90', async () => {
-      const response = await api.get(
-        '/nearbyCafes?latitude=91&longitude=23.78712&radius=3000',
-      );
-      expect(response.status).toBe(400);
-    });
-
-    it('returns 400 when latitude is out of range of -90 to 90', async () => {
-      const response = await api.get(
-        '/nearbyCafes?latitude=-91&longitude=23.78712&radius=3000',
-      );
-      expect(response.status).toBe(400);
-    });
-
-    it('returns 400 when longitude is out of range of -180 to 180', async () => {
-      const response = await api.get(
-        '/nearbyCafes?latitude=61.49911&longitude=181&radius=3000',
-      );
-      expect(response.status).toBe(400);
-    });
-
-    it('returns 400 when longitude is out of range of -180 to 180', async () => {
-      const response = await api.get(
-        '/nearbyCafes?latitude=61.49911&longitude=-181&radius=3000',
-      );
-      expect(response.status).toBe(400);
+        expect(parseResult.success).toBe(true);
+      });
     });
   });
 });
