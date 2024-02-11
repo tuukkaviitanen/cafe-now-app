@@ -2,7 +2,6 @@ FROM node:18-alpine
 
 RUN npm install -g @mockoon/cli@6.2.0
 COPY ./nearby-places-mock-api.json ./nearby-places-mock-api.json
-COPY ./nearby-places-mock-response.json ./nearby-places-mock-response.json
 
 
 # Install curl for healthcheck and tzdata for timezone support.
