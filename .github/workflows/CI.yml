@@ -32,20 +32,10 @@ jobs:
       - name: Build bun bundle
         run: bun run build
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
+        # Mockoon CLI actions currently doesn't work so this is a custom implementation
       - name: Start Mockoon CLI
-        uses: mockoon/cli-action@v1
-        with:
-          # Mockoon CLI version, default to 'latest'
-          version: 'latest'
-          # Mockoon local data file or URL
-          data-file: './mock-api/nearby-places-mock-api.json'
-          # port, default to 3000
-          port: 3000
+        run: bun install -g @mockoon/cli@6.2.0 &&
+          mockoon-cli start --data ./mock-api/nearby-places-mock-api.json --port 3000 &
 
       - name: Test Mockoon healthcheck
         run: curl -X GET http://localhost:3000/healthz
