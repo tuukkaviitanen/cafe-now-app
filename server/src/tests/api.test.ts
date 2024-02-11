@@ -11,89 +11,6 @@ const api = supertest(app);
 
 describe('api endpoints', () => {
   describe('/nearbyCafes', () => {
-    describe('returns 400', () => {
-      it('when no query parameters', async () => {
-        const response = await api.get('/nearbyCafes');
-        expect(response.status).toBe(400);
-      });
-      it('when latitude is missing', async () => {
-        const response = await api.get(
-          '/nearbyCafes?longitude=23.78712&radius=3000',
-        );
-        expect(response.status).toBe(400);
-      });
-
-      it('when longitude is missing', async () => {
-        const response = await api.get(
-          '/nearbyCafes?latitude=61.49911&radius=3000',
-        );
-        expect(response.status).toBe(400);
-      });
-
-      it('when radius is missing', async () => {
-        const response = await api.get(
-          '/nearbyCafes?latitude=61.49911&longitude=23.78712',
-        );
-        expect(response.status).toBe(400);
-      });
-
-      it('when latitude is malformatted', async () => {
-        const response = await api.get(
-          '/nearbyCafes?latitude=61.4asd9911&longitude=23.78712&radius=3000',
-        );
-        expect(response.status).toBe(400);
-      });
-
-      it('when longitude is malformatted', async () => {
-        const response = await api.get(
-          '/nearbyCafes?latitude=61.49911&longitude=23.7871v2&radius=3000',
-        );
-        expect(response.status).toBe(400);
-      });
-
-      it('when radius is malformatted', async () => {
-        const response = await api.get(
-          '/nearbyCafes?latitude=61.49911&longitude=23.78712&radius=3s000',
-        );
-        expect(response.status).toBe(400);
-      });
-
-      it('when radius is negative', async () => {
-        const response = await api.get(
-          '/nearbyCafes?latitude=61.49911&longitude=23.78712&radius=-3000',
-        );
-        expect(response.status).toBe(400);
-      });
-
-      it('when latitude is out of range of -90 to 90', async () => {
-        const response = await api.get(
-          '/nearbyCafes?latitude=91&longitude=23.78712&radius=3000',
-        );
-        expect(response.status).toBe(400);
-      });
-
-      it('when latitude is out of range of -90 to 90', async () => {
-        const response = await api.get(
-          '/nearbyCafes?latitude=-91&longitude=23.78712&radius=3000',
-        );
-        expect(response.status).toBe(400);
-      });
-
-      it('when longitude is out of range of -180 to 180', async () => {
-        const response = await api.get(
-          '/nearbyCafes?latitude=61.49911&longitude=181&radius=3000',
-        );
-        expect(response.status).toBe(400);
-      });
-
-      it('when longitude is out of range of -180 to 180', async () => {
-        const response = await api.get(
-          '/nearbyCafes?latitude=61.49911&longitude=-181&radius=3000',
-        );
-        expect(response.status).toBe(400);
-      });
-    });
-
     describe('returns 200', () => {
       it('when valid query parameters sent', async () => {
         const response = await api.get(
@@ -112,6 +29,93 @@ describe('api endpoints', () => {
         const parseResult = z.array(placeSchema).safeParse(response.body);
 
         expect(parseResult.success).toBe(true);
+      });
+    });
+    describe('returns 400', () => {
+      it('when no query parameters are given', async () => {
+        const response = await api.get('/nearbyCafes');
+        expect(response.status).toBe(400);
+      });
+      describe('when latitude', () => {
+        it('is missing', async () => {
+          const response = await api.get(
+            '/nearbyCafes?longitude=23.78712&radius=3000',
+          );
+          expect(response.status).toBe(400);
+        });
+
+        it('is malformatted', async () => {
+          const response = await api.get(
+            '/nearbyCafes?latitude=61.4asd9911&longitude=23.78712&radius=3000',
+          );
+          expect(response.status).toBe(400);
+        });
+
+        it('is over 90', async () => {
+          const response = await api.get(
+            '/nearbyCafes?latitude=91&longitude=23.78712&radius=3000',
+          );
+          expect(response.status).toBe(400);
+        });
+
+        it('is under -90', async () => {
+          const response = await api.get(
+            '/nearbyCafes?latitude=-91&longitude=23.78712&radius=3000',
+          );
+          expect(response.status).toBe(400);
+        });
+      });
+
+      describe('when longitude', () => {
+        it('is missing', async () => {
+          const response = await api.get(
+            '/nearbyCafes?latitude=61.49911&radius=3000',
+          );
+          expect(response.status).toBe(400);
+        });
+
+        it('is malformatted', async () => {
+          const response = await api.get(
+            '/nearbyCafes?latitude=61.49911&longitude=23.7871v2&radius=3000',
+          );
+          expect(response.status).toBe(400);
+        });
+
+        it('is over 180', async () => {
+          const response = await api.get(
+            '/nearbyCafes?latitude=61.49911&longitude=181&radius=3000',
+          );
+          expect(response.status).toBe(400);
+        });
+
+        it('is under -180', async () => {
+          const response = await api.get(
+            '/nearbyCafes?latitude=61.49911&longitude=-181&radius=3000',
+          );
+          expect(response.status).toBe(400);
+        });
+      });
+      describe('when radius', () => {
+        it('is missing', async () => {
+          const response = await api.get(
+            '/nearbyCafes?latitude=61.49911&longitude=23.78712',
+          );
+          expect(response.status).toBe(400);
+        });
+
+        it('is malformatted', async () => {
+          const response = await api.get(
+            '/nearbyCafes?latitude=61.49911&longitude=23.78712&radius=3s000',
+          );
+          expect(response.status).toBe(400);
+        });
+
+        it('is negative', async () => {
+          const response = await api.get(
+            '/nearbyCafes?latitude=61.49911&longitude=23.78712&radius=-3000',
+          );
+          expect(response.status).toBe(400);
+        });
       });
     });
   });
