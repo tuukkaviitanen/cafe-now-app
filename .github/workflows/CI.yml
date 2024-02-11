@@ -32,10 +32,7 @@ jobs:
       - name: Build bun bundle
         run: bun run build
 
-      - name: Show directory content
-        run: ls
-
-        # Mockoon CLI actions currently doesn't work so this is a custom implementation
+        # Mockoon CLI action currently doesn't work so this is a custom implementation
       - name: Install Mockoon CLI
         run: bun install -g @mockoon/cli@6.2.0
 
