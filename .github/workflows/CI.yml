@@ -42,7 +42,10 @@ jobs:
           # port, default to 3000
           port: 3000
 
-      - name: Test Mockoon API
+      - name: Test Mockoon healthcheck
+        run: curl -X GET http://localhost:3000/healthz
+
+      - name: Test Mockoon API /nearbyPlaces
         run: curl -X GET http://localhost:3000/nearbyPlaces
 
       - name: Run tests
