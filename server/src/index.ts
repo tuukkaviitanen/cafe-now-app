@@ -4,7 +4,7 @@ import 'express-async-errors';
 import locationService from './services/locationService';
 import { placesNearbySearchRequestSchema } from './schemas/placesNearbySearchRequestSchema';
 import { errorHandler } from './utils/middleware';
-import { port } from './config';
+import { port } from './utils/environment';
 
 const app = express();
 app.use(express.json());

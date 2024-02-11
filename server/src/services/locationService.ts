@@ -3,7 +3,7 @@ import {
   placesNearbySearchResponseSchema,
   type Place,
 } from '../schemas/placesNearbySearchResponseSchema';
-import { googleApiKey, mockApiUrl, nodeEnv } from '../config';
+import { googleApiKey, mockApiUrl, nodeEnv } from '../utils/environment';
 import type { PlacesNearbySearchRequest } from '../schemas/placesNearbySearchRequestSchema';
 
 const getNearbyCafes = async ({
