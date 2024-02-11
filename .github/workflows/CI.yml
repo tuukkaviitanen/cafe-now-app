@@ -33,9 +33,11 @@ jobs:
         run: bun run build
 
         # Mockoon CLI actions currently doesn't work so this is a custom implementation
+      - name: Install Mockoon CLI
+        run: bun install -g @mockoon/cli@6.2.0
+
       - name: Start Mockoon CLI
-        run: bun install -g @mockoon/cli@6.2.0 &&
-          mockoon-cli start --data ./mock-api/nearby-places-mock-api.json --port 3000 &
+        run: mockoon-cli start --data ./mock-api/nearby-places-mock-api.json --port 3000 &
 
       - name: Test Mockoon healthcheck
         run: curl -X GET http://localhost:3000/healthz
