@@ -4,8 +4,6 @@ import { fromZodError } from 'zod-validation-error';
 import { ServiceError } from './errors';
 
 export const errorHandler: ErrorRequestHandler = (error, req, res, next) => {
-  //console.error({ error: error.message });
-
   if (error instanceof ZodError) {
     const { message } = fromZodError(error);
     return res.status(400).json({ error: message });
