@@ -6,7 +6,7 @@
 
 ## Summary
 
-Multi-platform-appication with [Flutter](https://flutter.dev/) that communicates with the [Google Maps Places API](https://developers.google.com/maps/documentation/places/web-service/overview) through a [Bun](https://bun.sh/) server that acts as a [backend-for-frontend](https://medium.com/mobilepeople/backend-for-frontend-pattern-why-you-need-to-know-it-46f94ce420b0).
+Multi-platform-appication with [Flutter](https://flutter.dev/) that communicates with the [Google Maps Places API](https://developers.google.com/maps/documentation/places/web-service/overview) through a [Bun](https://bun.sh/) server with an [Express](https://expressjs.com/) API that acts as a [backend-for-frontend](https://medium.com/mobilepeople/backend-for-frontend-pattern-why-you-need-to-know-it-46f94ce420b0).
 
 ## Server
 
