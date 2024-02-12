@@ -42,6 +42,8 @@ Integration tests are created for the server API endpoint. These tests are using
 
 There is a [GitHub actions](https://docs.github.com/en/actions) workflow configured for this repository that runs a [CI](https://en.wikipedia.org/wiki/CI/CD) pipeline for every pull request and merge to main branch. The pipeline run linter, builds the bundle and runs tests for the server. This ensures the quality of the main branch.
 
+Pipeline runs [Mockoon](https://mockoon.com/) mock api before running the tests. Mockoon GitHub action isn't actively updated and is not functional with the latest [mockoon-cli](https://mockoon.com/cli/) version, so it's installed and run manually.
+
 ### Setup
 
 #### Environtment
