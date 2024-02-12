@@ -6,7 +6,7 @@
 
 ## Summary
 
-Multi-platform-appication with [Flutter](https://flutter.dev/) that communicates with the [Google Maps Places API](https://developers.google.com/maps/documentation/places/web-service/overview) through a [Bun](https://bun.sh/) server that acts as a [backend-for-frontend](https://medium.com/mobilepeople/backend-for-frontend-pattern-why-you-need-to-know-it-46f94ce420b0).
+Multi-platform-appication with [Flutter](https://flutter.dev/) that communicates with the [Google Maps Places API](https://developers.google.com/maps/documentation/places/web-service/overview) through a [Bun](https://bun.sh/) server with an [Express](https://expressjs.com/) API that acts as a [backend-for-frontend](https://medium.com/mobilepeople/backend-for-frontend-pattern-why-you-need-to-know-it-46f94ce420b0).
 
 ## Server
 
@@ -41,6 +41,8 @@ Integration tests are created for the server API endpoint. These tests are using
 ### CI Pipeline
 
 There is a [GitHub actions](https://docs.github.com/en/actions) workflow configured for this repository that runs a [CI](https://en.wikipedia.org/wiki/CI/CD) pipeline for every pull request and merge to main branch. The pipeline run linter, builds the bundle and runs tests for the server. This ensures the quality of the main branch.
+
+Pipeline runs [Mockoon](https://mockoon.com/) mock api before running the tests. Mockoon GitHub action isn't actively updated and is not functional with the latest [mockoon-cli](https://mockoon.com/cli/) version, so it's installed and run manually.
 
 ### Setup
 
