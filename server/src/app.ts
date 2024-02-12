@@ -7,6 +7,7 @@ import { errorHandler } from './utils/middleware';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { nodeEnv } from './utils/environment';
+import { ServiceError } from './utils/errors';
 const app = express();
 
 app.use(express.json());
@@ -21,15 +22,24 @@ if (nodeEnv === 'production') {
   );
 }
 
-app.get('/nearbyCafes', async (req, res) => {
+app.get('/nearbyCafes', async (req, res, next) => {
   const placesNearbySearchRequest =
     await placesNearbySearchRequestSchema.parseAsync(req.query);
 
-  res.send(await locationService.getNearbyCafes(placesNearbySearchRequest));
+  try {
+    return res.send(
+      await locationService.getNearbyCafes(placesNearbySearchRequest),
+    );
+  } catch (error) {
+    if (error instanceof Error) {
+      return next(new ServiceError('getNearbyCafes failed', error));
+    }
+    return next(error);
+  }
 });
 
 app.get('/healthz', (req, res) => {
-  res.sendStatus(200);
+  return res.sendStatus(200);
 });
 
 app.use(errorHandler);
