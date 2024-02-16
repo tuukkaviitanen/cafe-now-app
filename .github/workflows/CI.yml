@@ -38,7 +38,7 @@ jobs:
           # Mockoon CLI version, default to 'latest'
           version: "6.2.0"
           # Mockoon local data file or URL
-          data-file: "../mock-api/mockoon-data.json"
+          data-file: "../mock-api/nearby-places-mock-api.json"
           # port, default to 3000
           port: 3000
 
