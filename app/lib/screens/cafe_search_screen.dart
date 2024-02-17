@@ -25,7 +25,6 @@ class CafeSearchScreen extends StatelessWidget {
                   children: [
                     TileLayer(
                       urlTemplate: mapUrl,
-                      userAgentPackageName: 'com.example.app',
                     ),
                   ],
                 ),
