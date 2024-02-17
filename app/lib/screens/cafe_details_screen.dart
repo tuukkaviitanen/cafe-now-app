@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CafeDetailsScreen extends StatelessWidget {
-  const CafeDetailsScreen({Key? key}) : super(key: key);
+  const CafeDetailsScreen({super.key});
+  static const String route = 'details/:id';
 
   @override
   Widget build(BuildContext context) {
