@@ -1,3 +1,4 @@
+import 'package:cafe_now_app/services/location_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
@@ -18,6 +19,7 @@ class CafeSearchScreen extends StatefulWidget {
 
 class _CafeSearchScreenState extends State<CafeSearchScreen> {
   late MapController _mapController;
+  late LocationService _locationService;
 
   late final cafeMarkers = <Marker>[];
 
@@ -41,17 +43,13 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
   void initState() {
     super.initState();
     _mapController = MapController();
+    _locationService = LocationService();
   }
 
   Future<void> getLocation() async {
-    if (await Permission.location.isGranted) {
-      final location = await Geolocator.getCurrentPosition();
-      _mapController.move(
-          LatLng(location.latitude, location.longitude), defaultZoom);
-    } else {
-      await Permission.location.request();
-      getLocation();
-    }
+    final location = await _locationService.getLocation();
+    _mapController.move(
+        LatLng(location.latitude, location.longitude), defaultZoom);
   }
 
   @override
