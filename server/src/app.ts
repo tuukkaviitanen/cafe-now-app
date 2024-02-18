@@ -4,7 +4,6 @@ import 'express-async-errors';
 import locationService from './services/locationService';
 import { placesNearbySearchRequestSchema } from './schemas/placesNearbySearchRequestSchema';
 import { errorHandler } from './utils/middleware';
-import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { nodeEnv } from './utils/environment';
 import { ServiceError } from './utils/errors';
