@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:cafe_now_app/models/place.dart';
 import 'package:cafe_now_app/services/cafe_service.dart';
 import 'package:cafe_now_app/services/location_service.dart';
@@ -22,7 +24,8 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
   late LocationService _locationService;
   late CafeService _cafeService;
 
-  late final cafeMarkers = <Marker>[];
+  final LinkedHashMap<String, Marker> cafeMarkers = LinkedHashMap();
+  final List<Marker> userMarkers = <Marker>[];
 
   Marker buildCafePin(LatLng point, Place cafe) => Marker(
         point: point,
@@ -32,15 +35,22 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
           onTap: () => ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(cafe.name),
-              duration: const Duration(seconds: 1),
+              duration: const Duration(seconds: 2),
               showCloseIcon: true,
             ),
           ),
-          child: Image.asset(
-            "assets/images/CuteCoffeeMugNoBackground.png",
-            width: 60,
-            height: 60,
-          ),
+          child: Image.asset("assets/images/CuteCoffeeMugNoBackground.png"),
+        ),
+      );
+
+  Marker buildUserPin(LatLng point) => Marker(
+        point: point,
+        width: 60,
+        height: 60,
+        child: const Icon(
+          Icons.room,
+          color: Colors.blue,
+          size: 60,
         ),
       );
 
@@ -55,6 +65,15 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
   Future<void> getLocation() async {
     final location = await _locationService.getLocation();
 
+    userMarkers.clear();
+
+    userMarkers
+        .add(buildUserPin(LatLng(location.latitude, location.longitude)));
+
+    setState(() {
+      userMarkers;
+    });
+
     _mapController.move(
         LatLng(location.latitude, location.longitude), defaultZoom);
 
@@ -63,7 +82,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
     for (var cafe in cafes) {
       final lat = cafe.geometry.location.lat;
       final lng = cafe.geometry.location.lng;
-      cafeMarkers.add(buildCafePin(LatLng(lat, lng), cafe));
+      cafeMarkers[cafe.place_id] = buildCafePin(LatLng(lat, lng), cafe);
     }
     setState(() {
       cafeMarkers;
@@ -79,7 +98,10 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
             Expanded(
               flex: 1,
               child: CafeMap(
-                  mapController: _mapController, cafeMarkers: cafeMarkers),
+                mapController: _mapController,
+                cafeMarkers: cafeMarkers.values.toList(),
+                userMarkers: userMarkers,
+              ),
             ),
             Expanded(
               flex: 1,
@@ -105,10 +127,12 @@ class CafeMap extends StatelessWidget {
     super.key,
     required MapController mapController,
     required this.cafeMarkers,
+    required this.userMarkers,
   }) : _mapController = mapController;
 
   final MapController _mapController;
   final List<Marker> cafeMarkers;
+  final List<Marker> userMarkers;
 
   @override
   Widget build(BuildContext context) {
@@ -124,6 +148,10 @@ class CafeMap extends StatelessWidget {
         ),
         MarkerLayer(
           markers: cafeMarkers,
+          rotate: true,
+        ),
+        MarkerLayer(
+          markers: userMarkers,
           rotate: true,
         ),
         RichAttributionWidget(
