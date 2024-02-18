@@ -35,7 +35,11 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
               showCloseIcon: true,
             ),
           ),
-          child: const Icon(Icons.coffee, size: 60, color: Colors.black),
+          child: Image.asset(
+            "assets/images/CuteCoffeeMugNoBackground.png",
+            width: 60,
+            height: 60,
+          ),
         ),
       );
 
@@ -55,7 +59,14 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
 
     final cafes = await _cafeService.fetchCafes();
 
-    print(cafes);
+    for (var cafe in cafes) {
+      final lat = cafe.geometry.location.lat;
+      final lng = cafe.geometry.location.lng;
+      cafeMarkers.add(buildPin(LatLng(lat, lng)));
+    }
+    setState(() {
+      cafeMarkers;
+    });
   }
 
   @override
