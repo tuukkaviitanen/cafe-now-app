@@ -1,3 +1,4 @@
+import 'package:cafe_now_app/services/cafe_service.dart';
 import 'package:cafe_now_app/services/location_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -18,6 +19,7 @@ class CafeSearchScreen extends StatefulWidget {
 class _CafeSearchScreenState extends State<CafeSearchScreen> {
   late MapController _mapController;
   late LocationService _locationService;
+  late CafeService _cafeService;
 
   late final cafeMarkers = <Marker>[];
 
@@ -42,12 +44,18 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
     super.initState();
     _mapController = MapController();
     _locationService = LocationService();
+    _cafeService = CafeService();
   }
 
   Future<void> getLocation() async {
     final location = await _locationService.getLocation();
+
     _mapController.move(
         LatLng(location.latitude, location.longitude), defaultZoom);
+
+    final cafes = await _cafeService.fetchCafes();
+
+    print(cafes);
   }
 
   @override
