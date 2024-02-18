@@ -66,7 +66,6 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
     final location = await _locationService.getLocation();
 
     userMarkers.clear();
-
     userMarkers
         .add(buildUserPin(LatLng(location.latitude, location.longitude)));
 
@@ -77,7 +76,8 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
     _mapController.move(
         LatLng(location.latitude, location.longitude), defaultZoom);
 
-    final cafes = await _cafeService.fetchCafes();
+    final cafes = await _cafeService.fetchCafes(
+        location.latitude, location.longitude, 3000);
 
     for (var cafe in cafes) {
       final lat = cafe.geometry.location.lat;

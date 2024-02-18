@@ -3,6 +3,8 @@ import 'package:http/http.dart' as http;
 
 import 'package:json_serializer/json_serializer.dart';
 
+const serverUrl = 'http://localhost:8080';
+
 class CafeService {
   CafeService() {
     JsonSerializer.options = JsonSerializerOptions(types: [
@@ -18,9 +20,10 @@ class CafeService {
     ]);
   }
 
-  Future<List<Place>> fetchCafes() async {
+  Future<List<Place>> fetchCafes(
+      double latitude, double longitude, int radius) async {
     final response = await http.get(Uri.parse(
-        'http://localhost:8080/nearbyCafes?latitude=61.49911&longitude=23.78712&radius=3000'));
+        '$serverUrl/nearbyCafes?latitude=$latitude&longitude=$longitude&radius=$radius'));
 
     if (response.statusCode == 200) {
       List<Place> cafes =
