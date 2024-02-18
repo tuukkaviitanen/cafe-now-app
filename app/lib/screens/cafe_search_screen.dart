@@ -122,6 +122,10 @@ class CafeMap extends StatelessWidget {
         TileLayer(
           urlTemplate: mapUrl,
         ),
+        MarkerLayer(
+          markers: cafeMarkers,
+          rotate: true,
+        ),
         RichAttributionWidget(
           attributions: [
             TextSourceAttribution(
@@ -131,10 +135,6 @@ class CafeMap extends StatelessWidget {
             ),
           ],
         ),
-        MarkerLayer(
-          markers: cafeMarkers,
-          rotate: true,
-        )
       ],
     );
   }
