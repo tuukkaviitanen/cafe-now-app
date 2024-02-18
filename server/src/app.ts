@@ -1,5 +1,6 @@
 import express from 'express';
 import 'express-async-errors';
+import timeout from 'connect-timeout';
 
 import locationService from './services/locationService';
 import { placesNearbySearchRequestSchema } from './schemas/placesNearbySearchRequestSchema';
@@ -12,6 +13,8 @@ const app = express();
 
 app.use(express.json());
 app.use(helmet());
+
+app.use(timeout('120s'));
 
 if (nodeEnv === 'production') {
   app.use(
