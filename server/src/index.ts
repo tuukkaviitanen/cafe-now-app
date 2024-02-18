@@ -1,7 +1,7 @@
 import { port } from './utils/environment';
 import app from './app';
 
-const server = app.listen(port, () => {
+const server = app.listen(port, '0.0.0.0', () => {
   console.log(`Listening on port ${port}`);
 });
 
