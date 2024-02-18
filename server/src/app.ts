@@ -10,7 +10,6 @@ import { nodeEnv } from './utils/environment';
 import { ServiceError } from './utils/errors';
 const app = express();
 
-app.use(express.json());
 app.use(helmet());
 
 if (nodeEnv === 'production') {
@@ -21,6 +20,8 @@ if (nodeEnv === 'production') {
     }),
   );
 }
+
+app.use(express.json());
 
 app.get('/nearbyCafes', async (req, res, next) => {
   const placesNearbySearchRequest =
