@@ -1,6 +1,5 @@
 import 'package:cafe_now_app/models/place.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
 
 import 'package:json_serializer/json_serializer.dart';
 

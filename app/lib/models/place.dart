@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 class Location {
   final double lat;
   final double lng;
@@ -50,68 +52,68 @@ class DayTime {
 
 class PlaceOpeningHours {
   final List<PlaceOpeningHoursPeriod>? periods;
-  final bool openNow;
-  final List<String>? weekdayText;
+  final bool open_now;
+  final List<String>? weekday_text;
 
   PlaceOpeningHours({
     this.periods,
-    required this.openNow,
-    this.weekdayText,
+    required this.open_now,
+    this.weekday_text,
   });
 }
 
 class PlacePhoto {
   final int height;
-  final List<String> htmlAttributions;
-  final String photoReference;
+  final List<String> html_attributions;
+  final String photo_reference;
   final int width;
 
   PlacePhoto({
     required this.height,
-    required this.htmlAttributions,
-    required this.photoReference,
+    required this.html_attributions,
+    required this.photo_reference,
     required this.width,
   });
 }
 
 class PlacePlusCode {
-  final String compoundCode;
-  final String globalCode;
+  final String compound_code;
+  final String global_code;
 
   PlacePlusCode({
-    required this.compoundCode,
-    required this.globalCode,
+    required this.compound_code,
+    required this.global_code,
   });
 }
 
 class Place {
-  final String? businessStatus;
-  final String? formattedAddress;
+  final String? business_status;
+  final String? formatted_address;
   final PlaceGeometry geometry;
   final String icon;
   final String name;
-  final PlaceOpeningHours? openingHours;
+  final PlaceOpeningHours? opening_hours;
   final List<PlacePhoto>? photos;
-  final String placeId;
-  final PlacePlusCode? plusCode;
+  final String place_id;
+  final PlacePlusCode? plus_code;
   final double? rating;
   final String reference;
   final List<String> types;
-  final int? userRatingsTotal;
+  final int? user_ratings_total;
 
   Place({
-    this.businessStatus,
-    this.formattedAddress,
+    this.business_status,
+    this.formatted_address,
     required this.geometry,
     required this.icon,
     required this.name,
-    this.openingHours,
+    this.opening_hours,
     this.photos,
-    required this.placeId,
-    this.plusCode,
+    required this.place_id,
+    this.plus_code,
     this.rating,
     required this.reference,
     required this.types,
-    this.userRatingsTotal,
+    this.user_ratings_total,
   });
 }
