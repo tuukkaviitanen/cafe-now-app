@@ -1,3 +1,4 @@
+import 'package:cafe_now_app/models/place.dart';
 import 'package:cafe_now_app/services/cafe_service.dart';
 import 'package:cafe_now_app/services/location_service.dart';
 import 'package:flutter/material.dart';
@@ -23,15 +24,15 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
 
   late final cafeMarkers = <Marker>[];
 
-  Marker buildPin(LatLng point) => Marker(
+  Marker buildCafePin(LatLng point, Place cafe) => Marker(
         point: point,
         width: 60,
         height: 60,
         child: GestureDetector(
           onTap: () => ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Tapped a cafe!'),
-              duration: Duration(seconds: 1),
+            SnackBar(
+              content: Text(cafe.name),
+              duration: const Duration(seconds: 1),
               showCloseIcon: true,
             ),
           ),
@@ -62,7 +63,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
     for (var cafe in cafes) {
       final lat = cafe.geometry.location.lat;
       final lng = cafe.geometry.location.lng;
-      cafeMarkers.add(buildPin(LatLng(lat, lng)));
+      cafeMarkers.add(buildCafePin(LatLng(lat, lng), cafe));
     }
     setState(() {
       cafeMarkers;
