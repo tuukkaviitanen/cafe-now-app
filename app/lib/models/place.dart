@@ -29,8 +29,8 @@ class PlaceViewport {
 }
 
 class PlaceOpeningHoursPeriod {
-  final PlaceOpeningHours close;
-  final PlaceOpeningHours open;
+  final DayTime close;
+  final DayTime open;
 
   PlaceOpeningHoursPeriod({
     required this.close,
@@ -38,13 +38,25 @@ class PlaceOpeningHoursPeriod {
   });
 }
 
-class PlaceOpeningHours {
+class DayTime {
   final int day;
   final String time;
 
-  PlaceOpeningHours({
+  DayTime({
     required this.day,
     required this.time,
+  });
+}
+
+class PlaceOpeningHours {
+  final List<PlaceOpeningHoursPeriod>? periods;
+  final bool openNow;
+  final List<String>? weekdayText;
+
+  PlaceOpeningHours({
+    this.periods,
+    required this.openNow,
+    this.weekdayText,
   });
 }
 
