@@ -1,1069 +1,1059 @@
 {
   "html_attributions": [],
-  "next_page_token": "AWU5eFhZTTPdkrNxj9BoG0fKVbxhCkFRnf7hmZChWS3aGWKu_2_8pwQtdMquy-7pxyzqYnCBUrsBRVzD3TO5JQKWP-KLm-4dxvvb8pagDou4Lexzumd95wh9hxG3PvOLoYDBQUG2exDl_EGgN61Kgx6XkmGoR8gG6pqSmSpEBpJyjaRidP99go4oyZAKi_a395Dhnb4MnYu8ONaazq2IUDNAYFxr0RMC4sdxEax-9WlPMdyaLqworNfPwgEYqS6WJqZkZXUFZRBxviBvlkOq8RCTtfhc0zpFGWpSv0b19QXm16RT5eqq2hBHdLGRsqvdjyVMtbGYSxb7sh5hnM9qCr0DlLsg2JefCpC8A0QFPMrM2IW6Mb9KqUGL11_58jZVZvdJTD43kjp_u-2RAge9mzWfb31zzK6FkB2fRGg6cSj19nHMV87z3mUui6ASnD-P",
+  "next_page_token": "ATplDJaTPzr5fphtLaFx__xOur7mTgAqf2pqhA1PtoD3q2YO9pO2rXHGC-2AHS8iNei6tJwddLdrGbR488F8YYOlL5XxRkkwl2J4qjKHZfME8HZrRkMOVqwtTo2xBC4eMNcgMzZz3OacIpasnOggExKg8zdCx0PSqvLPY8ATh8qaxhoHVVBmkPnbragYQlZKCkvYJWzEdf1rYA86Xlg1ntNCvORvn0clpJeeCylEp1xJfTMnueZscrNpjL1Ghml1rdBZkp5SGK2hE1kAZJT51BkieyF3HZZr3Co09VGYl-7iK0adOpavhfCJBiRlvaH7AiZQc6VCf8OyjZ7HRstwXBxfiYoohK8y-vk_za9u-mAhnO_8iTex6t0F6lORHJFlpInaK0Ad1KHux9Ewvz13aoo5qEMSD48RH0rRtX31XSqNSGE7I1OVKXC39067hUPZ",
   "results": [
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.8709065,
-          "lng": 151.2075485
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.86945936970849,
-            "lng": 151.2088507802915
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.49784219999999,
+                  "lng": 23.77160569999999
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.49918118029151,
+                      "lng": 23.7731453302915
+                  },
+                  "southwest": {
+                      "lat": 61.49648321970849,
+                      "lng": 23.77044736970849
+                  }
+              }
           },
-          "southwest": {
-            "lat": -33.87215733029149,
-            "lng": 151.2061528197085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-      "icon_background_color": "#909CE1",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
-      "name": "QT Sydney",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 2303,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/117184769815937888065\">QT Sydney</a>"
-          ],
-          "photo_reference": "AWU5eFh4g9GXwTBILlQDbyosx6R6Myyzk5FvhPntwzmPT-bJlKLGUGce0vl5CzgvGWCPHNmGX2pbD2SYzvSrZphifJMmZ0ghucXeH2FhCh5bPQiCapOCobD9zMLgIPhIFCOE3YHK1gjMCocufr1IR7hvS3ogqYzFVHuMe3ifx5u215ayWWz3",
-          "width": 2303
-        }
-      ],
-      "place_id": "ChIJK6RwVT6uEmsRQ447JSUTGGI",
-      "plus_code": {
-        "compound_code": "46H5+J2 Sydney NSW, Australia",
-        "global_code": "4RRH46H5+J2"
-      },
-      "rating": 4.6,
-      "reference": "ChIJK6RwVT6uEmsRQ447JSUTGGI",
-      "scope": "GOOGLE",
-      "types": [
-        "lodging",
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 1800,
-      "vicinity": "49 Market Street, Sydney"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.864458,
-          "lng": 151.2062952
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.8630026197085,
-            "lng": 151.2075776802915
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+          "icon_background_color": "#909CE1",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+          "name": "Scandic Tampere City",
+          "opening_hours": {
+              "open_now": true
           },
-          "southwest": {
-            "lat": -33.8657005802915,
-            "lng": 151.2048797197085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-      "icon_background_color": "#909CE1",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
-      "name": "Amora Hotel Jamison Sydney",
-      "photos": [
-        {
-          "height": 4088,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/112581335421444049471\">Amora Hotel Jamison Sydney</a>"
+          "photos": [
+              {
+                  "height": 1080,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/109768263426037694900\">Mikael F</a>"
+                  ],
+                  "photo_reference": "ATplDJZioClmhfN9X6DM8zZ620x7tR5Gx0Bh0atgY1UEBs2pYPw1j6doVBMyr3OrtpRCdjkQrQkk_FOmcK0Vh2wQxkzBOJa7B6llpCoRPHKmCOjVnmeyCx36AS21yw_oyL5XP2Z3UMisMFLmlwlEKq893WS3Ksx7m2T5CGfX2sjHJEkKVZnB",
+                  "width": 1920
+              }
           ],
-          "photo_reference": "AWU5eFiQm6w7ScOp_8HPsVgsa5ZJVXDSLyjjLDZGsaNP1AUl8B-T50dcOFGqENgNr1r3xMgnoCZtw6TW3nProj9NafZpbNWks1GPOs-MQFLC9ZY-DEacGw9ylmQTLNdRhnqJWBTb-Prt6tOkfYbN-F2VOCbaszl9DHVShm2awXqYTZyoVFYO",
-          "width": 3066
-        }
-      ],
-      "place_id": "ChIJa51FEUGuEmsRIXRtDjLFQXM",
-      "plus_code": {
-        "compound_code": "46P4+6G Sydney NSW, Australia",
-        "global_code": "4RRH46P4+6G"
-      },
-      "price_level": 3,
-      "rating": 4.2,
-      "reference": "ChIJa51FEUGuEmsRIXRtDjLFQXM",
-      "scope": "GOOGLE",
-      "types": [
-        "spa",
-        "lodging",
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 2381,
-      "vicinity": "11 Jamison Street, Sydney"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.870383,
-          "lng": 151.1979245
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.86901176970849,
-            "lng": 151.1991694302915
+          "place_id": "ChIJAVY6QqvYjkYRLz4HdUOi_nU",
+          "plus_code": {
+              "compound_code": "FQXC+4J Tampere, Finland",
+              "global_code": "9GH5FQXC+4J"
           },
-          "southwest": {
-            "lat": -33.87170973029149,
-            "lng": 151.1964714697085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "icon_background_color": "#FF9E67",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
-      "name": "The Little Snail Restaurant",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 900,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/114727320476039103791\">The Little Snail Restaurant</a>"
+          "rating": 4.1,
+          "reference": "ChIJAVY6QqvYjkYRLz4HdUOi_nU",
+          "scope": "GOOGLE",
+          "types": [
+              "lodging",
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
           ],
-          "photo_reference": "AWU5eFhUB1B5PMMPxGGz84lZVG9YaGoHiS_tTg5H4URaEiCGl3M599w-HCcND-8pfSP4fuPnSeU_W71te-CAS-c3dmsMcXgDMSPUTJYsbrUqZ6ob9CmOm5MVkoCr9HAzVQMVf2wPAnGSlE_7LC8dzYDoRJd0Gzyxnf9Q9cgcxmqUrjtzG9jB",
-          "width": 1350
-        }
-      ],
-      "place_id": "ChIJtwapWjeuEmsRcxV5JARHpSk",
-      "plus_code": {
-        "compound_code": "45HX+R5 Pyrmont NSW, Australia",
-        "global_code": "4RRH45HX+R5"
+          "user_ratings_total": 2073,
+          "vicinity": "Hämeenkatu 1, Tampere"
       },
-      "price_level": 2,
-      "rating": 4.5,
-      "reference": "ChIJtwapWjeuEmsRcxV5JARHpSk",
-      "scope": "GOOGLE",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 2510,
-      "vicinity": "3/50 Murray Street, Pyrmont"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.8702637,
-          "lng": 151.2074559
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.8691519197085,
-            "lng": 151.2087574302915
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.4970195,
+                  "lng": 23.7707301
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.4983618802915,
+                      "lng": 23.7719886302915
+                  },
+                  "southwest": {
+                      "lat": 61.4956639197085,
+                      "lng": 23.7692906697085
+                  }
+              }
           },
-          "southwest": {
-            "lat": -33.8718498802915,
-            "lng": 151.2060594697085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-      "icon_background_color": "#909CE1",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
-      "name": "Swissôtel Sydney",
-      "photos": [
-        {
-          "height": 2130,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/109617038450514957756\">Swissôtel Sydney</a>"
-          ],
-          "photo_reference": "AWU5eFjfrfR1WmCj_qxIMRBfPkhxwQW_rDqWk292QZIdU7EpfVM--Rv5AwKNRv5ii3JF14Ifrc0pwu_mTGqVjB2K9X3rdvaknwxCLd0fXFLMjkSUYjFZ3q9BLMlUyFKeLq65-C6nHRr8ol2_lik_vymOVDkrDiz0LOHdVRMVmeugKnYlI17p",
-          "width": 3000
-        }
-      ],
-      "place_id": "ChIJAddzqj-uEmsRO8NmIaLn1t0",
-      "plus_code": {
-        "compound_code": "46H4+VX Sydney NSW, Australia",
-        "global_code": "4RRH46H4+VX"
-      },
-      "rating": 4.3,
-      "reference": "ChIJAddzqj-uEmsRO8NmIaLn1t0",
-      "scope": "GOOGLE",
-      "types": [
-        "lodging",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 2398,
-      "vicinity": "68 Market Street, Sydney"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.87222569999999,
-          "lng": 151.2020367
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.87090036970851,
-            "lng": 151.2034596302915
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+          "name": "Bodega Salud",
+          "opening_hours": {
+              "open_now": false
           },
-          "southwest": {
-            "lat": -33.8735983302915,
-            "lng": 151.2007616697085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "icon_background_color": "#FF9E67",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
-      "name": "Nick's Seafood Restaurant",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 506,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/104361025827203327119\">Nick&#39;s Seafood Restaurant</a>"
+          "photos": [
+              {
+                  "height": 720,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/115119892450376619692\">Ravintola Bodega Salud</a>"
+                  ],
+                  "photo_reference": "ATplDJZoZHFp1FzIDafnExBwXg6gRFhekda3bWMMIh21BEfJzt-HChXTlecHJZfkb2xe2wWaBTLAfpl26dKgeZWu_0ZHrzDr5Mi-fUYtE6ZGTslc3R9Zb_xpZfyDpLl7ZYAdwddtci_FYZ9cIyZ8WksA_yyihe--Yc26rKnyhnFOz-588LgD",
+                  "width": 1080
+              }
           ],
-          "photo_reference": "AWU5eFiIRECIYrht6iLMFxR5krDTKWq2YpVrWTn4W37KWSF2XI0PTpoC53b-2mCtGRNaBgiwLSTB42iXOYJN5FgRO96ERBi51Lmsj5QanNfkNk9IyqxZBAVKZ_BS6_GgkVRsZtvpD-tzXWNL2vtmCs4FRFL4VjEppa3qdmkb7E8W3QTuQ668",
-          "width": 759
-        }
-      ],
-      "place_id": "ChIJvwSIiTiuEmsRAjBcCjGBYsw",
-      "plus_code": {
-        "compound_code": "46H2+4R Sydney NSW, Australia",
-        "global_code": "4RRH46H2+4R"
-      },
-      "price_level": 3,
-      "rating": 4,
-      "reference": "ChIJvwSIiTiuEmsRAjBcCjGBYsw",
-      "scope": "GOOGLE",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 2921,
-      "vicinity": "The Promenade, Cockle Bay Wharf, Darling Harbour, Sydney"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.8666848,
-          "lng": 151.2015819
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.86532001970851,
-            "lng": 151.2030457302915
+          "place_id": "ChIJq1r4VavYjkYREODzOkDgPYM",
+          "plus_code": {
+              "compound_code": "FQWC+R7 Tampere, Finland",
+              "global_code": "9GH5FQWC+R7"
           },
-          "southwest": {
-            "lat": -33.8680179802915,
-            "lng": 151.2003477697085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "icon_background_color": "#FF9E67",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
-      "name": "Steersons Steakhouse",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 1538,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/110384774118527817485\">Steersons Steakhouse</a>"
+          "price_level": 3,
+          "rating": 4.2,
+          "reference": "ChIJq1r4VavYjkYREODzOkDgPYM",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
           ],
-          "photo_reference": "AWU5eFjVUJpQS_WL3jd2z-UaDdWHiAUNS82X2tu_-ZU3vDpr2JsRqccPQlu_d7huw1Cvq4TvmudMXEQh0dChE8iVjwEjyTLlLS9SUZObBSvd3QwTNkRRgALiZVkB2Gtc798XuGOEQcUuupf6ESlfor-3KZSJJwCyyU6tii5fxPPZG1yKOZTo",
-          "width": 2048
-        }
-      ],
-      "place_id": "ChIJWRxefkeuEmsRn2tDqHg6HQo",
-      "plus_code": {
-        "compound_code": "46M2+8J Sydney NSW, Australia",
-        "global_code": "4RRH46M2+8J"
+          "user_ratings_total": 1442,
+          "vicinity": "Tuomiokirkonkatu 19, Tampere"
       },
-      "price_level": 3,
-      "rating": 4.3,
-      "reference": "ChIJWRxefkeuEmsRn2tDqHg6HQo",
-      "scope": "GOOGLE",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 846,
-      "vicinity": "17 Lime Street, Sydney"
-    },
-    {
-      "business_status": "CLOSED_TEMPORARILY",
-      "geometry": {
-        "location": {
-          "lat": -33.8648016,
-          "lng": 151.2054365
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.8635674697085,
-            "lng": 151.2067663302915
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.4991818,
+                  "lng": 23.7668789
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.5005220802915,
+                      "lng": 23.7681141302915
+                  },
+                  "southwest": {
+                      "lat": 61.49782411970848,
+                      "lng": 23.7654161697085
+                  }
+              }
           },
-          "southwest": {
-            "lat": -33.8662654302915,
-            "lng": 151.2040683697085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-      "icon_background_color": "#909CE1",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
-      "name": "Travelodge Hotel Sydney Wynyard",
-      "permanently_closed": true,
-      "photos": [
-        {
-          "height": 2592,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/104030521377771722717\">kay lewis</a>"
-          ],
-          "photo_reference": "AWU5eFjP4oduKIe7mMX63xoFRVjJnUxbMNuiL1rKP294n0K5uapkCrMTxTg19o_ZtAdGyRHBvC3JnCzzJEIrkdJ74pjjVTiHMnPZ5s_eJMP2lcO1i9ZyXFZMZL0AfUZcycTfE6Qv_iu8wxO0JfW0J1vSv9RdjC0UlgP2MGBPBsKKnlKH8BE",
-          "width": 4608
-        }
-      ],
-      "place_id": "ChIJDTwzJEGuEmsRw4ifQGYDkww",
-      "plus_code": {
-        "compound_code": "46P4+35 Sydney NSW, Australia",
-        "global_code": "4RRH46P4+35"
-      },
-      "rating": 3.8,
-      "reference": "ChIJDTwzJEGuEmsRw4ifQGYDkww",
-      "scope": "GOOGLE",
-      "types": [
-        "lodging",
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 1284,
-      "vicinity": "7-9 York Street, Sydney"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.8725825,
-          "lng": 151.2090734
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.8712412697085,
-            "lng": 151.2105097302915
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+          "name": "Bar Inez",
+          "opening_hours": {
+              "open_now": false
           },
-          "southwest": {
-            "lat": -33.8739392302915,
-            "lng": 151.2078117697085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-      "icon_background_color": "#909CE1",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
-      "name": "Castlereagh Boutique Hotel",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 1040,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/115162661049331609208\">Castlereagh Boutique Hotel</a>"
+          "photos": [
+              {
+                  "height": 3036,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/113236830844649284562\">Tuomas Kujala</a>"
+                  ],
+                  "photo_reference": "ATplDJYWIxcZZlUNP8Y7sXMKizymj3WfnoTJoYOYL37-YzSDdsQPG0YGbZfOZJLJSeufnAnIp__DO9tKNbnyG6Dk7pw8E1nXBGa9fnJQj1zxPy9ctXkRgYNwUobkk6NQ9cyE6J59l1syHnuskEuHvd12HS1AUXAEm7XJgAi_PdlSAb1S4Mi6",
+                  "width": 4048
+              }
           ],
-          "photo_reference": "AWU5eFhgDS2E2q1NdlxsKTKIZQa-SpwXiO7BqAiy_CBc_Q8SFoe3LF8-j6BZ34VhWgAPTdGS0FV1-fux7oxXEclQyvphdL0AnpEaEl5iMpXc6OiiPidTUce8PuTuFJ0kRPQ0EQ1dhckOgPxCYparEsWtLdwgW_r0SMiLWjWM75ciY02ZGazR",
-          "width": 1040
-        }
-      ],
-      "place_id": "ChIJp2HsPT6uEmsRskGgtjLmnLc",
-      "plus_code": {
-        "compound_code": "46G5+XJ Sydney NSW, Australia",
-        "global_code": "4RRH46G5+XJ"
-      },
-      "rating": 3.9,
-      "reference": "ChIJp2HsPT6uEmsRskGgtjLmnLc",
-      "scope": "GOOGLE",
-      "types": [
-        "cafe",
-        "lodging",
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 649,
-      "vicinity": "169 Castlereagh Street, Sydney"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.8732123,
-          "lng": 151.2049633
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.8718893197085,
-            "lng": 151.2064088302915
+          "place_id": "ChIJ7U1unqvYjkYRFqO_D0r08E8",
+          "plus_code": {
+              "compound_code": "FQX8+MQ Tampere, Finland",
+              "global_code": "9GH5FQX8+MQ"
           },
-          "southwest": {
-            "lat": -33.8745872802915,
-            "lng": 151.2037108697085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-      "icon_background_color": "#909CE1",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
-      "name": "Nomads Sydney",
-      "photos": [
-        {
-          "height": 810,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/102842115596557668315\">Marina Maria</a>"
+          "price_level": 2,
+          "rating": 4.2,
+          "reference": "ChIJ7U1unqvYjkYRFqO_D0r08E8",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
           ],
-          "photo_reference": "AWU5eFjshGSxpXt_pdKK7wRWy6mvmQzilUnV-5tgXnUDDBu55_6U7XMgHdB0OzVjzgJw1iaH8qQyK-YhqupMUO2QC7Y3YY7xDhL814N4UD5dMGtlmVILN9Sl3pY1xrwXGyBYtxIk-8zL5W6C23EGtYXVDYFteeHouLAjtRyT5eZopZEN--I5",
-          "width": 1225
-        }
-      ],
-      "place_id": "ChIJKwL_BDyuEmsROVMxBbEOOnk",
-      "plus_code": {
-        "compound_code": "46G3+PX Sydney NSW, Australia",
-        "global_code": "4RRH46G3+PX"
+          "user_ratings_total": 545,
+          "vicinity": "Pellavatehtaankatu 19, Tampere"
       },
-      "rating": 3.9,
-      "reference": "ChIJKwL_BDyuEmsROVMxBbEOOnk",
-      "scope": "GOOGLE",
-      "types": [
-        "travel_agency",
-        "lodging",
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "local_government_office",
-        "establishment"
-      ],
-      "user_ratings_total": 1136,
-      "vicinity": "477 Kent Street, Sydney"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.87049479999999,
-          "lng": 151.2089233
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.86924656970849,
-            "lng": 151.2100334802915
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.4957089,
+                  "lng": 23.7670698
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.4972624802915,
+                      "lng": 23.7709963
+                  },
+                  "southwest": {
+                      "lat": 61.49456451970848,
+                      "lng": 23.76356349999999
+                  }
+              }
           },
-          "southwest": {
-            "lat": -33.87194453029149,
-            "lng": 151.2073355197085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "icon_background_color": "#FF9E67",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
-      "name": "Infinity at Sydney Tower",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 720,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/115719101199823986908\">Infinity at Sydney Tower</a>"
-          ],
-          "photo_reference": "AWU5eFh1YFQFBTkSgnd4EQK2LZPZ1qTUc81Ot7f5inQ_DTPb0Ixd2xwaVn-4JtRg1SJ-PWyhCrYBr33bVT0PCWvK0NUrKoK2Nx-fzWq0KWbbCSgFtYlPZai9vHTil1OHkbjgk0ERqVgKZ3c11xQqyuX-JZ4PxFnY175Jhbe2LyvTXbKomJ8q",
-          "width": 1080
-        }
-      ],
-      "place_id": "ChIJK4Tktz-uEmsR4wAu4Lf6dCg",
-      "plus_code": {
-        "compound_code": "46H5+RH Sydney NSW, Australia",
-        "global_code": "4RRH46H5+RH"
-      },
-      "price_level": 3,
-      "rating": 4.4,
-      "reference": "ChIJK4Tktz-uEmsR4wAu4Lf6dCg",
-      "scope": "GOOGLE",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 2338,
-      "vicinity": "108 Market Street, Sydney"
-    },
-    {
-      "business_status": "CLOSED_TEMPORARILY",
-      "geometry": {
-        "location": {
-          "lat": -33.8605708,
-          "lng": 151.2066137
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.8592176197085,
-            "lng": 151.2078904302915
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+          "icon_background_color": "#4B96F3",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+          "name": "Koskikeskus",
+          "opening_hours": {
+              "open_now": true
           },
-          "southwest": {
-            "lat": -33.86191558029149,
-            "lng": 151.2051924697085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-      "icon_background_color": "#909CE1",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
-      "name": "Sydney Harbour Bed & Breakfast",
-      "permanently_closed": true,
-      "photos": [
-        {
-          "height": 4000,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/117351006581217688918\">John karmas</a>"
+          "photos": [
+              {
+                  "height": 5464,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/114512722622621292194\">Koskikeskus</a>"
+                  ],
+                  "photo_reference": "ATplDJb52345iOAGJSasuICx6zD5R4QL6tfaZi2C2tLyuIPrivicgib-FHnPHd4pfkILz_Y6L-Ycou1umPseG5rMPPXYi8J-yOfui0qMuP2-q1YUc00s3qFWBcyeIP5ExHvXbJZrp3N7cWFZMm6rrogkGgcpVBlCCoiH6-Vbz552ur9OmpPk",
+                  "width": 8192
+              }
           ],
-          "photo_reference": "AWU5eFipJ8Duz5bc_uYWFSWGfkE2U3_8Ank85I95LIwCmXT6gWG7kgNJoDssnnmGpLDBla21YdHLXOV99e-__WLP2x4ojXBXmEGRUkwaXePNIMGFNrXDogwp0_bdpl7ItyO6_CMv2jHqLmV6pnjSe40Y8YpVh032knvwxIOZ54pird9vk5tF",
-          "width": 3000
-        }
-      ],
-      "place_id": "ChIJCfGaqEOuEmsRW8wvWsTgIyE",
-      "plus_code": {
-        "compound_code": "46Q4+QJ The Rocks NSW, Australia",
-        "global_code": "4RRH46Q4+QJ"
-      },
-      "rating": 4,
-      "reference": "ChIJCfGaqEOuEmsRW8wvWsTgIyE",
-      "scope": "GOOGLE",
-      "types": [
-        "lodging",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 117,
-      "vicinity": "140-142 Cumberland Street, The Rocks"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.866664,
-          "lng": 151.2014112
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.86545711970849,
-            "lng": 151.2029715302915
+          "place_id": "ChIJ5SBtlqzYjkYRX7ZPrNdQZXA",
+          "plus_code": {
+              "compound_code": "FQW8+7R Tampere, Finland",
+              "global_code": "9GH5FQW8+7R"
           },
-          "southwest": {
-            "lat": -33.86815508029149,
-            "lng": 151.2002735697085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
-      "icon_background_color": "#FF9E67",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
-      "name": "Georges Mediterranean Bar & Grill",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 829,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/109724308524689410874\">Georges Mediterranean Bar &amp; Grill</a>"
+          "rating": 4,
+          "reference": "ChIJ5SBtlqzYjkYRX7ZPrNdQZXA",
+          "scope": "GOOGLE",
+          "types": [
+              "shopping_mall",
+              "department_store",
+              "supermarket",
+              "hair_care",
+              "gym",
+              "grocery_or_supermarket",
+              "cafe",
+              "clothing_store",
+              "home_goods_store",
+              "restaurant",
+              "health",
+              "electronics_store",
+              "point_of_interest",
+              "food",
+              "store",
+              "establishment"
           ],
-          "photo_reference": "AWU5eFhDUrG-cFDsOgaVwUGH4T33vw6WvjxEfxjvDTNKc-OfrktBTK9iNu_EE-VG69UCcuFS1I3c_ebUbmcnbvqozEHjaHRmnJKjb9GQ2EwRH1dI8QTZWv846c3qG5ICggFoRbFJHBiGlHNd39D1K7EhXnxq90FKi1tcuPOt6yq3uzhr7sT2",
-          "width": 1244
-        }
-      ],
-      "place_id": "ChIJWRxefkeuEmsRmKvNb_DeLt8",
-      "plus_code": {
-        "compound_code": "46M2+8H Sydney NSW, Australia",
-        "global_code": "4RRH46M2+8H"
+          "user_ratings_total": 9771,
+          "vicinity": "Hatanpään valtatie 1, Tampere"
       },
-      "price_level": 2,
-      "rating": 3.9,
-      "reference": "ChIJWRxefkeuEmsRmKvNb_DeLt8",
-      "scope": "GOOGLE",
-      "types": [
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 961,
-      "vicinity": "King Street Wharf, 3 The Promenade, Sydney"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.8717324,
-          "lng": 151.2021438
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.87046746970849,
-            "lng": 151.2035867802915
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.496762,
+                  "lng": 23.7708457
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.49810318029151,
+                      "lng": 23.7720880802915
+                  },
+                  "southwest": {
+                      "lat": 61.49540521970849,
+                      "lng": 23.7693901197085
+                  }
+              }
           },
-          "southwest": {
-            "lat": -33.87316543029149,
-            "lng": 151.2008888197085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "icon_background_color": "#FF9E67",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
-      "name": "Adria Bar Restaurant",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 506,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/100168888649439855862\">Adria Bar Restaurant</a>"
-          ],
-          "photo_reference": "AWU5eFhSJrM6K86trAuec6A0Lt3UlkwL-GA_UmwjEe3XNWtMQXThNidNDuo0ogJZ5xQsdxWcGIzkYJqwzSgtWZJaXGb4ef87Tw-zFwd7E3A3CjSVGNyPSQObdPyyUOUXuk6cm8Cy1AvrC4Q1ZetcLEq6su1wW2rEX6CTHe7045OERPrH5gwU",
-          "width": 759
-        }
-      ],
-      "place_id": "ChIJ8RXmITmuEmsRznrugcSQwxU",
-      "plus_code": {
-        "compound_code": "46H2+8V Sydney NSW, Australia",
-        "global_code": "4RRH46H2+8V"
-      },
-      "price_level": 2,
-      "rating": 3.6,
-      "reference": "ChIJ8RXmITmuEmsRznrugcSQwxU",
-      "scope": "GOOGLE",
-      "types": [
-        "restaurant",
-        "bar",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 1675,
-      "vicinity": "The Promenade, Cockle Bay Wharf Darling Harbour, Wheat Road, Sydney"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.87199679999999,
-          "lng": 151.2023264
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.8706721197085,
-            "lng": 151.2037473802915
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+          "name": "Shanghai Chinese Restaurant",
+          "opening_hours": {
+              "open_now": false
           },
-          "southwest": {
-            "lat": -33.87337008029149,
-            "lng": 151.2010494197085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "icon_background_color": "#FF9E67",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
-      "name": "I'm Angus Steakhouse",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 3024,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/100297166708465188775\">大北洋士</a>"
+          "photos": [
+              {
+                  "height": 1536,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/116836850368975029637\">Shanghai Chinese Restaurant</a>"
+                  ],
+                  "photo_reference": "ATplDJZjSK61jFoq4z4FXwMlXHHM5tYmtWVVhVBA6hc3YuiMB_0rYUn0EOALjH5MryoSUBFx3eodAjVkd6O_nOmg-o2Gc4iE-GsVcRKF2bJ5yyeFOOhOCQ9ksrbPoL1-EqU4R_RBIIX_4PxBDSPqScLg29yLCRYe1FCS6ySInUpUViH3qusG",
+                  "width": 2048
+              }
           ],
-          "photo_reference": "AWU5eFiN-Ovypz1Udpc6oeO6ptR41XXuMcP8NAky8AQBcPvR9J7zyXdg1MBgvKK_ohr4Xv7wU9Yd5ZGq7ryicuA3GDfnkHw0McZYhEA7PpAB8cQ8D6yLOmb7nvpu1NAW0ZcGGj5T3C-X1vwMObwZKaHUXsq4kucV5jfm-4qBD91E4K99lytv",
-          "width": 3024
-        }
-      ],
-      "place_id": "ChIJvwSIiTiuEmsRBfZvg037JFM",
-      "plus_code": {
-        "compound_code": "46H2+6W Sydney NSW, Australia",
-        "global_code": "4RRH46H2+6W"
-      },
-      "price_level": 3,
-      "rating": 3.9,
-      "reference": "ChIJvwSIiTiuEmsRBfZvg037JFM",
-      "scope": "GOOGLE",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 1494,
-      "vicinity": "The Promenade, Cockle Bay Wharf, Darling Harbour, Sydney"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.8598478,
-          "lng": 151.207803
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.8585079697085,
-            "lng": 151.2091992302915
+          "place_id": "ChIJ44xXq6zYjkYRV_Y8p5W0sFQ",
+          "plus_code": {
+              "compound_code": "FQWC+P8 Tampere, Finland",
+              "global_code": "9GH5FQWC+P8"
           },
-          "southwest": {
-            "lat": -33.8612059302915,
-            "lng": 151.2065012697085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-      "icon_background_color": "#909CE1",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
-      "name": "Rendezvous Hotel Sydney The Rocks",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 1916,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/104931816121620347532\">Rendezvous Hotel Sydney The Rocks</a>"
+          "price_level": 1,
+          "rating": 4.4,
+          "reference": "ChIJ44xXq6zYjkYRV_Y8p5W0sFQ",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
           ],
-          "photo_reference": "AWU5eFht-3fmFTbc2HPuKziHGrrkkUWXSTAaWctPoKXDjkIqMq7UnQ_RkLUZdSndLsF_lzXRj7-FikYgOrR2BvVwNHPxJI0GzWiCi4JS8OUybZ_IRclqRLOSlAsCm37BQQKjgNVA5q9QJIXdVBhAGUdEenu0LnIRaQuXBzTbubAHXPJQQSfu",
-          "width": 2880
-        }
-      ],
-      "place_id": "ChIJyepG5EKuEmsRuCAtAGW_ygY",
-      "plus_code": {
-        "compound_code": "46R5+34 The Rocks NSW, Australia",
-        "global_code": "4RRH46R5+34"
+          "user_ratings_total": 450,
+          "vicinity": "Tuomiokirkonkatu 21, Tampere"
       },
-      "rating": 3.8,
-      "reference": "ChIJyepG5EKuEmsRuCAtAGW_ygY",
-      "scope": "GOOGLE",
-      "types": [
-        "lodging",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 510,
-      "vicinity": "75 Harrington Street, The Rocks"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.866098,
-          "lng": 151.2102038
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.86481576970851,
-            "lng": 151.2114889302915
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.4977766,
+                  "lng": 23.76626
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.49929958029151,
+                      "lng": 23.7675555302915
+                  },
+                  "southwest": {
+                      "lat": 61.4966016197085,
+                      "lng": 23.7648575697085
+                  }
+              }
           },
-          "southwest": {
-            "lat": -33.86751373029151,
-            "lng": 151.2087909697085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
-      "icon_background_color": "#FF9E67",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
-      "name": "Rockpool Bar & Grill",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 2048,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/109362165485185675922\">Rockpool Bar &amp; Grill</a>"
-          ],
-          "photo_reference": "AWU5eFgeNaqq-kUIKeiOjuyrx1TeSA6ZxFoYecQ6mOsN_l1whCi4meCsuGHxjOxld5IGSLISivRqtpcg1q47DmvpbNWUEl4aaeaP8dqdkrMXwWMqtK56xS1cwk2MKcZ8EjWCnjJSr-h4qfgpvkHbPRR8mOwPUlpoBNd7b47qa0TVk5AhIFHk",
-          "width": 1549
-        }
-      ],
-      "place_id": "ChIJV8rt1UGuEmsRf1fObMkd93M",
-      "plus_code": {
-        "compound_code": "46M6+H3 Sydney NSW, Australia",
-        "global_code": "4RRH46M6+H3"
-      },
-      "price_level": 4,
-      "rating": 4.4,
-      "reference": "ChIJV8rt1UGuEmsRf1fObMkd93M",
-      "scope": "GOOGLE",
-      "types": [
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 2687,
-      "vicinity": "66 Hunter Street, Sydney"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.8679688,
-          "lng": 151.2053027
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.8666265197085,
-            "lng": 151.2065754802915
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+          "name": "Rengasravintolat Oy",
+          "place_id": "ChIJ4V1tf6vYjkYRncClCePIBdY",
+          "plus_code": {
+              "compound_code": "FQX8+4G Tampere, Finland",
+              "global_code": "9GH5FQX8+4G"
           },
-          "southwest": {
-            "lat": -33.8693244802915,
-            "lng": 151.2038775197085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "icon_background_color": "#FF9E67",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
-      "name": "Bistro Papillon",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 856,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/113979308042018146627\">Bistro Papillon</a>"
+          "rating": 3.8,
+          "reference": "ChIJ4V1tf6vYjkYRncClCePIBdY",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
           ],
-          "photo_reference": "AWU5eFg1RawAlpy2nVheZZ8rvEYS4Q_5cPrpdk9hRVOfSswbDr9BjeMP-B-DX0INd8JvX-aqH8qm1uPKkumx4xuZ2c0rp32bNFCJI3iFGWEe2dobbaKGOKaliZxJbJ1lK0Fkr6OmvbSR9JTtb5Fan93p2-2-rH0fPq8u4u1T5WuFbAAgQwB3",
-          "width": 1300
-        }
-      ],
-      "place_id": "ChIJywXDWT-uEmsRxyuZ0Inwi04",
-      "plus_code": {
-        "compound_code": "46J4+R4 Sydney NSW, Australia",
-        "global_code": "4RRH46J4+R4"
+          "user_ratings_total": 4,
+          "vicinity": "Hämeenkatu 13, Tampere"
       },
-      "price_level": 3,
-      "rating": 4.5,
-      "reference": "ChIJywXDWT-uEmsRxyuZ0Inwi04",
-      "scope": "GOOGLE",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 649,
-      "vicinity": "98 Clarence Street, Sydney"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.8588323,
-          "lng": 151.2083496
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.85755261970851,
-            "lng": 151.2095509802915
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.4980732,
+                  "lng": 23.7689826
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.4994721302915,
+                      "lng": 23.77015203029151
+                  },
+                  "southwest": {
+                      "lat": 61.49677416970849,
+                      "lng": 23.7674540697085
+                  }
+              }
           },
-          "southwest": {
-            "lat": -33.86025058029151,
-            "lng": 151.2068530197085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "icon_background_color": "#FF9E67",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
-      "name": "Pancakes On The Rocks",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 2268,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/110189573153784908313\">신아름</a>"
-          ],
-          "photo_reference": "AWU5eFhYvDJ9d4gKvyaVJiHuX-sCnYvNwDFauOs71Er9yACXwntoIIG-lmAWATQ2SQhN2EbInsXmCvMh8vI_sAYrSZywKbJMJahx66IhzWpGvePioAC24BQyMNZ73soKvSAuL8BU41rxmkVLoXqproz_m-2QmLGU4uruzS1l925Lr0M-iA60",
-          "width": 4032
-        }
-      ],
-      "place_id": "ChIJD5xTal2uEmsRZNsPx8E2q-s",
-      "plus_code": {
-        "compound_code": "46R5+F8 The Rocks NSW, Australia",
-        "global_code": "4RRH46R5+F8"
-      },
-      "price_level": 2,
-      "rating": 4.1,
-      "reference": "ChIJD5xTal2uEmsRZNsPx8E2q-s",
-      "scope": "GOOGLE",
-      "types": [
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 7056,
-      "vicinity": "22 Playfair Street, The Rocks"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.8682602,
-          "lng": 151.2061468
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.8669133197085,
-            "lng": 151.2074132802915
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+          "name": "Pancho Villa Tampere, Hämeenkatu 7",
+          "opening_hours": {
+              "open_now": false
           },
-          "southwest": {
-            "lat": -33.8696112802915,
-            "lng": 151.2047153197085
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "icon_background_color": "#FF9E67",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
-      "name": "The Bavarian York St.",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 1163,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/101805362363929814662\">The Bavarian York St.</a>"
+          "photos": [
+              {
+                  "height": 1333,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/110722155313335747304\">Pancho Villa Tampere, Hämeenkatu 7</a>"
+                  ],
+                  "photo_reference": "ATplDJaLAwBYDrp2nTTIPUPonJtXR4IxlV1ZaqueCzVc0jwmsei0uLjb6DB5LD8AmD0pQc1Xt4J8Dlk95oIAiF4BhjAPhoaO3MSjBydXxTcFQPNtUoy4FRgSfwH9G0aTa0L9L0i9soEZcHvtQsmDO0cMxd_YyVXaeW4PmVdv8PYAHjDto9Od",
+                  "width": 2000
+              }
           ],
-          "photo_reference": "AWU5eFi0QxCZapVQ8MrxNRmynNNktTUcxv_9DcBv_ghkXe_2dmDn6DRz_NuBgow1Xqd6-RAioB3dUjXx7_CHAIq92N2gOLRiB0XAoSo52FF69DjjQ7iD32JOTxHo6058-6ZHhd94fujF1hLfNKMa7ih2q97s4EyPHCVaHuL61rxkx7gd9O4w",
-          "width": 2704
-        }
-      ],
-      "place_id": "ChIJ6d4iYT-uEmsRzr2ghGVI_6s",
-      "plus_code": {
-        "compound_code": "46J4+MF Sydney NSW, Australia",
-        "global_code": "4RRH46J4+MF"
-      },
-      "price_level": 2,
-      "rating": 4.1,
-      "reference": "ChIJ6d4iYT-uEmsRzr2ghGVI_6s",
-      "scope": "GOOGLE",
-      "types": [
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 3280,
-      "vicinity": "24 York Street, Sydney"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": -33.8683472,
-          "lng": 151.1962233
-        },
-        "viewport": {
-          "northeast": {
-            "lat": -33.8668080197085,
-            "lng": 151.19717155
+          "place_id": "ChIJKdVNZqvYjkYR42zSxRUT9Ww",
+          "plus_code": {
+              "compound_code": "FQX9+6H Tampere, Finland",
+              "global_code": "9GH5FQX9+6H"
           },
-          "southwest": {
-            "lat": -33.8695059802915,
-            "lng": 151.19337855
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "icon_background_color": "#FF9E67",
-      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
-      "name": "Flying Fish",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 3907,
-          "html_attributions": [
-            "<a href=\"https://maps.google.com/maps/contrib/117229116771790632690\">Flying Fish</a>"
+          "price_level": 2,
+          "rating": 3.9,
+          "reference": "ChIJKdVNZqvYjkYR42zSxRUT9Ww",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
           ],
-          "photo_reference": "AWU5eFgT3_re6PVc3dnubMrY1LMfLNPIF1Vlpzb6jAeeJiByjPVvU4WuHRjyJRMgGnxZBRHyny3DWDTng9FucYHjfPVP60QJblP9cgKkEeTahdd6yXmhSQYg0zqXjylPDAe9bOqGHNRaIiidE_rcVBRjdGz9exiU1iXCF7NPodrT99aBZExi",
-          "width": 5373
-        }
-      ],
-      "place_id": "ChIJm7Ex8UmuEmsR37p4Hm0D0VI",
-      "plus_code": {
-        "compound_code": "45JW+MF Pyrmont NSW, Australia",
-        "global_code": "4RRH45JW+MF"
+          "user_ratings_total": 1061,
+          "vicinity": "Hämeenkatu 7, Tampere"
       },
-      "price_level": 1,
-      "rating": 4.4,
-      "reference": "ChIJm7Ex8UmuEmsR37p4Hm0D0VI",
-      "scope": "GOOGLE",
-      "types": [
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
-      "user_ratings_total": 1220,
-      "vicinity": "80 Pyrmont Street, Pyrmont"
-    }
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.49801729999999,
+                  "lng": 23.766815
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.4994420302915,
+                      "lng": 23.76814033029151
+                  },
+                  "southwest": {
+                      "lat": 61.49674406970849,
+                      "lng": 23.7654423697085
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+          "name": "Henkka Tampere",
+          "opening_hours": {
+              "open_now": false
+          },
+          "photos": [
+              {
+                  "height": 1080,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/103706002037140961724\">Henkka Tampere</a>"
+                  ],
+                  "photo_reference": "ATplDJY2ZbgdFGdrvOiGTThxRPYNihA91XY-_QUX0W2gbO6-vCcuZP6C7pX-ETrxvr1oyYZdjsEClKi6H8B8yDKhR7x-Q1SSkzjoAvViaSEre-DD02n21uPWGsqukiiSpBHzjp0xWGStBSCb5171kWEDAMYk5wrJROjpMeLNCtHUGJ9vKTyM",
+                  "width": 1920
+              }
+          ],
+          "place_id": "ChIJSQuNf6vYjkYRs4kZiZC8IXk",
+          "plus_code": {
+              "compound_code": "FQX8+6P Tampere, Finland",
+              "global_code": "9GH5FQX8+6P"
+          },
+          "price_level": 2,
+          "rating": 3.7,
+          "reference": "ChIJSQuNf6vYjkYRs4kZiZC8IXk",
+          "scope": "GOOGLE",
+          "types": [
+              "bar",
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
+          ],
+          "user_ratings_total": 494,
+          "vicinity": "Hämeenkatu 13, Tampere"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.5030341,
+                  "lng": 23.7654654
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.50426858029151,
+                      "lng": 23.7667193802915
+                  },
+                  "southwest": {
+                      "lat": 61.5015706197085,
+                      "lng": 23.7640214197085
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+          "name": "Juhlatalon Ravintolat Oy",
+          "photos": [
+              {
+                  "height": 4032,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/117248632728739261114\">Päivi Lammasniemi</a>"
+                  ],
+                  "photo_reference": "ATplDJYdJrAC92DGtvnMoKOhoeUGE17GYyhNhooDQ8cE210uazHKQ-8j37Nf_zSU3Zo7HPDQihFmWEhsFqrKGwWHcUUMu89L00iegKjA2M0reiQNq_EutqWvqqBmALvqArkjT6jx6ofvmPlW02NcnJHtdYPX18gYmN6dgGbs7Pza3VgPU2l3",
+                  "width": 3024
+              }
+          ],
+          "place_id": "ChIJJRFiBKrYjkYRnFWb6LFn1Lw",
+          "plus_code": {
+              "compound_code": "GQ38+65 Tampere, Finland",
+              "global_code": "9GH5GQ38+65"
+          },
+          "rating": 4.5,
+          "reference": "ChIJJRFiBKrYjkYRnFWb6LFn1Lw",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
+          ],
+          "user_ratings_total": 4,
+          "vicinity": "Lapintie 3 a, Tampere"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.49954099999999,
+                  "lng": 23.7793823
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.5008343302915,
+                      "lng": 23.7808915802915
+                  },
+                  "southwest": {
+                      "lat": 61.49813636970849,
+                      "lng": 23.7781936197085
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+          "name": "ROAST Rouhea Restaurang",
+          "opening_hours": {
+              "open_now": false
+          },
+          "photos": [
+              {
+                  "height": 1440,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/113718563147630672731\">ROAST Rouhea Ravintola</a>"
+                  ],
+                  "photo_reference": "ATplDJZKMiTsJH2dTijrAlklYQLUX8BNKCJAh8rsmgrfKKQpoTxmcVho7yx11_3azuifagmUI_bKcCLX9JXd38eX-b02cHNVhWJHnGrBl6DOzxjGKtIYLrOCdKmLfqjMiSm8ctPsjZ0exq2CstmiJ_k-KCPxDf1X5vX4FdGyFubqv8HIn7eq",
+                  "width": 1440
+              }
+          ],
+          "place_id": "ChIJQXIpCFXfjkYRs4MK4Sw883U",
+          "plus_code": {
+              "compound_code": "FQXH+RQ Tampere, Finland",
+              "global_code": "9GH5FQXH+RQ"
+          },
+          "price_level": 2,
+          "rating": 4.3,
+          "reference": "ChIJQXIpCFXfjkYRs4MK4Sw883U",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
+          ],
+          "user_ratings_total": 696,
+          "vicinity": "Tammelan puistokatu 34, Tampere"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.4977088,
+                  "lng": 23.7690528
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.49883853029149,
+                      "lng": 23.7705823802915
+                  },
+                  "southwest": {
+                      "lat": 61.49614056970848,
+                      "lng": 23.7678844197085
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+          "name": "Café Europa",
+          "opening_hours": {
+              "open_now": false
+          },
+          "photos": [
+              {
+                  "height": 2736,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/114952365662584627161\">Henrik Jansson</a>"
+                  ],
+                  "photo_reference": "ATplDJbMZS0HveMjysIixY7ZI1pqxWvuBVuvY_6kpDANcEr6nXv8jNl3QFuLkOnoyim7-E5aoAi2c56EUCqiTfZ8QFJN6tQEalcEsx43lNmqo1OifKc6xyWThWcEgyel6uZNsDJKxsJb42MjYr-hDZNlW89kQvfinvsnc6HRdzMGdVdboT5G",
+                  "width": 2736
+              }
+          ],
+          "place_id": "ChIJrQYuX6vYjkYRJYhjc1Ryjko",
+          "plus_code": {
+              "compound_code": "FQX9+3J Tampere, Finland",
+              "global_code": "9GH5FQX9+3J"
+          },
+          "price_level": 2,
+          "rating": 4.2,
+          "reference": "ChIJrQYuX6vYjkYRJYhjc1Ryjko",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "cafe",
+              "bar",
+              "point_of_interest",
+              "food",
+              "establishment"
+          ],
+          "user_ratings_total": 758,
+          "vicinity": "Aleksanterinkatu 29, Tampere"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.4990915,
+                  "lng": 23.7775702
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.5003824302915,
+                      "lng": 23.7789220802915
+                  },
+                  "southwest": {
+                      "lat": 61.4976844697085,
+                      "lng": 23.7762241197085
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+          "name": "Tentti",
+          "opening_hours": {
+              "open_now": false
+          },
+          "photos": [
+              {
+                  "height": 3840,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/102850041903632779884\">Juha Korhonen</a>"
+                  ],
+                  "photo_reference": "ATplDJYhEkIguo73ZHKkDyIc2POXZdI9mfSSuHm3QhGVg_uep8d-V6JuBTzkrZPsG4SuAGbyTeiiKsluKfOXM-OZ0KlJHNQ9-TWKph0Dj0NzFrX_-Ga02SU_9EZQXYKrUqjsrOdk5C8D__cfltycBmQaXFN4YEStNPB-snCvlkQaVxgKX5g",
+                  "width": 2160
+              }
+          ],
+          "place_id": "ChIJzYEiA1XfjkYRvVKCdb6EaIQ",
+          "plus_code": {
+              "compound_code": "FQXH+J2 Tampere, Finland",
+              "global_code": "9GH5FQXH+J2"
+          },
+          "price_level": 1,
+          "rating": 4.4,
+          "reference": "ChIJzYEiA1XfjkYRvVKCdb6EaIQ",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
+          ],
+          "user_ratings_total": 79,
+          "vicinity": "Itsenäisyydenkatu 5, Tampere"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.5013241,
+                  "lng": 23.7779612
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.50267388029151,
+                      "lng": 23.7793819802915
+                  },
+                  "southwest": {
+                      "lat": 61.4999759197085,
+                      "lng": 23.7766840197085
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+          "name": "Lounasravintola Vanha Ike",
+          "opening_hours": {
+              "open_now": false
+          },
+          "photos": [
+              {
+                  "height": 3456,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/110611371491793272487\">Jaana Sormunen</a>"
+                  ],
+                  "photo_reference": "ATplDJaQtgRf_fSgWpOQfwTJ8zkBZAbyOY4RqWtAppwJ_aFBL8onnsFbSVmFOhGRJSjZIU7Ujuw_KOIwzT6FFSCCgxiGu8b_jZp5XCQOQsOGtiLacuFm4T3R5sUjAf7fZ5UDGjba22jsZdOA4aMgLxFe6mUtoE7nKCObZAJkTAGG9uZ81ZyZ",
+                  "width": 4608
+              }
+          ],
+          "place_id": "ChIJFQn0XFXfjkYRGdYygHUACHc",
+          "plus_code": {
+              "compound_code": "GQ2H+G5 Tampere, Finland",
+              "global_code": "9GH5GQ2H+G5"
+          },
+          "price_level": 1,
+          "rating": 4.5,
+          "reference": "ChIJFQn0XFXfjkYRGdYygHUACHc",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
+          ],
+          "user_ratings_total": 171,
+          "vicinity": "Pinninkatu 30, Tampere"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.49912140000001,
+                  "lng": 23.7783676
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.5004010302915,
+                      "lng": 23.7797181802915
+                  },
+                  "southwest": {
+                      "lat": 61.49770306970849,
+                      "lng": 23.77702021970849
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+          "name": "La Toore Pizzeria",
+          "opening_hours": {
+              "open_now": true
+          },
+          "photos": [
+              {
+                  "height": 1080,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/118416119408588269625\">Luc Keuleers</a>"
+                  ],
+                  "photo_reference": "ATplDJbNZksgOQ4L6aMQHjHkHuM97uiN_UjHZQBToUrPFGNi6Hj1R-6oDZuAZUjqt6ni9Wix769jbzfkxO0071Ug3ZtrduosHlEtKMw3bZLhS19nI9Y_0HniJVTKAo2LCz9aKeyj1id79fuLsa7MPrJjGZ5hG2F2g9L_hKeypYCtmnucyaPo",
+                  "width": 1920
+              }
+          ],
+          "place_id": "ChIJ6R3qA1XfjkYRjL5iLg_N-hg",
+          "plus_code": {
+              "compound_code": "FQXH+J8 Tampere, Finland",
+              "global_code": "9GH5FQXH+J8"
+          },
+          "price_level": 1,
+          "rating": 3.1,
+          "reference": "ChIJ6R3qA1XfjkYRjL5iLg_N-hg",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
+          ],
+          "user_ratings_total": 449,
+          "vicinity": "Itsenäisyydenkatu 7-9, Tampere"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.4946687,
+                  "lng": 23.7754072
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.49610343029151,
+                      "lng": 23.7767780302915
+                  },
+                  "southwest": {
+                      "lat": 61.4934054697085,
+                      "lng": 23.7740800697085
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+          "name": "Aleksis",
+          "opening_hours": {
+              "open_now": false
+          },
+          "photos": [
+              {
+                  "height": 2252,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/107614200830358656474\">Pekka Iivonen</a>"
+                  ],
+                  "photo_reference": "ATplDJZ4eFE_IXa5pAG4q6EiFcSCBncmftbtvZHO_Bypk2IAYFgBhSEoB5eoaOgm5yuG8S8s0CwtfstVP8rImRCFfn68Qfpr8oa8jav_oQvWt-KLJ_-WYqxfwt4AZaPtPHzJ4QOIFxb7zjDFHQTClPdRSnqCQOjreSB6PcQIPJHLGxJSEKxT",
+                  "width": 4000
+              }
+          ],
+          "place_id": "ChIJ8_s2k1PfjkYRDj2YqsJfDXI",
+          "plus_code": {
+              "compound_code": "FQVG+V5 Tampere, Finland",
+              "global_code": "9GH5FQVG+V5"
+          },
+          "price_level": 2,
+          "rating": 4.2,
+          "reference": "ChIJ8_s2k1PfjkYRDj2YqsJfDXI",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
+          ],
+          "user_ratings_total": 117,
+          "vicinity": "Kalevantie 2, Tampere"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.50115829999999,
+                  "lng": 23.7779686
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.50250448029151,
+                      "lng": 23.7793899302915
+                  },
+                  "southwest": {
+                      "lat": 61.4998065197085,
+                      "lng": 23.77669196970849
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+          "name": "Mardin pizza",
+          "opening_hours": {
+              "open_now": true
+          },
+          "photos": [
+              {
+                  "height": 2252,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/107614200830358656474\">Pekka Iivonen</a>"
+                  ],
+                  "photo_reference": "ATplDJYt-y5_qxUuFRjmsKDqYYOGSrzVGtkXex_iWPFNgQjwc-wFuobpaoVYc1RgxUu6kCOWiVpY0T3p2iQ0PWGLzqZjHpeOcgJs_AW_0a8JqyzQySHYeQsr0_I9OkICwdbPG3-ByeUWzxzlOcudvAVBEoGMeRbxRNSTdDfOIkYwr3Gd00PO",
+                  "width": 4000
+              }
+          ],
+          "place_id": "ChIJU7g8Q1XfjkYR-s3p339RfNg",
+          "plus_code": {
+              "compound_code": "GQ2H+F5 Tampere, Finland",
+              "global_code": "9GH5GQ2H+F5"
+          },
+          "price_level": 1,
+          "rating": 3.6,
+          "reference": "ChIJU7g8Q1XfjkYR-s3p339RfNg",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
+          ],
+          "user_ratings_total": 378,
+          "vicinity": "Pinninkatu 32, Tampere"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.49933609999999,
+                  "lng": 23.7793925
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.5006849802915,
+                      "lng": 23.7808964302915
+                  },
+                  "southwest": {
+                      "lat": 61.4979870197085,
+                      "lng": 23.7781984697085
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+          "name": "New Chinese Food",
+          "opening_hours": {
+              "open_now": false
+          },
+          "photos": [
+              {
+                  "height": 3024,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/114974202043199648095\">New Chinese Food</a>"
+                  ],
+                  "photo_reference": "ATplDJZX0nOosvUQ2sKCb5RurLxA9Llk2dtpfd06f_OSpv7kfNgQcGpmMOQAiKqO_gaBYbFlOTHsdGMGqdbWs-hka6JRgcvHvhJq1nhB1X2ClCmq5WPFIadvR4YVxODPVVVdQ2Zyu8bGXgqtEc-mCjS5QAmZ71emo9JU6JzZ67HWLySwJgfS",
+                  "width": 4032
+              }
+          ],
+          "place_id": "ChIJQ6fLqVXfjkYRPuVGc-k6YFU",
+          "plus_code": {
+              "compound_code": "FQXH+PQ Tampere, Finland",
+              "global_code": "9GH5FQXH+PQ"
+          },
+          "price_level": 2,
+          "rating": 4.3,
+          "reference": "ChIJQ6fLqVXfjkYRPuVGc-k6YFU",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
+          ],
+          "user_ratings_total": 195,
+          "vicinity": "Tammelan puistokatu 36, Tampere"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.4966667,
+                  "lng": 23.7713889
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.49795688029151,
+                      "lng": 23.7726500302915
+                  },
+                  "southwest": {
+                      "lat": 61.4952589197085,
+                      "lng": 23.76995206970849
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+          "name": "Zarillo",
+          "opening_hours": {
+              "open_now": false
+          },
+          "photos": [
+              {
+                  "height": 525,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/114920722376826658896\">Zarillo</a>"
+                  ],
+                  "photo_reference": "ATplDJaL0ln6prXstkJu2nJR8_t6_MYFeDL0Phb3ed4VdF2mkuRjGhS9mhbhmoBlG-hxyblmWjwZYchjdgGA0WuRSRBPhaDCLUvqvr_FJ9hEr6PZBjDTZ0TBgezw9QhA2s_VZA8XXHnoxoYt0a2p8HCJcHv_e-YkWaIgchRar3thCY_6uAqk",
+                  "width": 787
+              }
+          ],
+          "place_id": "ChIJTd9rU1PfjkYRSfwvYuzDL7Q",
+          "plus_code": {
+              "compound_code": "FQWC+MH Tampere, Finland",
+              "global_code": "9GH5FQWC+MH"
+          },
+          "price_level": 1,
+          "rating": 4.3,
+          "reference": "ChIJTd9rU1PfjkYRSfwvYuzDL7Q",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
+          ],
+          "user_ratings_total": 1431,
+          "vicinity": "Otavalankatu 9, Tampere"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.4966301,
+                  "lng": 23.7710521
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.4979323802915,
+                      "lng": 23.7724179802915
+                  },
+                  "southwest": {
+                      "lat": 61.49523441970849,
+                      "lng": 23.76972001970849
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+          "name": "Svenska Klubben i Tammerfors rf",
+          "photos": [
+              {
+                  "height": 3024,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/103237515033626351640\">Pia Joensuu</a>"
+                  ],
+                  "photo_reference": "ATplDJawsTrcq2q_kkPzZvoAvHjXEslK6sZBG7TC4HJRKx3-SzmjohrgHyy4UzvEUZhswhjOQvlcnztoYJuMRlaze1BS79JbJzNxwKhXEhzHAfnV7Em-j-euDNOPs-K4WbIq3QtIIqnb8lA9ncYbBrmV-ZyukAOw1j1RTe2c1pMttYeMPr-o",
+                  "width": 4032
+              }
+          ],
+          "place_id": "ChIJ44xXq6zYjkYR0oVizH3AQ8U",
+          "plus_code": {
+              "compound_code": "FQWC+MC Tampere, Finland",
+              "global_code": "9GH5FQWC+MC"
+          },
+          "rating": 4.7,
+          "reference": "ChIJ44xXq6zYjkYR0oVizH3AQ8U",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
+          ],
+          "user_ratings_total": 16,
+          "vicinity": "Otavalankatu 9, Tampere"
+      },
+      {
+          "business_status": "OPERATIONAL",
+          "geometry": {
+              "location": {
+                  "lat": 61.50281609999999,
+                  "lng": 23.7873841
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 61.50426038029151,
+                      "lng": 23.7885267802915
+                  },
+                  "southwest": {
+                      "lat": 61.5015624197085,
+                      "lng": 23.7858288197085
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+          "icon_background_color": "#FF9E67",
+          "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+          "name": "Bawan Pizzeria",
+          "opening_hours": {
+              "open_now": true
+          },
+          "photos": [
+              {
+                  "height": 1051,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/109518108461998674811\">Bawan Pizzeria</a>"
+                  ],
+                  "photo_reference": "ATplDJYF_DpjfcKZPZJBZNPr6eyRfJoApLNteMTh6iBGMU565UUxy8vebumKNvsEfgLh8SkdjE_4qdCnxu9lr3N7sFLWBts7SR_vgF3zI8ySed9cIEBHUhw6LkW9XlcG5aCb7Git9mfEJLhJRTozZs1_vgTKzODxBrIvCIQtGi4WHTTprsB0",
+                  "width": 1051
+              }
+          ],
+          "place_id": "ChIJAQAAwK4gj0YRwp7DU2osUd0",
+          "plus_code": {
+              "compound_code": "GQ3P+4X Tampere, Finland",
+              "global_code": "9GH5GQ3P+4X"
+          },
+          "price_level": 2,
+          "rating": 4.2,
+          "reference": "ChIJAQAAwK4gj0YRwp7DU2osUd0",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "point_of_interest",
+              "food",
+              "establishment"
+          ],
+          "user_ratings_total": 143,
+          "vicinity": "Kalevan puistotie 11, Tampere"
+      }
   ],
   "status": "OK"
 }
