@@ -71,55 +71,70 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                flex: 1,
-                child: FlutterMap(
-                  options: const MapOptions(
-                    initialCenter: LatLng(51.5, -0.09),
-                    initialZoom: defaultZoom,
-                  ),
-                  mapController: _mapController,
-                  children: [
-                    TileLayer(
-                      urlTemplate: mapUrl,
-                    ),
-                    RichAttributionWidget(
-                      attributions: [
-                        TextSourceAttribution(
-                          'OpenStreetMap contributors',
-                          onTap: () => launchUrl(
-                              Uri.parse('https://openstreetmap.org/copyright')),
-                        ),
-                      ],
-                    ),
-                    MarkerLayer(
-                      markers: cafeMarkers,
-                      rotate: true,
-                    )
-                  ],
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Container(
-                  color: Colors.blue,
-                  child: Center(
-                    child: ElevatedButton(
-                      onPressed: getLocation,
-                      child: const Text('Search'),
-                    ),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: CafeMap(
+                  mapController: _mapController, cafeMarkers: cafeMarkers),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                color: Colors.blue,
+                child: Center(
+                  child: ElevatedButton(
+                    onPressed: getLocation,
+                    child: const Text('Search'),
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
+    );
+  }
+}
+
+class CafeMap extends StatelessWidget {
+  const CafeMap({
+    super.key,
+    required MapController mapController,
+    required this.cafeMarkers,
+  }) : _mapController = mapController;
+
+  final MapController _mapController;
+  final List<Marker> cafeMarkers;
+
+  @override
+  Widget build(BuildContext context) {
+    return FlutterMap(
+      options: const MapOptions(
+        initialCenter: LatLng(51.5, -0.09),
+        initialZoom: defaultZoom,
+      ),
+      mapController: _mapController,
+      children: [
+        TileLayer(
+          urlTemplate: mapUrl,
+        ),
+        RichAttributionWidget(
+          attributions: [
+            TextSourceAttribution(
+              'OpenStreetMap contributors',
+              onTap: () =>
+                  launchUrl(Uri.parse('https://openstreetmap.org/copyright')),
+            ),
+          ],
+        ),
+        MarkerLayer(
+          markers: cafeMarkers,
+          rotate: true,
+        )
+      ],
     );
   }
 }
