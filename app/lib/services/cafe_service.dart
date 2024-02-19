@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:json_serializer/json_serializer.dart';
 
-const serverUrl = 'http://localhost:8080';
+const serverUrl = 'https://cafe-now-app.onrender.com';
 
 class CafeService {
   CafeService() {
