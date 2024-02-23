@@ -60,6 +60,16 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
     _mapController = MapController();
     _locationService = LocationService();
     _cafeService = CafeService();
+
+    getLocation().catchError((error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error occurred: ${error.toString()}'),
+          duration: const Duration(seconds: 2),
+          showCloseIcon: true,
+        ),
+      );
+    });
   }
 
   Future<void> getLocation() async {
