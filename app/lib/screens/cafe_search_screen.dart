@@ -3,13 +3,13 @@ import 'dart:collection';
 import 'package:cafe_now_app/models/place.dart';
 import 'package:cafe_now_app/services/cafe_service.dart';
 import 'package:cafe_now_app/services/location_service.dart';
+import 'package:cafe_now_app/widgets/cafe_list_item.dart';
+import 'package:cafe_now_app/widgets/cafe_map.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-const mapUrl = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
-const defaultZoom = 15.0;
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class CafeSearchScreen extends StatefulWidget {
   const CafeSearchScreen({super.key});
@@ -23,22 +23,35 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
   late MapController _mapController;
   late LocationService _locationService;
   late CafeService _cafeService;
+  late ItemScrollController _itemScrollController;
 
   final LinkedHashMap<String, Marker> cafeMarkers = LinkedHashMap();
   final List<Marker> userMarkers = <Marker>[];
+
+  final LinkedHashMap<String, Place> cafes = LinkedHashMap();
+
+  Place? selectedCafe;
+
+  void selectCafe(Place cafe) {
+    _mapController.move(
+        LatLng(cafe.geometry.location.lat, cafe.geometry.location.lng),
+        CafeMap.defaultZoom + 2);
+    _itemScrollController.scrollTo(
+      index: cafes.keys.toList().indexOf(cafe.place_id),
+      duration: const Duration(seconds: 1),
+      curve: Curves.easeInOutCubic,
+    );
+    setState(() {
+      selectedCafe = cafe;
+    });
+  }
 
   Marker buildCafePin(LatLng point, Place cafe) => Marker(
         point: point,
         width: 60,
         height: 60,
         child: GestureDetector(
-          onTap: () => ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(cafe.name),
-              duration: const Duration(seconds: 2),
-              showCloseIcon: true,
-            ),
-          ),
+          onTap: () => selectCafe(cafe),
           child: Image.asset("assets/images/CuteCoffeeMugNoBackground.png"),
         ),
       );
@@ -60,11 +73,20 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
     _mapController = MapController();
     _locationService = LocationService();
     _cafeService = CafeService();
+    _itemScrollController = ItemScrollController();
+
+    populateMap().catchError((error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error occurred: ${error.toString()}'),
+          duration: const Duration(seconds: 2),
+          showCloseIcon: true,
+        ),
+      );
+    });
   }
 
-  Future<void> getLocation() async {
-    final location = await _locationService.getLocation();
-
+  Future<void> setUserOnMap(Position location) async {
     userMarkers.clear();
     userMarkers
         .add(buildUserPin(LatLng(location.latitude, location.longitude)));
@@ -74,19 +96,31 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
     });
 
     _mapController.move(
-        LatLng(location.latitude, location.longitude), defaultZoom);
+        LatLng(location.latitude, location.longitude), CafeMap.defaultZoom);
+  }
 
-    final cafes = await _cafeService.fetchCafes(
-        location.latitude, location.longitude, 3000);
-
+  Future<void> setCafesOnMap(List<Place> cafes) async {
     for (var cafe in cafes) {
       final lat = cafe.geometry.location.lat;
       final lng = cafe.geometry.location.lng;
       cafeMarkers[cafe.place_id] = buildCafePin(LatLng(lat, lng), cafe);
+      this.cafes[cafe.place_id] = cafe;
     }
     setState(() {
       cafeMarkers;
+      this.cafes;
     });
+  }
+
+  Future<void> populateMap() async {
+    final location = await _locationService.getLocation();
+
+    await setUserOnMap(location);
+
+    final cafes = await _cafeService.fetchCafes(
+        location.latitude, location.longitude, 3000);
+
+    await setCafesOnMap(cafes);
   }
 
   @override
@@ -105,65 +139,26 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
             ),
             Expanded(
               flex: 1,
-              child: Container(
-                color: Colors.blue,
-                child: Center(
-                  child: ElevatedButton(
-                    onPressed: getLocation,
-                    child: const Text('Search'),
-                  ),
-                ),
+              child: ScrollablePositionedList.builder(
+                itemScrollController: _itemScrollController,
+                itemCount: cafes.length,
+                scrollDirection: Axis.vertical,
+                itemBuilder: (context, index) {
+                  final cafe = cafes.values.elementAt(index);
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GestureDetector(
+                      onTap: () => selectCafe(cafe),
+                      child:
+                          CafeListItem(selectedCafe: selectedCafe, cafe: cafe),
+                    ),
+                  );
+                },
               ),
-            ),
+            )
           ],
         ),
       ),
-    );
-  }
-}
-
-class CafeMap extends StatelessWidget {
-  const CafeMap({
-    super.key,
-    required MapController mapController,
-    required this.cafeMarkers,
-    required this.userMarkers,
-  }) : _mapController = mapController;
-
-  final MapController _mapController;
-  final List<Marker> cafeMarkers;
-  final List<Marker> userMarkers;
-
-  @override
-  Widget build(BuildContext context) {
-    return FlutterMap(
-      options: const MapOptions(
-        initialCenter: LatLng(51.5, -0.09),
-        initialZoom: defaultZoom,
-      ),
-      mapController: _mapController,
-      children: [
-        TileLayer(
-          urlTemplate: mapUrl,
-        ),
-        MarkerLayer(
-          markers: cafeMarkers,
-          rotate: true,
-        ),
-        MarkerLayer(
-          markers: userMarkers,
-          rotate: true,
-        ),
-        RichAttributionWidget(
-          attributions: [
-            TextSourceAttribution(
-              'OpenStreetMap contributors',
-              onTap: () =>
-                  launchUrl(Uri.parse('https://openstreetmap.org/copyright')),
-            ),
-          ],
-        ),
-      ],
     );
   }
 }

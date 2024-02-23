@@ -3,8 +3,6 @@ import 'package:http/http.dart' as http;
 
 import 'package:json_serializer/json_serializer.dart';
 
-const serverUrl = 'https://cafe-now-app.onrender.com';
-
 class CafeService {
   CafeService() {
     JsonSerializer.options = JsonSerializerOptions(types: [
@@ -19,6 +17,9 @@ class CafeService {
       UserType<PlaceViewport>(PlaceViewport.new),
     ]);
   }
+
+  static const serverUrl = String.fromEnvironment('API_URL',
+      defaultValue: 'https://cafe-now-app.onrender.com');
 
   Future<List<Place>> fetchCafes(
       double latitude, double longitude, int radius) async {
