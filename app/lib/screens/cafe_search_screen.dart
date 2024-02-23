@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const mapUrl = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
@@ -24,24 +25,35 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
   late MapController _mapController;
   late LocationService _locationService;
   late CafeService _cafeService;
+  late ItemScrollController _itemScrollController;
 
   final LinkedHashMap<String, Marker> cafeMarkers = LinkedHashMap();
   final List<Marker> userMarkers = <Marker>[];
 
   final LinkedHashMap<String, Place> cafes = LinkedHashMap();
 
+  Place? selectedCafe;
+
+  void selectCafe(Place cafe) {
+    _mapController.move(
+        LatLng(cafe.geometry.location.lat, cafe.geometry.location.lng),
+        defaultZoom + 2);
+    _itemScrollController.scrollTo(
+      index: cafes.keys.toList().indexOf(cafe.place_id),
+      duration: const Duration(seconds: 1),
+      curve: Curves.easeInOutCubic,
+    );
+    setState(() {
+      selectedCafe = cafe;
+    });
+  }
+
   Marker buildCafePin(LatLng point, Place cafe) => Marker(
         point: point,
         width: 60,
         height: 60,
         child: GestureDetector(
-          onTap: () => ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(cafe.name),
-              duration: const Duration(seconds: 2),
-              showCloseIcon: true,
-            ),
-          ),
+          onTap: () => selectCafe(cafe),
           child: Image.asset("assets/images/CuteCoffeeMugNoBackground.png"),
         ),
       );
@@ -63,6 +75,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
     _mapController = MapController();
     _locationService = LocationService();
     _cafeService = CafeService();
+    _itemScrollController = ItemScrollController();
 
     populateMap().catchError((error) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -128,30 +141,45 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
             ),
             Expanded(
               flex: 1,
-              child: ListView.separated(
+              child: ScrollablePositionedList.separated(
+                itemScrollController: _itemScrollController,
                 itemCount: cafes.length,
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
                   final cafe = cafes.values.elementAt(index);
-                  return Card(
-                    child: GestureDetector(
-                      onTap: () {
-                        _mapController.move(
-                            LatLng(cafe.geometry.location.lat,
-                                cafe.geometry.location.lng),
-                            defaultZoom + 2);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Text(cafe.name,
-                            style: const TextStyle(fontSize: 25)),
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.easeInOut,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 3,
+                            blurRadius: 5,
+                            offset: const Offset(1, 2),
+                          ),
+                        ],
+                        color: selectedCafe?.place_id == cafe.place_id
+                            ? Theme.of(context).colorScheme.primary
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: GestureDetector(
+                        onTap: () => selectCafe(cafe),
+                        child: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Text(cafe.name,
+                              style: const TextStyle(fontSize: 25)),
+                        ),
                       ),
                     ),
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) {
                   return const SizedBox(
-                    height: 4,
+                    height: 0,
                   );
                 },
               ),
