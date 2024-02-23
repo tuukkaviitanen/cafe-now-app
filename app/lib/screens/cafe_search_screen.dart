@@ -86,10 +86,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
         LatLng(location.latitude, location.longitude), defaultZoom);
   }
 
-  Future<void> setCafesOnMap(Position location) async {
-    final cafes = await _cafeService.fetchCafes(
-        location.latitude, location.longitude, 3000);
-
+  Future<void> setCafesOnMap(List<Place> cafes) async {
     for (var cafe in cafes) {
       final lat = cafe.geometry.location.lat;
       final lng = cafe.geometry.location.lng;
@@ -104,7 +101,11 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
     final location = await _locationService.getLocation();
 
     await setUserOnMap(location);
-    await setCafesOnMap(location);
+
+    final cafes = await _cafeService.fetchCafes(
+        location.latitude, location.longitude, 3000);
+
+    await setCafesOnMap(cafes);
   }
 
   @override
