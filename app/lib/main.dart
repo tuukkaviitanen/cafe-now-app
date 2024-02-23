@@ -29,8 +29,19 @@ class MainApp extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: _router,
       theme: ThemeData(
-        primarySwatch: Colors.brown,
-      ),
+          primarySwatch: Colors.orange,
+          colorScheme: const ColorScheme(
+              brightness: Brightness.light,
+              primary: Color.fromRGBO(255, 190, 152, 1),
+              onPrimary: Colors.black,
+              secondary: Color.fromRGBO(254, 236, 226, 1),
+              onSecondary: Colors.black,
+              error: Colors.deepOrangeAccent,
+              onError: Colors.black,
+              background: Color.fromRGBO(254, 236, 226, 1),
+              onBackground: Colors.black,
+              surface: Color.fromRGBO(247, 222, 208, 1),
+              onSurface: Colors.black)),
     );
   }
 }
