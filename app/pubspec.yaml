@@ -31,7 +31,7 @@ flutter:
     - assets/images/
 
 flutter_launcher_icons:
-  image_path: "assets/images/CuteCoffeeMug.jpg"
+  image_path: "assets/images/CuteCoffeeMugNoBackground.png"
   android: true
   ios: true
   windows:
