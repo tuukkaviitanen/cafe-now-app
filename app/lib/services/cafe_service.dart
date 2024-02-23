@@ -3,7 +3,8 @@ import 'package:http/http.dart' as http;
 
 import 'package:json_serializer/json_serializer.dart';
 
-const serverUrl = 'https://cafe-now-app.onrender.com';
+const serverUrl = String.fromEnvironment('API_URL',
+    defaultValue: 'https://cafe-now-app.onrender.com');
 
 class CafeService {
   CafeService() {
