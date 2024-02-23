@@ -3,15 +3,13 @@ import 'dart:collection';
 import 'package:cafe_now_app/models/place.dart';
 import 'package:cafe_now_app/services/cafe_service.dart';
 import 'package:cafe_now_app/services/location_service.dart';
+import 'package:cafe_now_app/widgets/cafe_list_item.dart';
+import 'package:cafe_now_app/widgets/cafe_map.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-const mapUrl = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
-const defaultZoom = 15.0;
 
 class CafeSearchScreen extends StatefulWidget {
   const CafeSearchScreen({super.key});
@@ -37,7 +35,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
   void selectCafe(Place cafe) {
     _mapController.move(
         LatLng(cafe.geometry.location.lat, cafe.geometry.location.lng),
-        defaultZoom + 2);
+        CafeMap.defaultZoom + 2);
     _itemScrollController.scrollTo(
       index: cafes.keys.toList().indexOf(cafe.place_id),
       duration: const Duration(seconds: 1),
@@ -98,7 +96,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
     });
 
     _mapController.move(
-        LatLng(location.latitude, location.longitude), defaultZoom);
+        LatLng(location.latitude, location.longitude), CafeMap.defaultZoom);
   }
 
   Future<void> setCafesOnMap(List<Place> cafes) async {
@@ -141,7 +139,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
             ),
             Expanded(
               flex: 1,
-              child: ScrollablePositionedList.separated(
+              child: ScrollablePositionedList.builder(
                 itemScrollController: _itemScrollController,
                 itemCount: cafes.length,
                 scrollDirection: Axis.vertical,
@@ -149,37 +147,11 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
                   final cafe = cafes.values.elementAt(index);
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 500),
-                      curve: Curves.easeInOut,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.2),
-                            spreadRadius: 3,
-                            blurRadius: 5,
-                            offset: const Offset(1, 2),
-                          ),
-                        ],
-                        color: selectedCafe?.place_id == cafe.place_id
-                            ? Theme.of(context).colorScheme.primary
-                            : Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: GestureDetector(
-                        onTap: () => selectCafe(cafe),
-                        child: Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Text(cafe.name,
-                              style: const TextStyle(fontSize: 25)),
-                        ),
-                      ),
+                    child: GestureDetector(
+                      onTap: () => selectCafe(cafe),
+                      child:
+                          CafeListItem(selectedCafe: selectedCafe, cafe: cafe),
                     ),
-                  );
-                },
-                separatorBuilder: (BuildContext context, int index) {
-                  return const SizedBox(
-                    height: 0,
                   );
                 },
               ),
@@ -187,52 +159,6 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class CafeMap extends StatelessWidget {
-  const CafeMap({
-    super.key,
-    required MapController mapController,
-    required this.cafeMarkers,
-    required this.userMarkers,
-  }) : _mapController = mapController;
-
-  final MapController _mapController;
-  final List<Marker> cafeMarkers;
-  final List<Marker> userMarkers;
-
-  @override
-  Widget build(BuildContext context) {
-    return FlutterMap(
-      options: const MapOptions(
-        initialCenter: LatLng(51.5, -0.09),
-        initialZoom: defaultZoom,
-      ),
-      mapController: _mapController,
-      children: [
-        TileLayer(
-          urlTemplate: mapUrl,
-        ),
-        MarkerLayer(
-          markers: cafeMarkers,
-          rotate: true,
-        ),
-        MarkerLayer(
-          markers: userMarkers,
-          rotate: true,
-        ),
-        RichAttributionWidget(
-          attributions: [
-            TextSourceAttribution(
-              'OpenStreetMap contributors',
-              onTap: () =>
-                  launchUrl(Uri.parse('https://openstreetmap.org/copyright')),
-            ),
-          ],
-        ),
-      ],
     );
   }
 }
