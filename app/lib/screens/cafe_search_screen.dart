@@ -5,6 +5,7 @@ import 'package:cafe_now_app/services/cafe_service.dart';
 import 'package:cafe_now_app/services/location_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -61,7 +62,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
     _locationService = LocationService();
     _cafeService = CafeService();
 
-    getLocation().catchError((error) {
+    populateMap().catchError((error) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Error occurred: ${error.toString()}'),
@@ -72,9 +73,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
     });
   }
 
-  Future<void> getLocation() async {
-    final location = await _locationService.getLocation();
-
+  Future<void> setUserOnMap(Position location) async {
     userMarkers.clear();
     userMarkers
         .add(buildUserPin(LatLng(location.latitude, location.longitude)));
@@ -85,7 +84,9 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
 
     _mapController.move(
         LatLng(location.latitude, location.longitude), defaultZoom);
+  }
 
+  Future<void> setCafesOnMap(Position location) async {
     final cafes = await _cafeService.fetchCafes(
         location.latitude, location.longitude, 3000);
 
@@ -97,6 +98,13 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
     setState(() {
       cafeMarkers;
     });
+  }
+
+  Future<void> populateMap() async {
+    final location = await _locationService.getLocation();
+
+    await setUserOnMap(location);
+    await setCafesOnMap(location);
   }
 
   @override
@@ -119,7 +127,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
                 color: Colors.blue,
                 child: Center(
                   child: ElevatedButton(
-                    onPressed: getLocation,
+                    onPressed: populateMap,
                     child: const Text('Search'),
                   ),
                 ),
