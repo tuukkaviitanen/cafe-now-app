@@ -28,6 +28,8 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
   final LinkedHashMap<String, Marker> cafeMarkers = LinkedHashMap();
   final List<Marker> userMarkers = <Marker>[];
 
+  final LinkedHashMap<String, Place> cafes = LinkedHashMap();
+
   Marker buildCafePin(LatLng point, Place cafe) => Marker(
         point: point,
         width: 60,
@@ -91,9 +93,11 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
       final lat = cafe.geometry.location.lat;
       final lng = cafe.geometry.location.lng;
       cafeMarkers[cafe.place_id] = buildCafePin(LatLng(lat, lng), cafe);
+      this.cafes[cafe.place_id] = cafe;
     }
     setState(() {
       cafeMarkers;
+      this.cafes;
     });
   }
 
@@ -124,16 +128,34 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
             ),
             Expanded(
               flex: 1,
-              child: Container(
-                color: Colors.blue,
-                child: Center(
-                  child: ElevatedButton(
-                    onPressed: populateMap,
-                    child: const Text('Search'),
-                  ),
-                ),
+              child: ListView.separated(
+                itemCount: cafes.length,
+                scrollDirection: Axis.vertical,
+                itemBuilder: (context, index) {
+                  final cafe = cafes.values.elementAt(index);
+                  return Card(
+                    child: GestureDetector(
+                      onTap: () {
+                        _mapController.move(
+                            LatLng(cafe.geometry.location.lat,
+                                cafe.geometry.location.lng),
+                            defaultZoom + 2);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text(cafe.name,
+                            style: const TextStyle(fontSize: 25)),
+                      ),
+                    ),
+                  );
+                },
+                separatorBuilder: (BuildContext context, int index) {
+                  return const SizedBox(
+                    height: 4,
+                  );
+                },
               ),
-            ),
+            )
           ],
         ),
       ),
