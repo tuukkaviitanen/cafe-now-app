@@ -21,10 +21,9 @@ class CafeService {
   static const serverUrl = String.fromEnvironment('API_URL',
       defaultValue: 'https://cafe-now-app.onrender.com');
 
-  Future<List<Place>> fetchCafes(
-      double latitude, double longitude, int radius) async {
+  Future<List<Place>> fetchCafes(double latitude, double longitude) async {
     final response = await http.get(Uri.parse(
-        '$serverUrl/nearbyCafes?latitude=$latitude&longitude=$longitude&radius=$radius'));
+        '$serverUrl/nearbyCafes?latitude=$latitude&longitude=$longitude'));
 
     if (response.statusCode == 200) {
       List<Place> cafes =
