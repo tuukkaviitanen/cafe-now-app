@@ -30,32 +30,31 @@ const placeOpeningHoursSchema = z.object({
   weekday_text: z.array(z.string()).optional(),
 });
 
-const placePhotoSchema = z.object({
-  height: z.number(),
-  html_attributions: z.array(z.string()),
-  photo_reference: z.string(),
-  width: z.number(),
-});
-
-const placePlusCodeSchema = z.object({
-  compound_code: z.string(),
-  global_code: z.string(),
+const placeEditorialSummarySchema = z.object({
+  language: z.string().optional(),
+  overview: z.string().optional(),
 });
 
 export const placeSchema = z.object({
-  business_status: z.string().optional(),
+  business_status: z.union([
+    z.literal('OPERATIONAL'),
+    z.literal('CLOSED_TEMPORARILY'),
+    z.literal('CLOSED_PERMANENTLY'),
+  ]),
   formatted_address: z.string().optional(),
   geometry: placeGeometrySchema,
   icon: z.string(),
   name: z.string(),
   opening_hours: placeOpeningHoursSchema.optional(),
-  photos: z.array(placePhotoSchema).optional(),
   place_id: z.string(),
-  plus_code: placePlusCodeSchema.optional(),
   rating: z.number().optional(),
   reference: z.string(),
   types: z.array(z.string()),
-  user_ratings_total: z.number().optional(),
+  vicinity: z.string().optional(),
+  website: z.string().optional(),
+  price_level: z.number().optional(),
+  wheelchair_accessible_entrance: z.boolean().optional(),
+  editorial_summary: placeEditorialSummarySchema.optional(),
 });
 
 export const placesNearbySearchResponseSchema = z.object({
