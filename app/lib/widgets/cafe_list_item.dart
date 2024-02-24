@@ -1,5 +1,7 @@
 import 'package:cafe_now_app/models/place.dart';
 import 'package:cafe_now_app/screens/cafe_details_screen.dart';
+import 'package:cafe_now_app/screens/cafe_search_screen.dart';
+import 'package:cafe_now_app/widgets/opening_hours.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -35,32 +37,28 @@ class CafeListItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: ListTile(
-            title: Row(
+            title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(cafe.name, style: const TextStyle(fontSize: 25)),
+                Text(cafe.name,
+                    style: Theme.of(context).textTheme.displayLarge),
                 const SizedBox(width: 20),
-                Text(
-                  cafe.opening_hours?.open_now == true
-                      ? 'Open'
-                      : cafe.opening_hours?.open_now == false
-                          ? 'Closed'
-                          : 'Unknown opening hours',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: cafe.opening_hours?.open_now == true
-                        ? Colors.green
-                        : cafe.opening_hours?.open_now == false
-                            ? Colors.red
-                            : Colors.black,
-                  ),
-                ),
+                OpeningHours(cafe: cafe),
               ],
             ),
-            subtitle:
-                Text(cafe.vicinity ?? '', style: const TextStyle(fontSize: 20)),
+            subtitle: Text(cafe.vicinity ?? cafe.formatted_address ?? '',
+                style: Theme.of(context).textTheme.displayMedium),
             trailing: ElevatedButton(
-              onPressed: () {},
-              child: const Text('Details'),
+              onPressed: () {
+                context.go(
+                    '${CafeSearchScreen.route}${CafeDetailsScreen.route}',
+                    extra: cafe);
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text('Details',
+                    style: Theme.of(context).textTheme.displayMedium),
+              ),
             )),
       ),
     );
