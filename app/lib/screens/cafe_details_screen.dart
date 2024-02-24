@@ -22,8 +22,10 @@ class CafeDetailsScreen extends StatelessWidget {
             children: [
               Expanded(
                 flex: 1,
-                child:
-                    Image.asset('assets/images/CuteCoffeeMugNoBackground.png'),
+                child: Hero(
+                    tag: cafe.place_id,
+                    child: Image.asset(
+                        'assets/images/CuteCoffeeMugNoBackground.png')),
               ),
               Expanded(
                 flex: 1,

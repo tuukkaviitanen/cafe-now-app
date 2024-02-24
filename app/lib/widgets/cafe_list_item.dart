@@ -1,3 +1,4 @@
+import 'package:cafe_now_app/main.dart';
 import 'package:cafe_now_app/models/place.dart';
 import 'package:cafe_now_app/screens/cafe_details_screen.dart';
 import 'package:cafe_now_app/screens/cafe_search_screen.dart';
@@ -18,16 +19,11 @@ class CafeListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: const Duration(milliseconds: 500),
+      duration: MainApp.defaultAnimationDuration,
       curve: Curves.easeInOut,
       decoration: BoxDecoration(
         boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            spreadRadius: 3,
-            blurRadius: 5,
-            offset: const Offset(1, 2),
-          ),
+          MainApp.defaultBoxShadow,
         ],
         color: selectedCafe?.place_id == cafe.place_id
             ? Theme.of(context).colorScheme.secondary
