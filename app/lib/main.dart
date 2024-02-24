@@ -77,8 +77,8 @@ class _MainAppState extends State<MainApp> {
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
             elevation: MaterialStateProperty.all(5),
-            backgroundColor:
-                MaterialStateProperty.all(Color.fromRGBO(250, 195, 164, 1)),
+            backgroundColor: MaterialStateProperty.all(
+                const Color.fromRGBO(250, 195, 164, 1)),
             textStyle: MaterialStateProperty.all(
               const TextStyle(fontSize: 18),
             ),

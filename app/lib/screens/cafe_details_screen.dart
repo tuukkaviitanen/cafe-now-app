@@ -42,6 +42,7 @@ class CafeDetailsScreen extends StatelessWidget {
                           Column(
                             children: [
                               Text(cafe.name,
+                                  textAlign: TextAlign.center,
                                   style:
                                       Theme.of(context).textTheme.displayLarge),
                               const SizedBox(height: 10),
@@ -60,6 +61,7 @@ class CafeDetailsScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: 10),
                               Text(
+                                  textAlign: TextAlign.center,
                                   cafe.vicinity ?? cafe.formatted_address ?? '',
                                   style: Theme.of(context)
                                       .textTheme
