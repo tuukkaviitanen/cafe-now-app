@@ -61,10 +61,13 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
               (cafe.place_id == selectedCafe?.place_id ? 2 : 1);
           return GestureDetector(
             onTap: () => selectCafe(cafe),
-            child: Image.asset(
-              "assets/images/CuteCoffeeMugNoBackground.png",
-              width: size,
-              height: size,
+            child: Hero(
+              tag: cafe.place_id,
+              child: Image.asset(
+                "assets/images/CuteCoffeeMugNoBackground.png",
+                width: size,
+                height: size,
+              ),
             ),
           );
         },
