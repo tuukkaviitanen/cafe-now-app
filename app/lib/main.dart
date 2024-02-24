@@ -44,7 +44,7 @@ class MainApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         colorScheme: const ColorScheme(
             brightness: Brightness.light,
-            primary: Color.fromRGBO(255, 179, 135, 1),
+            primary: Color.fromRGBO(250, 195, 164, 1),
             onPrimary: Colors.black,
             secondary: Color.fromRGBO(255, 226, 210, 1),
             onSecondary: Colors.black,
@@ -62,7 +62,8 @@ class MainApp extends StatelessWidget {
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
             elevation: MaterialStateProperty.all(5),
-            backgroundColor: MaterialStateProperty.all(Colors.amber[300]),
+            backgroundColor:
+                MaterialStateProperty.all(Color.fromRGBO(250, 195, 164, 1)),
             textStyle: MaterialStateProperty.all(
               const TextStyle(fontSize: 18),
             ),

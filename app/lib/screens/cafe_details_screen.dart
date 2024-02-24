@@ -16,6 +16,7 @@ class CafeDetailsScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(cafe.name),
+          backgroundColor: Theme.of(context).colorScheme.primary,
         ),
         body: Center(
           child: Column(

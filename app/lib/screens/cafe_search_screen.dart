@@ -152,7 +152,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cafe Now!'),
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: Center(
         child: Column(
