@@ -29,7 +29,7 @@ class CafeDetailsScreen extends StatelessWidget {
                         'assets/images/CuteCoffeeMugNoBackground.png')),
               ),
               Expanded(
-                flex: 1,
+                flex: 2,
                 child: Padding(
                   padding: const EdgeInsets.all(20),
                   child: Card(
@@ -42,6 +42,7 @@ class CafeDetailsScreen extends StatelessWidget {
                           Column(
                             children: [
                               Text(cafe.name,
+                                  textAlign: TextAlign.center,
                                   style:
                                       Theme.of(context).textTheme.displayLarge),
                               const SizedBox(height: 10),
@@ -60,6 +61,7 @@ class CafeDetailsScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: 10),
                               Text(
+                                  textAlign: TextAlign.center,
                                   cafe.vicinity ?? cafe.formatted_address ?? '',
                                   style: Theme.of(context)
                                       .textTheme

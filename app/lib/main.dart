@@ -2,6 +2,7 @@ import 'package:cafe_now_app/models/place.dart';
 import 'package:cafe_now_app/screens/cafe_details_screen.dart';
 import 'package:cafe_now_app/screens/cafe_search_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 void main() {
@@ -24,7 +25,7 @@ final GoRouter _router = GoRouter(
   ],
 );
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
 
   static const Duration defaultAnimationDuration = Duration(milliseconds: 1000);
@@ -35,6 +36,20 @@ class MainApp extends StatelessWidget {
     blurRadius: 3,
     offset: const Offset(1, 2),
   );
+
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +77,8 @@ class MainApp extends StatelessWidget {
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
             elevation: MaterialStateProperty.all(5),
-            backgroundColor:
-                MaterialStateProperty.all(Color.fromRGBO(250, 195, 164, 1)),
+            backgroundColor: MaterialStateProperty.all(
+                const Color.fromRGBO(250, 195, 164, 1)),
             textStyle: MaterialStateProperty.all(
               const TextStyle(fontSize: 18),
             ),
