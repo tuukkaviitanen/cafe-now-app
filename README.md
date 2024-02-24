@@ -113,8 +113,7 @@ Required query parameters:
 
 latitude
 longitude
-radius
 
 Example full query:
-http://localhost:8080/nearbyCafes?latitude=61.49911&longitude=23.78712&radius=3000
+http://localhost:8080/nearbyCafes?latitude=61.49911&longitude=23.78712
 ```
