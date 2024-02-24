@@ -9,12 +9,11 @@ import type { PlacesNearbySearchRequest } from '../schemas/placesNearbySearchReq
 const getNearbyCafes = async ({
   latitude,
   longitude,
-  radius,
 }: PlacesNearbySearchRequest): Promise<Place[]> => {
   const apiUrl =
     nodeEnv === 'production'
-      ? `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=${radius}&type=cafe&key=${googleApiKey}`
-      : mockApiUrl!; // Program would have aborted in config.ts if nodeEnv is not production and mockApiUrl doesn't exist
+      ? `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&type=cafe&rankby=distance&key=${googleApiKey}`
+      : mockApiUrl!; // Program would have aborted in environment.ts if nodeEnv is not production and mockApiUrl doesn't exist
 
   const axiosResponse = await axios.get(apiUrl);
 

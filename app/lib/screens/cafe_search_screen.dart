@@ -141,8 +141,8 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
 
     await setUserOnMap(location);
 
-    final cafes = await _cafeService.fetchCafes(
-        location.latitude, location.longitude, 3000);
+    final cafes =
+        await _cafeService.fetchCafes(location.latitude, location.longitude);
 
     await setCafesOnMap(cafes);
   }
