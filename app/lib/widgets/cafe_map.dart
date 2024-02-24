@@ -1,3 +1,4 @@
+import 'package:cafe_now_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_animations/flutter_map_animations.dart';
@@ -21,34 +22,45 @@ class CafeMap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlutterMap(
-      options: const MapOptions(
-        initialCenter: LatLng(51.5, -0.09),
-        initialZoom: defaultZoom,
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          MainApp.defaultBoxShadow,
+        ],
       ),
-      mapController: _mapController,
-      children: [
-        TileLayer(
-          urlTemplate: mapUrl,
-        ),
-        AnimatedMarkerLayer(
-          markers: cafeMarkers,
-          rotate: true,
-        ),
-        MarkerLayer(
-          markers: userMarkers,
-          rotate: true,
-        ),
-        RichAttributionWidget(
-          attributions: [
-            TextSourceAttribution(
-              'OpenStreetMap contributors',
-              onTap: () =>
-                  launchUrl(Uri.parse('https://openstreetmap.org/copyright')),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: FlutterMap(
+          options: const MapOptions(
+            initialCenter: LatLng(51.5, -0.09),
+            initialZoom: defaultZoom,
+          ),
+          mapController: _mapController,
+          children: [
+            TileLayer(
+              urlTemplate: mapUrl,
+            ),
+            AnimatedMarkerLayer(
+              markers: cafeMarkers,
+              rotate: true,
+            ),
+            MarkerLayer(
+              markers: userMarkers,
+              rotate: true,
+            ),
+            RichAttributionWidget(
+              attributions: [
+                TextSourceAttribution(
+                  'OpenStreetMap contributors',
+                  onTap: () => launchUrl(
+                      Uri.parse('https://openstreetmap.org/copyright')),
+                ),
+              ],
             ),
           ],
         ),
-      ],
+      ),
     );
   }
 }

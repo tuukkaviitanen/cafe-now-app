@@ -156,10 +156,13 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
           children: <Widget>[
             Expanded(
               flex: 1,
-              child: CafeMap(
-                mapController: _animatedMapController.mapController,
-                cafeMarkers: cafeMarkers.values.toList(),
-                userMarkers: userMarkers,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CafeMap(
+                  mapController: _animatedMapController.mapController,
+                  cafeMarkers: cafeMarkers.values.toList(),
+                  userMarkers: userMarkers,
+                ),
               ),
             ),
             Expanded(

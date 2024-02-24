@@ -23,12 +23,7 @@ class CafeListItem extends StatelessWidget {
       curve: Curves.easeInOut,
       decoration: BoxDecoration(
         boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            spreadRadius: 3,
-            blurRadius: 5,
-            offset: const Offset(1, 2),
-          ),
+          MainApp.defaultBoxShadow,
         ],
         color: selectedCafe?.place_id == cafe.place_id
             ? Theme.of(context).colorScheme.secondary

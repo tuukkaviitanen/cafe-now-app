@@ -29,6 +29,13 @@ class MainApp extends StatelessWidget {
 
   static const Duration defaultAnimationDuration = Duration(milliseconds: 1000);
 
+  static final defaultBoxShadow = BoxShadow(
+    color: Colors.black.withOpacity(0.2),
+    spreadRadius: 4,
+    blurRadius: 3,
+    offset: const Offset(1, 2),
+  );
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
