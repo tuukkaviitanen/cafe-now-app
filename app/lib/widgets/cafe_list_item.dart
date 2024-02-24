@@ -51,7 +51,7 @@ class CafeListItem extends StatelessWidget {
                     extra: cafe);
               },
               child: Padding(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                 child: Text('Details',
                     style: Theme.of(context).textTheme.displayMedium),
               ),

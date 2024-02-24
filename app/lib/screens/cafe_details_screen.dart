@@ -29,7 +29,7 @@ class CafeDetailsScreen extends StatelessWidget {
                         'assets/images/CuteCoffeeMugNoBackground.png')),
               ),
               Expanded(
-                flex: 1,
+                flex: 2,
                 child: Padding(
                   padding: const EdgeInsets.all(20),
                   child: Card(
