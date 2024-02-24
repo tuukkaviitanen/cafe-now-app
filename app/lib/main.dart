@@ -32,15 +32,15 @@ class MainApp extends StatelessWidget {
           primarySwatch: Colors.orange,
           colorScheme: const ColorScheme(
               brightness: Brightness.light,
-              primary: Color.fromRGBO(255, 190, 152, 1),
+              primary: Color.fromRGBO(255, 179, 135, 1),
               onPrimary: Colors.black,
-              secondary: Color.fromRGBO(254, 236, 226, 1),
+              secondary: Color.fromRGBO(255, 226, 210, 1),
               onSecondary: Colors.black,
               error: Colors.deepOrangeAccent,
               onError: Colors.black,
               background: Color.fromRGBO(254, 236, 226, 1),
               onBackground: Colors.black,
-              surface: Color.fromRGBO(247, 222, 208, 1),
+              surface: Color.fromRGBO(255, 252, 250, 1),
               onSurface: Colors.black)),
     );
   }
