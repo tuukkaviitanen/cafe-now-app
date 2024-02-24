@@ -100,6 +100,10 @@ class Place {
   final String reference;
   final List<String> types;
   final int? user_ratings_total;
+  final String? vicinity;
+  final String? website;
+  final int? price_level;
+  final bool? wheelchair_accessible_entrance;
 
   Place({
     this.business_status,
@@ -115,5 +119,9 @@ class Place {
     required this.reference,
     required this.types,
     this.user_ratings_total,
+    this.vicinity,
+    this.website,
+    this.price_level,
+    this.wheelchair_accessible_entrance,
   });
 }
