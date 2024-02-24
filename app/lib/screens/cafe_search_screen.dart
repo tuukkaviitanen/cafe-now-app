@@ -35,10 +35,10 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
 
   Place? selectedCafe;
 
-  void selectCafe(Place cafe) {
+  void selectCafe(Place cafe, {double additionalZoom = 0}) {
     _animatedMapController.animateTo(
         dest: LatLng(cafe.geometry.location.lat, cafe.geometry.location.lng),
-        zoom: CafeMap.defaultZoom + 2);
+        zoom: CafeMap.defaultZoom + 2 + additionalZoom);
     _itemScrollController.scrollTo(
       index: cafes.keys.toList().indexOf(cafe.place_id),
       duration: MainApp.defaultAnimationDuration,
@@ -61,6 +61,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
               (cafe.place_id == selectedCafe?.place_id ? 2 : 1);
           return GestureDetector(
             onTap: () => selectCafe(cafe),
+            onDoubleTap: () => selectCafe(cafe, additionalZoom: 2),
             child: Hero(
               tag: cafe.place_id,
               child: Image.asset(
