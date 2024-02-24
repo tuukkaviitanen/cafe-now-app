@@ -55,6 +55,7 @@ export const placeSchema = z.object({
   price_level: z.number().optional(),
   wheelchair_accessible_entrance: z.boolean().optional(),
   editorial_summary: placeEditorialSummarySchema.optional(),
+  user_ratings_total: z.number().optional(),
 });
 
 export const placesNearbySearchResponseSchema = z.object({

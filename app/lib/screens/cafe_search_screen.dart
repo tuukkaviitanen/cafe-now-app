@@ -126,6 +126,10 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Cafe Now!'),
+        backgroundColor: Theme.of(context).colorScheme.background,
+      ),
       body: Center(
         child: Column(
           children: <Widget>[
