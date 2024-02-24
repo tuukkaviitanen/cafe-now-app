@@ -1,5 +1,6 @@
 import 'dart:collection';
 
+import 'package:cafe_now_app/main.dart';
 import 'package:cafe_now_app/models/place.dart';
 import 'package:cafe_now_app/services/cafe_service.dart';
 import 'package:cafe_now_app/services/location_service.dart';
@@ -40,7 +41,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
         zoom: CafeMap.defaultZoom + 2);
     _itemScrollController.scrollTo(
       index: cafes.keys.toList().indexOf(cafe.place_id),
-      duration: const Duration(seconds: 1),
+      duration: MainApp.defaultAnimationDuration,
       curve: Curves.easeInOutCubic,
     );
     setState(() {
@@ -74,7 +75,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
     super.initState();
     _animatedMapController = AnimatedMapController(
         vsync: this,
-        duration: const Duration(seconds: 1),
+        duration: MainApp.defaultAnimationDuration,
         curve: Curves.easeInOut);
     _locationService = LocationService();
     _cafeService = CafeService();

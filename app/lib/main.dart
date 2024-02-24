@@ -27,6 +27,8 @@ final GoRouter _router = GoRouter(
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
+  static const Duration defaultAnimationDuration = Duration(milliseconds: 1000);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
