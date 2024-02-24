@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_map_animations/flutter_map_animations.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -12,7 +13,7 @@ class CafeMap extends StatelessWidget {
   }) : _mapController = mapController;
 
   final MapController _mapController;
-  final List<Marker> cafeMarkers;
+  final List<AnimatedMarker> cafeMarkers;
   final List<Marker> userMarkers;
 
   static const mapUrl = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
@@ -30,7 +31,7 @@ class CafeMap extends StatelessWidget {
         TileLayer(
           urlTemplate: mapUrl,
         ),
-        MarkerLayer(
+        AnimatedMarkerLayer(
           markers: cafeMarkers,
           rotate: true,
         ),

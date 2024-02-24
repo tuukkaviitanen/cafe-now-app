@@ -28,7 +28,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
   late CafeService _cafeService;
   late ItemScrollController _itemScrollController;
 
-  final LinkedHashMap<String, Marker> cafeMarkers = LinkedHashMap();
+  final LinkedHashMap<String, AnimatedMarker> cafeMarkers = LinkedHashMap();
   final List<Marker> userMarkers = <Marker>[];
 
   final LinkedHashMap<String, Place> cafes = LinkedHashMap();
@@ -49,14 +49,25 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
     });
   }
 
-  Marker buildCafePin(LatLng point, Place cafe) => Marker(
+  AnimatedMarker buildCafePin(LatLng point, Place cafe) => AnimatedMarker(
+        duration: MainApp.defaultAnimationDuration,
+        curve: Curves.easeOut,
         point: point,
-        width: 60,
-        height: 60,
-        child: GestureDetector(
-          onTap: () => selectCafe(cafe),
-          child: Image.asset("assets/images/CuteCoffeeMugNoBackground.png"),
-        ),
+        width: 120,
+        height: 120,
+        builder: (BuildContext context, Animation<double> animation) {
+          final size = 60 *
+              animation.value *
+              (cafe.place_id == selectedCafe?.place_id ? 2 : 1);
+          return GestureDetector(
+            onTap: () => selectCafe(cafe),
+            child: Image.asset(
+              "assets/images/CuteCoffeeMugNoBackground.png",
+              width: size,
+              height: size,
+            ),
+          );
+        },
       );
 
   Marker buildUserPin(LatLng point) => Marker(
