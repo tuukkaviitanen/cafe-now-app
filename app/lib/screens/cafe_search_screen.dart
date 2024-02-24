@@ -7,6 +7,7 @@ import 'package:cafe_now_app/widgets/cafe_list_item.dart';
 import 'package:cafe_now_app/widgets/cafe_map.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_map_animations/flutter_map_animations.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
@@ -19,8 +20,9 @@ class CafeSearchScreen extends StatefulWidget {
   State<CafeSearchScreen> createState() => _CafeSearchScreenState();
 }
 
-class _CafeSearchScreenState extends State<CafeSearchScreen> {
-  late MapController _mapController;
+class _CafeSearchScreenState extends State<CafeSearchScreen>
+    with TickerProviderStateMixin {
+  late AnimatedMapController _animatedMapController;
   late LocationService _locationService;
   late CafeService _cafeService;
   late ItemScrollController _itemScrollController;
@@ -33,9 +35,9 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
   Place? selectedCafe;
 
   void selectCafe(Place cafe) {
-    _mapController.move(
-        LatLng(cafe.geometry.location.lat, cafe.geometry.location.lng),
-        CafeMap.defaultZoom + 2);
+    _animatedMapController.animateTo(
+        dest: LatLng(cafe.geometry.location.lat, cafe.geometry.location.lng),
+        zoom: CafeMap.defaultZoom + 2);
     _itemScrollController.scrollTo(
       index: cafes.keys.toList().indexOf(cafe.place_id),
       duration: const Duration(seconds: 1),
@@ -70,7 +72,10 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
   @override
   void initState() {
     super.initState();
-    _mapController = MapController();
+    _animatedMapController = AnimatedMapController(
+        vsync: this,
+        duration: const Duration(seconds: 1),
+        curve: Curves.easeInOut);
     _locationService = LocationService();
     _cafeService = CafeService();
     _itemScrollController = ItemScrollController();
@@ -95,8 +100,9 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
       userMarkers;
     });
 
-    _mapController.move(
-        LatLng(location.latitude, location.longitude), CafeMap.defaultZoom);
+    await _animatedMapController.animateTo(
+        dest: LatLng(location.latitude, location.longitude),
+        zoom: CafeMap.defaultZoom);
   }
 
   Future<void> setCafesOnMap(List<Place> cafes) async {
@@ -136,7 +142,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen> {
             Expanded(
               flex: 1,
               child: CafeMap(
-                mapController: _mapController,
+                mapController: _animatedMapController.mapController,
                 cafeMarkers: cafeMarkers.values.toList(),
                 userMarkers: userMarkers,
               ),
