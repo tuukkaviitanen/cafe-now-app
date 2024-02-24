@@ -49,16 +49,18 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
     });
   }
 
-  AnimatedMarker buildCafePin(LatLng point, Place cafe) => AnimatedMarker(
+  AnimatedMarker buildAnimatedCafePin(LatLng point, Place cafe) =>
+      AnimatedMarker(
         duration: MainApp.defaultAnimationDuration,
-        curve: Curves.easeOut,
+        curve: Curves.easeInOut,
         point: point,
         width: 120,
         height: 120,
         builder: (BuildContext context, Animation<double> animation) {
-          final size = 60 *
-              animation.value *
-              (cafe.place_id == selectedCafe?.place_id ? 2 : 1);
+          const defaultPinSize = 60.0;
+          final size = cafe.place_id == selectedCafe?.place_id
+              ? defaultPinSize + (animation.value * defaultPinSize)
+              : defaultPinSize;
           return GestureDetector(
             onTap: () => selectCafe(cafe),
             onDoubleTap: () => selectCafe(cafe, additionalZoom: 2),
@@ -125,7 +127,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
     for (var cafe in cafes) {
       final lat = cafe.geometry.location.lat;
       final lng = cafe.geometry.location.lng;
-      cafeMarkers[cafe.place_id] = buildCafePin(LatLng(lat, lng), cafe);
+      cafeMarkers[cafe.place_id] = buildAnimatedCafePin(LatLng(lat, lng), cafe);
       this.cafes[cafe.place_id] = cafe;
     }
     setState(() {
