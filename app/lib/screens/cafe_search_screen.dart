@@ -36,7 +36,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
 
   Place? selectedCafe;
 
-  bool isLoading = false;
+  String? loadingMessage;
 
   String? error;
 
@@ -136,12 +136,16 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
 
   Future<void> populateMap() async {
     try {
+      setState(() {
+        loadingMessage = 'Acquiring location...';
+      });
+
       final location = await _locationService.getLocation();
 
       await setUserOnMap(location);
 
       setState(() {
-        isLoading = true;
+        loadingMessage = 'Fetching cafes...';
       });
 
       final cafes =
@@ -154,7 +158,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
       });
     } finally {
       setState(() {
-        isLoading = false;
+        loadingMessage = null;
       });
     }
   }
@@ -190,8 +194,8 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
             ),
             Expanded(
               flex: 1,
-              child: (isLoading)
-                  ? const CafeLoadingScreen()
+              child: (loadingMessage != null)
+                  ? CafeLoadingScreen(message: loadingMessage!)
                   : (error != null)
                       ? errorDisplay(context)
                       : (cafeMarkers.isEmpty)
