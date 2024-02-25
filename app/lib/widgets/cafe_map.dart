@@ -56,6 +56,11 @@ class CafeMap extends StatelessWidget {
                   onTap: () => launchUrl(
                       Uri.parse('https://openstreetmap.org/copyright')),
                 ),
+                TextSourceAttribution(
+                  'Google Places API',
+                  onTap: () => launchUrl(Uri.parse(
+                      'https://developers.google.com/maps/documentation/places/web-service/policies')),
+                ),
               ],
             ),
           ],
