@@ -5,6 +5,7 @@ import 'package:cafe_now_app/models/place.dart';
 import 'package:cafe_now_app/services/cafe_service.dart';
 import 'package:cafe_now_app/services/location_service.dart';
 import 'package:cafe_now_app/widgets/cafe_list_item.dart';
+import 'package:cafe_now_app/widgets/cafe_loading_screen.dart';
 import 'package:cafe_now_app/widgets/cafe_map.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -34,6 +35,10 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
   final LinkedHashMap<String, Place> cafes = LinkedHashMap();
 
   Place? selectedCafe;
+
+  bool isLoading = false;
+
+  String? error;
 
   void selectCafe(Place cafe, {double additionalZoom = 0}) {
     _animatedMapController.animateTo(
@@ -99,15 +104,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
     _cafeService = CafeService();
     _itemScrollController = ItemScrollController();
 
-    populateMap().catchError((error) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Error occurred: ${error.toString()}'),
-          duration: const Duration(seconds: 2),
-          showCloseIcon: true,
-        ),
-      );
-    });
+    populateMap();
   }
 
   Future<void> setUserOnMap(Position location) async {
@@ -138,14 +135,36 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
   }
 
   Future<void> populateMap() async {
-    final location = await _locationService.getLocation();
+    try {
+      final location = await _locationService.getLocation();
 
-    await setUserOnMap(location);
+      await setUserOnMap(location);
 
-    final cafes =
-        await _cafeService.fetchCafes(location.latitude, location.longitude);
+      setState(() {
+        isLoading = true;
+      });
 
-    await setCafesOnMap(cafes);
+      final cafes =
+          await _cafeService.fetchCafes(location.latitude, location.longitude);
+
+      await setCafesOnMap(cafes);
+    } catch (error) {
+      setState(() {
+        this.error = error.toString();
+      });
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
+  Future<void> retryPopulateMap() async {
+    setState(() {
+      error = null;
+    });
+
+    await populateMap();
   }
 
   @override
@@ -171,26 +190,71 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
             ),
             Expanded(
               flex: 1,
-              child: ScrollablePositionedList.builder(
-                itemScrollController: _itemScrollController,
-                itemCount: cafes.length,
-                scrollDirection: Axis.vertical,
-                itemBuilder: (context, index) {
-                  final cafe = cafes.values.elementAt(index);
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: GestureDetector(
-                      onTap: () => selectCafe(cafe),
-                      child:
-                          CafeListItem(selectedCafe: selectedCafe, cafe: cafe),
-                    ),
-                  );
-                },
+              child: (isLoading)
+                  ? const CafeLoadingScreen()
+                  : (error != null)
+                      ? errorDisplay(context)
+                      : (cafeMarkers.isEmpty)
+                          ? Image.asset(
+                              'assets/images/CuteCoffeeMugNoBackground.png')
+                          : cafeList(),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Card errorDisplay(BuildContext context) {
+    return Card(
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Error occurred!",
+              style: Theme.of(context).textTheme.displayLarge,
+            ),
+            const SizedBox(height: 30),
+            Text(
+              error!,
+              style: Theme.of(context).textTheme.displayMedium,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 3,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: retryPopulateMap,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  'Retry',
+                  style: Theme.of(context).textTheme.displayLarge,
+                ),
               ),
             )
           ],
         ),
       ),
+    );
+  }
+
+  ScrollablePositionedList cafeList() {
+    return ScrollablePositionedList.builder(
+      itemScrollController: _itemScrollController,
+      itemCount: cafes.length,
+      scrollDirection: Axis.vertical,
+      itemBuilder: (context, index) {
+        final cafe = cafes.values.elementAt(index);
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GestureDetector(
+            onTap: () => selectCafe(cafe),
+            child: CafeListItem(selectedCafe: selectedCafe, cafe: cafe),
+          ),
+        );
+      },
     );
   }
 }
