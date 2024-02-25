@@ -12,7 +12,7 @@ const getNearbyCafes = async ({
 }: PlacesNearbySearchRequest): Promise<Place[]> => {
   const apiUrl =
     nodeEnv === 'production'
-      ? `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&type=cafe&rankby=distance&key=${googleApiKey}`
+      ? `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&type=cafe&rankby=distance&key=${googleApiKey}&opennow=true`
       : mockApiUrl!; // Program would have aborted in environment.ts if nodeEnv is not production and mockApiUrl doesn't exist
 
   const axiosResponse = await axios.get(apiUrl);
