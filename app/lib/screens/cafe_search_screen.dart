@@ -80,6 +80,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
         point: point,
         width: 60,
         height: 60,
+        alignment: Alignment.topCenter,
         child: const Icon(
           Icons.room,
           color: Colors.blue,
