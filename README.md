@@ -2,11 +2,40 @@
 
 > Mobile application for finding the nearest cafes closest to you!
 
-<b>IN PROGRESS</b>
+**DISCLAIMER:** This is just a student technical demo, and not for distribution. The Google Maps API key used is no longer active. For a distributed version, the map tile should be changed to one provided by Google Maps, to follow [Google Maps APIs Terms of Service](https://developers.google.com/maps/terms-20180207). Either that, or the places should be acquired from another provider.
 
 ## Summary
 
-Multi-platform-appication with [Flutter](https://flutter.dev/) that communicates with the [Google Maps Places API](https://developers.google.com/maps/documentation/places/web-service/overview) through a [Bun](https://bun.sh/) server with an [Express](https://expressjs.com/) API that acts as a [backend-for-frontend](https://medium.com/mobilepeople/backend-for-frontend-pattern-why-you-need-to-know-it-46f94ce420b0).
+Multi-platform-application with [Flutter](https://flutter.dev/) that communicates with the [Google Maps Places API](https://developers.google.com/maps/documentation/places/web-service/overview) through a [Bun](https://bun.sh/) server with an [Express](https://expressjs.com/) API that acts as a [backend-for-frontend](https://medium.com/mobilepeople/backend-for-frontend-pattern-why-you-need-to-know-it-46f94ce420b0). This is to avoid revealing the API key for the users and transform the response body to contain only the relevant information. The Google API key itself can be restricted to only work on certain endpoints, so it potentially could be used straight from the app, but creating the intermediary with [Bun](https://bun.sh/) was half the fun, and a great learning exercise.
+
+## Flutter Application
+
+### Summary
+
+The application is created with [Flutter](https://flutter.dev/) and can be built for Windows, iOS and Android. The application finds the users location using GPS, and asks the intermediary server for the 20 nearest cafes. Then it renders each cafe on the map, and shows a list of them on the bottom half of the screen. Single cafe details page can be opened there for more information and a link to the device's default navigation app.
+
+### Demo
+
+https://github.com/tuukkaviitanen/cafe-now-app/assets/97726090/e9b6310e-dc7b-4ba5-9d7b-33c43f695fc4
+
+### Map
+
+[flutter_map](https://pub.dev/packages/flutter_map) plugin is used to create the map on the screen. flutter_map uses the [latlong2](https://pub.dev/packages/latlong2) coordinate plugin for handling coordinates. [OpenStreetMap](https://www.openstreetmap.org/about) "hot" map tile is used for the map background. [geolocator](https://pub.dev/packages/geolocator) plugin is used to access the device's location, after getting the user's permission with [permission_handler](https://pub.dev/packages/permission_handler) plugin.
+
+### Animations
+
+Flutter is an excellent choice for creating beautiful animations easily. It offers many built-in animation features. This application uses [flutter_map_animations](https://pub.dev/packages/flutter_map_animations) plugin for animating the map movement and map markers. [scrollable_positioned_list](https://pub.dev/packages/scrollable_positioned_list) plugin is used to animate scrolling on the list of cafes. Flutter built-in [Hero animations](https://docs.flutter.dev/ui/animations/hero-animations) are used to animate the transition from map screen to details screen.
+
+### Other notable use of plugins
+
+- [go_router](https://pub.dev/packages/go_router) is used to create a great routing system for the application
+- [json_serializer](https://pub.dev/packages/json_serializer) is a great package for parsing complicated [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) data into dart classes
+- [http](https://pub.dev/packages/http) is used for making HTTP requests
+- [maps_launcher](https://pub.dev/packages/maps_launcher) is used to launch the device's default maps application (or the one that the user selects)
+- [url_launcher](https://pub.dev/packages/url_launcher) is used for launching web urls in the device's default browser
+- [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) is used to change the application's launcher icons easily on multiple platforms at once
+- [rename_app](https://pub.dev/packages/rename_app) is used for renaming the app on multiple platforms at once
+  - Although renaming on Windows required some manual fixing (see commit 0.0.12 for details)
 
 ## Server
 
@@ -16,7 +45,7 @@ The server is created with [Bun](https://bun.sh/); a [JavaScript](https://develo
 
 Bun also includes it's own package manager that is multiple times faster than [npm](https://www.npmjs.com/). It offers other great tools like a [jest](https://jestjs.io/)-like test runner and a bundler that can package your applications to a minified single JavaScript file. It also automatically reads your .env files and includes hot reload for development. I have been wanting to try out these features for a long time.
 
-Being a new runtime and all, I have found issues with Bun as well. Not all dependencies run perfectly on Bun. I have tried to run Node based commandline tools in [Bun docker images](https://hub.docker.com/r/oven/bun/tags), and at least [mockoon-cli](https://mockoon.com/cli/) is not installing properly. Also this project crashes on any slim, alpine or distroless Bun images.
+Being a new runtime and all, I have found issues with Bun as well. Not all dependencies run perfectly on Bun. I have tried to run Node based command line tools in [Bun docker images](https://hub.docker.com/r/oven/bun/tags), and at least [mockoon-cli](https://mockoon.com/cli/) is not installing properly. Also this project crashes on any slim, alpine or distroless Bun images.
 
 I would use and recommend Bun for smaller TypeScript projects, because of it's easy and fast setup process. Anything with more complicated and bigger dependencies might start causing issues down the line, so I still wouldn't use it for any larger production projects.
 
