@@ -16,7 +16,7 @@ The application is created with [Flutter](https://flutter.dev/) and can be built
 
 ### Demo
 
-
+https://github.com/tuukkaviitanen/cafe-now-app/assets/97726090/e9b6310e-dc7b-4ba5-9d7b-33c43f695fc4
 
 ### Map
 
@@ -24,7 +24,7 @@ The application is created with [Flutter](https://flutter.dev/) and can be built
 
 ### Animations
 
-Flutter is excellent choice for creating beautiful animations easily. This application uses [flutter_map_animations](https://pub.dev/packages/flutter_map_animations) plugin for animating the map movement and map markers. [scrollable_positioned_list](https://pub.dev/packages/scrollable_positioned_list) plugin is used to animate scrolling on the list of cafes. Flutter built-in [Hero animations](https://docs.flutter.dev/ui/animations/hero-animations) are used to animate the transition from map screen to details screen.
+Flutter is an excellent choice for creating beautiful animations easily. It offers many built-in animation features. This application uses [flutter_map_animations](https://pub.dev/packages/flutter_map_animations) plugin for animating the map movement and map markers. [scrollable_positioned_list](https://pub.dev/packages/scrollable_positioned_list) plugin is used to animate scrolling on the list of cafes. Flutter built-in [Hero animations](https://docs.flutter.dev/ui/animations/hero-animations) are used to animate the transition from map screen to details screen.
 
 ### Other notable use of plugins
 
