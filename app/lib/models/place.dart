@@ -1,7 +1,5 @@
-// ignore_for_file: non_constant_identifier_names
-
 class Response {
-  final String version;
+  final double version;
   final String generator;
   final List<Place> elements;
 
@@ -10,6 +8,15 @@ class Response {
     required this.generator,
     required this.elements,
   });
+
+  factory Response.fromJson(Map<String, dynamic> json) {
+    return Response(
+      version: json['version'],
+      generator: json['generator'],
+      elements: List<Place>.from(
+          json['elements'].map((x) => Place.fromJson(x)).toList()),
+    );
+  }
 }
 
 class Place {
@@ -26,18 +33,63 @@ class Place {
     required this.lon,
     required this.tags,
   });
+
+  factory Place.fromJson(Map<String, dynamic> json) {
+    return Place(
+      type: json['type'],
+      id: json['id'],
+      lat: json['lat'],
+      lon: json['lon'],
+      tags: Tags.fromJson(json['tags']),
+    );
+  }
 }
 
 class Tags {
   final String name;
   final String? website;
   final String? phone;
-  final String? opening_hours;
+  final String? openingHours;
+  final String? street;
+  final String? housenumber;
+  final String? postcode;
+  final String? city;
+  final String? country;
+  final String? email;
+
+  String? getAddress() {
+    if (street == null || housenumber == null || city == null) {
+      return null;
+    }
+
+    return '$street $housenumber, $city';
+  }
 
   Tags({
     required this.name,
     this.website,
     this.phone,
-    this.opening_hours,
+    this.openingHours,
+    this.street,
+    this.housenumber,
+    this.postcode,
+    this.city,
+    this.country,
+    this.email,
   });
+
+  factory Tags.fromJson(Map<String, dynamic> json) {
+    return Tags(
+      name: json['name'],
+      website: json['website'],
+      phone: json['phone'],
+      openingHours: json['opening_hours'],
+      street: json['addr:street'],
+      housenumber: json['addr:housenumber'],
+      postcode: json['addr:postcode'],
+      city: json['addr:city'],
+      country: json['addr:country'],
+      email: json['email'],
+    );
+  }
 }

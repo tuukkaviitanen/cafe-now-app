@@ -1,5 +1,4 @@
 import 'package:cafe_now_app/models/place.dart';
-import 'package:cafe_now_app/widgets/opening_hours.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -45,35 +44,23 @@ class CafeDetailsScreen extends StatelessWidget {
                                 textAlign: TextAlign.center,
                                 style:
                                     Theme.of(context).textTheme.displayLarge),
-                            const SizedBox(height: 10),
-                            // (cafe.rating != null &&
-                            //         cafe.user_ratings_total != null)
-                            //     ? Row(
-                            //         mainAxisAlignment: MainAxisAlignment.center,
-                            //         children: [
-                            //           Text(
-                            //             '${cafe.rating} / 5',
-                            //             style: Theme.of(context)
-                            //                 .textTheme
-                            //                 .displayMedium,
-                            //           ),
-                            //           const Icon(Icons.star,
-                            //               color: Colors.amber),
-                            //           Text('(${cafe.user_ratings_total})'),
-                            //         ],
-                            //       )
-                            //     : Text('No ratings yet!',
-                            //         style: Theme.of(context)
-                            //             .textTheme
-                            //             .displayMedium),
-                            const SizedBox(height: 10),
-                            Text(
+                            const SizedBox(height: 30),
+                            Text(cafe.tags.phone ?? 'No phone number',
                                 textAlign: TextAlign.center,
-                                cafe.tags.website ?? '',
                                 style:
                                     Theme.of(context).textTheme.displayMedium),
                             const SizedBox(height: 10),
-                            OpeningHours(cafe: cafe),
+                            Text(cafe.tags.website ?? 'No website',
+                                textAlign: TextAlign.center,
+                                style:
+                                    Theme.of(context).textTheme.displayMedium),
+                            const SizedBox(height: 10),
+                            Text(
+                                textAlign: TextAlign.center,
+                                cafe.tags.openingHours ??
+                                    'Unknown opening hours',
+                                style:
+                                    Theme.of(context).textTheme.displayMedium),
                           ],
                         ),
                         ElevatedButton(

@@ -42,7 +42,7 @@ class CafeListItem extends StatelessWidget {
                 OpeningHours(cafe: cafe),
               ],
             ),
-            subtitle: Text(cafe.tags.website ?? '',
+            subtitle: Text(cafe.tags.getAddress() ?? 'Address unknown',
                 style: Theme.of(context).textTheme.displayMedium),
             trailing: ElevatedButton(
               onPressed: () {
