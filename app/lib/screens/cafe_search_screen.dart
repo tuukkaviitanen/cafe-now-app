@@ -187,22 +187,23 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: CafeMap(
-                  mapController: _animatedMapController.mapController,
+                  animatedMapController: _animatedMapController,
                   cafeMarkers: cafeMarkers.values.toList(),
                   userMarkers: userMarkers,
+                  centerMap: populateMap,
                 ),
               ),
             ),
             Expanded(
               flex: 1,
-              child: (loadingMessage != null)
-                  ? CafeLoadingScreen(message: loadingMessage!)
+              child: (cafeMarkers.isNotEmpty)
+                  ? cafeList()
                   : (error != null)
                       ? errorDisplay(context)
-                      : (cafeMarkers.isEmpty)
-                          ? Image.asset(
-                              'assets/images/CuteCoffeeMugNoBackground.png')
-                          : cafeList(),
+                      : (loadingMessage != null)
+                          ? CafeLoadingScreen(message: loadingMessage!)
+                          : Image.asset(
+                              'assets/images/CuteCoffeeMugNoBackground.png'),
             ),
           ],
         ),
