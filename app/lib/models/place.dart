@@ -83,7 +83,10 @@ class Tags {
       name: json['name'],
       website: json['website'],
       phone: json['phone'],
-      openingHours: json['opening_hours'],
+      openingHours: (json['opening_hours'] as String?)
+          ?.split(';')
+          .map((x) => x.trim())
+          .join('\n'),
       street: json['addr:street'],
       housenumber: json['addr:housenumber'],
       postcode: json['addr:postcode'],
