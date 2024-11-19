@@ -1,4 +1,4 @@
-package com.example.cafe_now_app
+package net.tuukka.cafe_now_app
 
 import io.flutter.embedding.android.FlutterActivity
 
