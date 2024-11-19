@@ -39,63 +39,57 @@ class CafeDetailsScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Column(
-                          children: [
-                            Text(cafe.tags.name,
-                                textAlign: TextAlign.center,
-                                style:
-                                    Theme.of(context).textTheme.displayLarge),
-                            const SizedBox(height: 30), // Separator
-                            Text(
-                                textAlign: TextAlign.center,
-                                cafe.tags.openingHours ??
-                                    'Unknown opening hours',
-                                style:
-                                    Theme.of(context).textTheme.displayMedium),
-                            const SizedBox(height: 20), // Separator
-                            (cafe.tags.phone != null)
-                                ? ElevatedButton(
-                                    onPressed: () => launchUrl(Uri(
-                                        scheme: 'tel', path: cafe.tags.phone)),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text(
-                                        textAlign: TextAlign.center,
-                                        cafe.tags.phone!,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .displayMedium,
-                                      ),
-                                    ))
-                                : Text(
-                                    "No phone number",
+                        Text(cafe.tags.name,
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.displayLarge),
+                        const SizedBox(height: 30), // Separator
+                        Text(
+                            textAlign: TextAlign.center,
+                            cafe.tags.openingHours ?? 'Unknown opening hours',
+                            style: Theme.of(context).textTheme.displayMedium),
+                        const SizedBox(height: 20), // Separator
+                        (cafe.tags.phone != null)
+                            ? ElevatedButton(
+                                onPressed: () => launchUrl(
+                                    Uri(scheme: 'tel', path: cafe.tags.phone)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    textAlign: TextAlign.center,
+                                    cafe.tags.phone!,
                                     style: Theme.of(context)
                                         .textTheme
                                         .displayMedium,
                                   ),
-                            const SizedBox(height: 10), // Separator
-                            (cafe.tags.website != null)
-                                ? ElevatedButton(
-                                    onPressed: () => launchUrl(
-                                        Uri.parse(cafe.tags.website!)),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text(
-                                        textAlign: TextAlign.center,
-                                        cafe.tags.website!,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .displayMedium,
-                                      ),
-                                    ))
-                                : Text(
-                                    "No website available",
+                                ))
+                            : Text(
+                                "No phone number",
+                                style:
+                                    Theme.of(context).textTheme.displayMedium,
+                              ),
+                        const SizedBox(height: 10), // Separator
+                        (cafe.tags.website != null)
+                            ? ElevatedButton(
+                                onPressed: () =>
+                                    launchUrl(Uri.parse(cafe.tags.website!)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    textAlign: TextAlign.center,
+                                    Uri.parse(cafe.tags.website!).host,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
                                     style: Theme.of(context)
                                         .textTheme
                                         .displayMedium,
                                   ),
-                          ],
-                        ),
+                                ))
+                            : Text(
+                                "No website available",
+                                style:
+                                    Theme.of(context).textTheme.displayMedium,
+                              ),
+                        const SizedBox(height: 10), // Separator
                         ElevatedButton(
                           onPressed: () => MapsLauncher.launchCoordinates(
                               cafe.lat, cafe.lon, cafe.tags.name),
