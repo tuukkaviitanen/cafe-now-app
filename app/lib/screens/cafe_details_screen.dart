@@ -94,11 +94,11 @@ class CafeDetailsScreen extends StatelessWidget {
                           onPressed: () => MapsLauncher.launchCoordinates(
                               cafe.lat, cafe.lon, cafe.tags.name),
                           child: Padding(
-                            padding: const EdgeInsets.all(20),
+                            padding: const EdgeInsets.all(8.0),
                             child: Text(
                               textAlign: TextAlign.center,
                               'Open in Maps',
-                              style: Theme.of(context).textTheme.displayLarge,
+                              style: Theme.of(context).textTheme.displayMedium,
                             ),
                           ),
                         )
