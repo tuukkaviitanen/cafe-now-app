@@ -72,8 +72,8 @@ class _MainAppState extends State<MainApp> {
             onSurface: Colors.black),
         textTheme: GoogleFonts.dynaPuffTextTheme(
           const TextTheme(
-            displayLarge: TextStyle(fontSize: 25.0),
-            displayMedium: TextStyle(fontSize: 18.0),
+            displayLarge: TextStyle(fontSize: 30.0),
+            displayMedium: TextStyle(fontSize: 23.0),
             displaySmall: TextStyle(fontSize: 14.0),
           ),
         ),

@@ -37,13 +37,13 @@ class CafeListItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(cafe.tags.name,
-                    style: Theme.of(context).textTheme.displayLarge),
+                    style: Theme.of(context).textTheme.displayMedium),
                 const SizedBox(width: 20),
                 OpeningHours(cafe: cafe),
               ],
             ),
             subtitle: Text(cafe.tags.getAddress() ?? 'Address unknown',
-                style: Theme.of(context).textTheme.displayMedium),
+                style: Theme.of(context).textTheme.displaySmall),
             trailing: ElevatedButton(
               onPressed: () {
                 context.go(
