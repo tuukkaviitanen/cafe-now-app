@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:cafe_now_app/models/place.dart';
 import 'package:http/http.dart' as http;
 import 'package:latlong2/latlong.dart';
@@ -19,7 +18,8 @@ class CafeService {
     final response = await http.post(Uri.parse(url), body: request);
 
     if (response.statusCode == 200) {
-      Response responseBody = Response.fromJson(jsonDecode(response.body));
+      Response responseBody =
+          Response.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
 
       const Distance distance = Distance();
 
