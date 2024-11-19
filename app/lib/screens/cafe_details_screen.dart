@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:maps_launcher/maps_launcher.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CafeDetailsScreen extends StatelessWidget {
   const CafeDetailsScreen({super.key, required this.cafe});
@@ -44,17 +45,25 @@ class CafeDetailsScreen extends StatelessWidget {
                                 textAlign: TextAlign.center,
                                 style:
                                     Theme.of(context).textTheme.displayLarge),
-                            const SizedBox(height: 30),
-                            Text(cafe.tags.phone ?? 'No phone number',
-                                textAlign: TextAlign.center,
-                                style:
-                                    Theme.of(context).textTheme.displayMedium),
-                            const SizedBox(height: 10),
+                            const SizedBox(height: 30), // Separator
+                            (cafe.tags.phone != null)
+                                ? ElevatedButton(
+                                    onPressed: () => launchUrl(Uri(
+                                        scheme: 'tel', path: cafe.tags.phone)),
+                                    child: Text(
+                                      textAlign: TextAlign.center,
+                                      cafe.tags.phone!,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displayLarge,
+                                    ))
+                                : const Text("No phone number"),
+                            const SizedBox(height: 10), // Separator
                             Text(cafe.tags.website ?? 'No website',
                                 textAlign: TextAlign.center,
                                 style:
                                     Theme.of(context).textTheme.displayMedium),
-                            const SizedBox(height: 10),
+                            const SizedBox(height: 10), // Separator
                             Text(
                                 textAlign: TextAlign.center,
                                 cafe.tags.openingHours ??
