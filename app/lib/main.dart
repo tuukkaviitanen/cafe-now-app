@@ -66,9 +66,7 @@ class _MainAppState extends State<MainApp> {
             onSecondary: Colors.black,
             error: Colors.deepOrangeAccent,
             onError: Colors.black,
-            background: Color.fromRGBO(254, 236, 226, 1),
-            onBackground: Colors.black,
-            surface: Color.fromRGBO(255, 252, 250, 1),
+            surface: Color.fromRGBO(254, 236, 226, 1),
             onSurface: Colors.black),
         textTheme: GoogleFonts.dynaPuffTextTheme(
           const TextTheme(
