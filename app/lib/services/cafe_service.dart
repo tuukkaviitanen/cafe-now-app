@@ -6,29 +6,29 @@ import 'package:json_serializer/json_serializer.dart';
 class CafeService {
   CafeService() {
     JsonSerializer.options = JsonSerializerOptions(types: [
+      UserType<Response>(Response.new),
       UserType<Place>(Place.new),
-      UserType<PlaceGeometry>(PlaceGeometry.new),
-      UserType<PlaceOpeningHours>(PlaceOpeningHours.new),
-      UserType<PlacePhoto>(PlacePhoto.new),
-      UserType<PlacePlusCode>(PlacePlusCode.new),
-      UserType<Location>(Location.new),
-      UserType<DayTime>(DayTime.new),
-      UserType<PlaceOpeningHoursPeriod>(PlaceOpeningHoursPeriod.new),
-      UserType<PlaceViewport>(PlaceViewport.new),
+      UserType<Tags>(Tags.new),
     ]);
   }
 
-  static const serverUrl = String.fromEnvironment('API_URL',
-      defaultValue: 'https://cafe-now-app.onrender.com');
-
   Future<List<Place>> fetchCafes(double latitude, double longitude) async {
-    final response = await http.get(Uri.parse(
-        '$serverUrl/nearbyCafes?latitude=$latitude&longitude=$longitude'));
+    const url = "https://overpass-api.de/api/interpreter";
+
+    final request = '''
+      [out:json];
+      node
+        ["amenity"="cafe"]
+        (around:1000, $latitude, $longitude);
+      out;
+    ''';
+
+    final response = await http.post(Uri.parse(url), body: request);
 
     if (response.statusCode == 200) {
-      List<Place> cafes =
-          JsonSerializer.deserialize<List<Place>>(response.body);
-      return cafes;
+      Response responseBody =
+          JsonSerializer.deserialize<Response>(response.body);
+      return responseBody.elements;
     } else {
       throw Exception('Failed to fetch cafes');
     }

@@ -25,7 +25,7 @@ class CafeListItem extends StatelessWidget {
         boxShadow: [
           MainApp.defaultBoxShadow,
         ],
-        color: selectedCafe?.place_id == cafe.place_id
+        color: selectedCafe?.id == cafe.id
             ? Theme.of(context).colorScheme.secondary
             : Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -36,13 +36,13 @@ class CafeListItem extends StatelessWidget {
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(cafe.name,
+                Text(cafe.tags.name,
                     style: Theme.of(context).textTheme.displayLarge),
                 const SizedBox(width: 20),
                 OpeningHours(cafe: cafe),
               ],
             ),
-            subtitle: Text(cafe.vicinity ?? cafe.formatted_address ?? '',
+            subtitle: Text(cafe.tags.website ?? '',
                 style: Theme.of(context).textTheme.displayMedium),
             trailing: ElevatedButton(
               onPressed: () {

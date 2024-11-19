@@ -15,7 +15,7 @@ class CafeDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(cafe.name),
+          title: Text(cafe.tags.name),
           backgroundColor: Theme.of(context).colorScheme.primary,
         ),
         body: Column(
@@ -24,7 +24,7 @@ class CafeDetailsScreen extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Hero(
-                  tag: cafe.place_id,
+                  tag: cafe.id,
                   child: Image.asset(
                       'assets/images/CuteCoffeeMugNoBackground.png')),
             ),
@@ -41,35 +41,35 @@ class CafeDetailsScreen extends StatelessWidget {
                       children: [
                         Column(
                           children: [
-                            Text(cafe.name,
+                            Text(cafe.tags.name,
                                 textAlign: TextAlign.center,
                                 style:
                                     Theme.of(context).textTheme.displayLarge),
                             const SizedBox(height: 10),
-                            (cafe.rating != null &&
-                                    cafe.user_ratings_total != null)
-                                ? Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        '${cafe.rating} / 5',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .displayMedium,
-                                      ),
-                                      const Icon(Icons.star,
-                                          color: Colors.amber),
-                                      Text('(${cafe.user_ratings_total})'),
-                                    ],
-                                  )
-                                : Text('No ratings yet!',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .displayMedium),
+                            // (cafe.rating != null &&
+                            //         cafe.user_ratings_total != null)
+                            //     ? Row(
+                            //         mainAxisAlignment: MainAxisAlignment.center,
+                            //         children: [
+                            //           Text(
+                            //             '${cafe.rating} / 5',
+                            //             style: Theme.of(context)
+                            //                 .textTheme
+                            //                 .displayMedium,
+                            //           ),
+                            //           const Icon(Icons.star,
+                            //               color: Colors.amber),
+                            //           Text('(${cafe.user_ratings_total})'),
+                            //         ],
+                            //       )
+                            //     : Text('No ratings yet!',
+                            //         style: Theme.of(context)
+                            //             .textTheme
+                            //             .displayMedium),
                             const SizedBox(height: 10),
                             Text(
                                 textAlign: TextAlign.center,
-                                cafe.vicinity ?? cafe.formatted_address ?? '',
+                                cafe.tags.website ?? '',
                                 style:
                                     Theme.of(context).textTheme.displayMedium),
                             const SizedBox(height: 10),
@@ -78,7 +78,7 @@ class CafeDetailsScreen extends StatelessWidget {
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            MapsLauncher.launchQuery(cafe.name);
+                            MapsLauncher.launchQuery(cafe.tags.name);
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(20),
