@@ -55,6 +55,7 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      title: "Cafe Now!",
       routerConfig: _router,
       theme: ThemeData(
         primarySwatch: Colors.orange,
