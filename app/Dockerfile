@@ -6,11 +6,11 @@ COPY . .
 
 RUN flutter pub get --enforce-lockfile
 
-RUN flutter build web
+RUN flutter build web --release
 
 # Final image
 FROM nginx:1.27
 
-COPY --from=build /build/web /usr/share/nginx/html
+COPY --from=build-stage /app/build/web /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
