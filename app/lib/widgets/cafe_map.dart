@@ -19,7 +19,7 @@ class CafeMap extends StatelessWidget {
   final List<Marker> userMarkers;
   final Function centerMap;
 
-  static const mapUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  static const mapUrl = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
   static const defaultZoom = 15.0;
 
   @override
