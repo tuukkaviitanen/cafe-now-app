@@ -1,127 +1,98 @@
-// ignore_for_file: non_constant_identifier_names
+class Response {
+  final double version;
+  final String generator;
+  final List<Place> elements;
 
-class Location {
-  final double lat;
-  final double lng;
-
-  Location({
-    required this.lat,
-    required this.lng,
+  Response({
+    required this.version,
+    required this.generator,
+    required this.elements,
   });
-}
 
-class PlaceGeometry {
-  final Location location;
-  final PlaceViewport viewport;
-
-  PlaceGeometry({
-    required this.location,
-    required this.viewport,
-  });
-}
-
-class PlaceViewport {
-  final Location northeast;
-  final Location southwest;
-
-  PlaceViewport({
-    required this.northeast,
-    required this.southwest,
-  });
-}
-
-class PlaceOpeningHoursPeriod {
-  final DayTime close;
-  final DayTime open;
-
-  PlaceOpeningHoursPeriod({
-    required this.close,
-    required this.open,
-  });
-}
-
-class DayTime {
-  final int day;
-  final String time;
-
-  DayTime({
-    required this.day,
-    required this.time,
-  });
-}
-
-class PlaceOpeningHours {
-  final List<PlaceOpeningHoursPeriod>? periods;
-  final bool open_now;
-  final List<String>? weekday_text;
-
-  PlaceOpeningHours({
-    this.periods,
-    required this.open_now,
-    this.weekday_text,
-  });
-}
-
-class PlacePhoto {
-  final int height;
-  final List<String> html_attributions;
-  final String photo_reference;
-  final int width;
-
-  PlacePhoto({
-    required this.height,
-    required this.html_attributions,
-    required this.photo_reference,
-    required this.width,
-  });
-}
-
-class PlacePlusCode {
-  final String compound_code;
-  final String global_code;
-
-  PlacePlusCode({
-    required this.compound_code,
-    required this.global_code,
-  });
+  factory Response.fromJson(Map<String, dynamic> json) {
+    return Response(
+      version: json['version'],
+      generator: json['generator'],
+      elements: List<Place>.from(
+          json['elements'].map((x) => Place.fromJson(x)).toList()),
+    );
+  }
 }
 
 class Place {
-  final String? business_status;
-  final String? formatted_address;
-  final PlaceGeometry geometry;
-  final String icon;
-  final String name;
-  final PlaceOpeningHours? opening_hours;
-  final List<PlacePhoto>? photos;
-  final String place_id;
-  final PlacePlusCode? plus_code;
-  final double? rating;
-  final String reference;
-  final List<String> types;
-  final int? user_ratings_total;
-  final String? vicinity;
-  final String? website;
-  final int? price_level;
-  final bool? wheelchair_accessible_entrance;
+  final String type;
+  final int id;
+  final double lat;
+  final double lon;
+  final Tags tags;
 
   Place({
-    this.business_status,
-    this.formatted_address,
-    required this.geometry,
-    required this.icon,
-    required this.name,
-    this.opening_hours,
-    this.photos,
-    required this.place_id,
-    this.plus_code,
-    this.rating,
-    required this.reference,
-    required this.types,
-    this.user_ratings_total,
-    this.vicinity,
-    this.website,
-    this.price_level,
-    this.wheelchair_accessible_entrance,
+    required this.type,
+    required this.id,
+    required this.lat,
+    required this.lon,
+    required this.tags,
   });
+
+  factory Place.fromJson(Map<String, dynamic> json) {
+    return Place(
+      type: json['type'],
+      id: json['id'],
+      lat: json['lat'],
+      lon: json['lon'],
+      tags: Tags.fromJson(json['tags']),
+    );
+  }
+}
+
+class Tags {
+  final String name;
+  final String? website;
+  final String? phone;
+  final String? openingHours;
+  final String? street;
+  final String? housenumber;
+  final String? postcode;
+  final String? city;
+  final String? country;
+  final String? email;
+
+  String? getAddress() {
+    if (street == null || housenumber == null || city == null) {
+      return null;
+    }
+
+    return '$street $housenumber, $city';
+  }
+
+  Tags({
+    required this.name,
+    this.website,
+    this.phone,
+    this.openingHours,
+    this.street,
+    this.housenumber,
+    this.postcode,
+    this.city,
+    this.country,
+    this.email,
+  });
+
+  factory Tags.fromJson(Map<String, dynamic> json) {
+    return Tags(
+      name: json['name'],
+      website: json['website'],
+      phone: json['phone'],
+      openingHours: (json['opening_hours'] as String?)
+          ?.split(';')
+          .map((x) => x.trim())
+          .join('\n'),
+      street: json['addr:street'],
+      housenumber: json['addr:housenumber'],
+      postcode: json['addr:postcode'],
+      city: json['addr:city'],
+      country: json['addr:country'],
+      email: json['email'],
+    );
+  }
 }

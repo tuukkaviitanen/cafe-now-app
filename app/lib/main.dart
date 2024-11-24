@@ -4,6 +4,7 @@ import 'package:cafe_now_app/screens/cafe_search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MainApp());
@@ -65,21 +66,21 @@ class _MainAppState extends State<MainApp> {
             onSecondary: Colors.black,
             error: Colors.deepOrangeAccent,
             onError: Colors.black,
-            background: Color.fromRGBO(254, 236, 226, 1),
-            onBackground: Colors.black,
-            surface: Color.fromRGBO(255, 252, 250, 1),
+            surface: Color.fromRGBO(254, 236, 226, 1),
             onSurface: Colors.black),
-        textTheme: const TextTheme(
-          displayLarge: TextStyle(fontSize: 25.0),
-          displayMedium: TextStyle(fontSize: 18.0),
-          displaySmall: TextStyle(fontSize: 14.0),
+        textTheme: GoogleFonts.dynaPuffTextTheme(
+          const TextTheme(
+            displayLarge: TextStyle(fontSize: 30.0),
+            displayMedium: TextStyle(fontSize: 23.0),
+            displaySmall: TextStyle(fontSize: 14.0),
+          ),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-            elevation: MaterialStateProperty.all(5),
-            backgroundColor: MaterialStateProperty.all(
-                const Color.fromRGBO(250, 195, 164, 1)),
-            textStyle: MaterialStateProperty.all(
+            elevation: WidgetStateProperty.all(5),
+            backgroundColor:
+                WidgetStateProperty.all(const Color.fromRGBO(250, 195, 164, 1)),
+            textStyle: WidgetStateProperty.all(
               const TextStyle(fontSize: 18),
             ),
           ),

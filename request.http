@@ -1,0 +1,7 @@
+POST https://overpass-api.de/api/interpreter
+
+data=[out:json];
+(
+    node["amenity"="cafe"](around:1000,61.502046,23.766550);
+);
+out body;

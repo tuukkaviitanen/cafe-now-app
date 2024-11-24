@@ -42,10 +42,10 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
 
   void selectCafe(Place cafe, {double additionalZoom = 0}) {
     _animatedMapController.animateTo(
-        dest: LatLng(cafe.geometry.location.lat, cafe.geometry.location.lng),
+        dest: LatLng(cafe.lat, cafe.lon),
         zoom: CafeMap.defaultZoom + 2 + additionalZoom);
     _itemScrollController.scrollTo(
-      index: cafes.keys.toList().indexOf(cafe.place_id),
+      index: cafes.keys.toList().indexOf(cafe.id.toString()),
       duration: MainApp.defaultAnimationDuration,
       curve: Curves.easeInOutCubic,
     );
@@ -63,14 +63,14 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
         height: 120,
         builder: (BuildContext context, Animation<double> animation) {
           const defaultPinSize = 60.0;
-          final size = cafe.place_id == selectedCafe?.place_id
+          final size = cafe.id == selectedCafe?.id
               ? defaultPinSize + (animation.value * defaultPinSize)
               : defaultPinSize;
           return GestureDetector(
             onTap: () => selectCafe(cafe),
             onDoubleTap: () => selectCafe(cafe, additionalZoom: 2),
             child: Hero(
-              tag: cafe.place_id,
+              tag: cafe.id,
               child: Image.asset(
                 "assets/images/CuteCoffeeMugNoBackground.png",
                 width: size,
@@ -87,7 +87,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
         height: 60,
         alignment: Alignment.topCenter,
         child: const Icon(
-          Icons.room,
+          Icons.room_rounded,
           color: Colors.blue,
           size: 60,
         ),
@@ -123,10 +123,11 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
 
   Future<void> setCafesOnMap(List<Place> cafes) async {
     for (var cafe in cafes) {
-      final lat = cafe.geometry.location.lat;
-      final lng = cafe.geometry.location.lng;
-      cafeMarkers[cafe.place_id] = buildAnimatedCafePin(LatLng(lat, lng), cafe);
-      this.cafes[cafe.place_id] = cafe;
+      final lat = cafe.lat;
+      final lng = cafe.lon;
+      cafeMarkers[cafe.id.toString()] =
+          buildAnimatedCafePin(LatLng(lat, lng), cafe);
+      this.cafes[cafe.id.toString()] = cafe;
     }
     setState(() {
       cafeMarkers;
@@ -186,22 +187,23 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: CafeMap(
-                  mapController: _animatedMapController.mapController,
+                  animatedMapController: _animatedMapController,
                   cafeMarkers: cafeMarkers.values.toList(),
                   userMarkers: userMarkers,
+                  centerMap: populateMap,
                 ),
               ),
             ),
             Expanded(
               flex: 1,
-              child: (loadingMessage != null)
-                  ? CafeLoadingScreen(message: loadingMessage!)
+              child: (cafeMarkers.isNotEmpty)
+                  ? cafeList()
                   : (error != null)
                       ? errorDisplay(context)
-                      : (cafeMarkers.isEmpty)
-                          ? Image.asset(
-                              'assets/images/CuteCoffeeMugNoBackground.png')
-                          : cafeList(),
+                      : (loadingMessage != null)
+                          ? CafeLoadingScreen(message: loadingMessage!)
+                          : Image.asset(
+                              'assets/images/CuteCoffeeMugNoBackground.png'),
             ),
           ],
         ),

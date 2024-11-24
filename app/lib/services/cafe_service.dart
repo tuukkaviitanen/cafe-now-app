@@ -1,33 +1,44 @@
+import 'dart:convert';
 import 'package:cafe_now_app/models/place.dart';
 import 'package:http/http.dart' as http;
-
-import 'package:json_serializer/json_serializer.dart';
+import 'package:latlong2/latlong.dart';
 
 class CafeService {
-  CafeService() {
-    JsonSerializer.options = JsonSerializerOptions(types: [
-      UserType<Place>(Place.new),
-      UserType<PlaceGeometry>(PlaceGeometry.new),
-      UserType<PlaceOpeningHours>(PlaceOpeningHours.new),
-      UserType<PlacePhoto>(PlacePhoto.new),
-      UserType<PlacePlusCode>(PlacePlusCode.new),
-      UserType<Location>(Location.new),
-      UserType<DayTime>(DayTime.new),
-      UserType<PlaceOpeningHoursPeriod>(PlaceOpeningHoursPeriod.new),
-      UserType<PlaceViewport>(PlaceViewport.new),
-    ]);
-  }
-
-  static const serverUrl = String.fromEnvironment('API_URL',
-      defaultValue: 'https://cafe-now-app.onrender.com');
-
   Future<List<Place>> fetchCafes(double latitude, double longitude) async {
-    final response = await http.get(Uri.parse(
-        '$serverUrl/nearbyCafes?latitude=$latitude&longitude=$longitude'));
+    const url = "https://overpass-api.de/api/interpreter";
+
+    final request = '''
+      [out:json];
+      node
+        ["amenity"="cafe"]
+        (around:1000, $latitude, $longitude);
+      out;
+    ''';
+
+    final response = await http.post(Uri.parse(url), body: request);
 
     if (response.statusCode == 200) {
-      List<Place> cafes =
-          JsonSerializer.deserialize<List<Place>>(response.body);
+      Response responseBody =
+          Response.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
+
+      const Distance distance = Distance();
+
+      final userCoordinates = LatLng(latitude, longitude);
+
+      final cafes = responseBody.elements;
+
+      responseBody.elements.sort((a, b) {
+        final aCoordinates = LatLng(a.lat, a.lon);
+        final bCoordinates = LatLng(b.lat, b.lon);
+
+        final aDistance =
+            distance.as(LengthUnit.Meter, userCoordinates, aCoordinates);
+        final bDistance =
+            distance.as(LengthUnit.Meter, userCoordinates, bCoordinates);
+
+        return aDistance.compareTo(bDistance);
+      });
+
       return cafes;
     } else {
       throw Exception('Failed to fetch cafes');

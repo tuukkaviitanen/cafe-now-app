@@ -8,16 +8,18 @@ import 'package:url_launcher/url_launcher.dart';
 class CafeMap extends StatelessWidget {
   const CafeMap({
     super.key,
-    required MapController mapController,
+    required AnimatedMapController animatedMapController,
     required this.cafeMarkers,
     required this.userMarkers,
-  }) : _mapController = mapController;
+    required this.centerMap,
+  }) : _animatedMapController = animatedMapController;
 
-  final MapController _mapController;
+  final AnimatedMapController _animatedMapController;
   final List<AnimatedMarker> cafeMarkers;
   final List<Marker> userMarkers;
+  final Function centerMap;
 
-  static const mapUrl = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
+  static const mapUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
   static const defaultZoom = 15.0;
 
   @override
@@ -31,37 +33,50 @@ class CafeMap extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child: FlutterMap(
-          options: const MapOptions(
-            initialCenter: LatLng(51.5, -0.09),
-            initialZoom: defaultZoom,
-          ),
-          mapController: _mapController,
+        child: Stack(
           children: [
-            TileLayer(
-              urlTemplate: mapUrl,
-            ),
-            AnimatedMarkerLayer(
-              markers: cafeMarkers,
-              rotate: true,
-            ),
-            MarkerLayer(
-              markers: userMarkers,
-              rotate: true,
-            ),
-            RichAttributionWidget(
-              attributions: [
-                TextSourceAttribution(
-                  'OpenStreetMap contributors',
-                  onTap: () => launchUrl(
-                      Uri.parse('https://openstreetmap.org/copyright')),
+            FlutterMap(
+              options: const MapOptions(
+                initialCenter: LatLng(51.5, -0.09),
+                initialZoom: defaultZoom,
+              ),
+              mapController: _animatedMapController.mapController,
+              children: [
+                TileLayer(
+                  urlTemplate: mapUrl,
                 ),
-                TextSourceAttribution(
-                  'Google Places API',
-                  onTap: () => launchUrl(Uri.parse(
-                      'https://developers.google.com/maps/documentation/places/web-service/policies')),
+                AnimatedMarkerLayer(
+                  markers: cafeMarkers,
+                  rotate: true,
+                ),
+                MarkerLayer(
+                  markers: userMarkers,
+                  rotate: true,
+                ),
+                RichAttributionWidget(
+                  attributions: [
+                    TextSourceAttribution(
+                      'OpenStreetMap contributors',
+                      onTap: () => launchUrl(
+                          Uri.parse('https://openstreetmap.org/copyright')),
+                    ),
+                  ],
                 ),
               ],
+            ),
+            Positioned(
+              right: 10,
+              top: 10,
+              child: FloatingActionButton(
+                  child: const Icon(Icons.north_outlined),
+                  onPressed: () => _animatedMapController.animatedRotateTo(0)),
+            ),
+            Positioned(
+              right: 10,
+              top: 80,
+              child: FloatingActionButton(
+                  child: const Icon(Icons.gps_fixed),
+                  onPressed: () => centerMap()),
             ),
           ],
         ),
