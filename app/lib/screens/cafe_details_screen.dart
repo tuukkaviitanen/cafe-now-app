@@ -34,75 +34,82 @@ class CafeDetailsScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(20),
                 child: Card(
                   color: Colors.white,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text(cafe.tags.name,
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.displayLarge),
-                        const SizedBox(height: 30), // Separator
-                        Text(
-                            textAlign: TextAlign.center,
-                            cafe.tags.openingHours ?? 'Unknown opening hours',
-                            style: Theme.of(context).textTheme.displayMedium),
-                        const SizedBox(height: 20), // Separator
-                        (cafe.tags.phone != null)
-                            ? ElevatedButton(
-                                onPressed: () => launchUrl(
-                                    Uri(scheme: 'tel', path: cafe.tags.phone)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    textAlign: TextAlign.center,
-                                    cafe.tags.phone!,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .displayMedium,
-                                  ),
-                                ))
-                            : Text(
-                                "No phone number",
-                                style:
-                                    Theme.of(context).textTheme.displayMedium,
-                              ),
-                        const SizedBox(height: 10), // Separator
-                        (cafe.tags.website != null)
-                            ? ElevatedButton(
-                                onPressed: () =>
-                                    launchUrl(Uri.parse(cafe.tags.website!)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    textAlign: TextAlign.center,
-                                    Uri.parse(cafe.tags.website!).host,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .displayMedium,
-                                  ),
-                                ))
-                            : Text(
-                                "No website available",
-                                style:
-                                    Theme.of(context).textTheme.displayMedium,
-                              ),
-                        const SizedBox(height: 10), // Separator
-                        ElevatedButton(
-                          onPressed: () => MapsLauncher.launchCoordinates(
-                              cafe.lat, cafe.lon, cafe.tags.name),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        children: [
+                          Text(cafe.tags.name,
                               textAlign: TextAlign.center,
-                              'Open in Maps',
-                              style: Theme.of(context).textTheme.displayMedium,
+                              style: Theme.of(context).textTheme.displayLarge),
+                          const SizedBox(height: 30), // Separator
+                          Text(
+                              textAlign: TextAlign.center,
+                              cafe.tags.getAddress() ?? 'Address not specified',
+                              style: Theme.of(context).textTheme.displayMedium),
+                          const SizedBox(height: 20), // Separator
+                          LinkButton(
+                            text: "Open in Maps",
+                            onPressed: () => MapsLauncher.launchCoordinates(
+                              cafe.lat,
+                              cafe.lon,
+                              cafe.tags.name,
                             ),
+                            icon: Icons.navigation,
                           ),
-                        )
-                      ],
+                          const SizedBox(height: 30), // Separator
+                          Text(
+                              textAlign: TextAlign.center,
+                              cafe.tags.openingHours ?? 'Opening hours unknown',
+                              style: Theme.of(context).textTheme.displayMedium),
+                          const SizedBox(height: 30), // Separator
+                          Text(
+                              textAlign: TextAlign.center,
+                              'Find out more!',
+                              style: Theme.of(context).textTheme.displayLarge),
+                          const SizedBox(height: 20), // Separator
+                          (cafe.tags.website != null)
+                              ? LinkButton(
+                                  onPressed: () =>
+                                      launchUrl(Uri.parse(cafe.tags.website!)),
+                                  text: cafe.tags.website!,
+                                  icon: Icons.link)
+                              : Text(
+                                  textAlign: TextAlign.center,
+                                  "No website available",
+                                  style:
+                                      Theme.of(context).textTheme.displayMedium,
+                                ),
+                          const SizedBox(height: 20), // Separator
+                          (cafe.tags.phone != null)
+                              ? LinkButton(
+                                  onPressed: () => launchUrl(Uri(
+                                      scheme: 'tel', path: cafe.tags.phone)),
+                                  text: cafe.tags.phone!,
+                                  icon: Icons.phone)
+                              : Text(
+                                  textAlign: TextAlign.center,
+                                  "No phone number available",
+                                  style:
+                                      Theme.of(context).textTheme.displayMedium,
+                                ),
+
+                          const SizedBox(height: 20), // Separator
+                          (cafe.tags.email != null)
+                              ? LinkButton(
+                                  onPressed: () => launchUrl(Uri(
+                                      scheme: 'mailto', path: cafe.tags.email)),
+                                  text: cafe.tags.email!,
+                                  icon: Icons.email,
+                                )
+                              : Text(
+                                  textAlign: TextAlign.center,
+                                  "No email available",
+                                  style:
+                                      Theme.of(context).textTheme.displayMedium,
+                                ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -110,5 +117,44 @@ class CafeDetailsScreen extends StatelessWidget {
             ),
           ],
         ));
+  }
+}
+
+class LinkButton extends StatelessWidget {
+  const LinkButton(
+      {super.key,
+      required this.onPressed,
+      required this.text,
+      required this.icon});
+
+  final void Function() onPressed;
+  final String text;
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      child: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              icon,
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
+            SizedBox(width: 10),
+            Flexible(
+              child: Text(
+                textAlign: TextAlign.center,
+                text,
+                style: Theme.of(context).textTheme.displayMedium,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

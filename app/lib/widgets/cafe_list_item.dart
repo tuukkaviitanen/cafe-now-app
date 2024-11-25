@@ -32,19 +32,24 @@ class CafeListItem extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: ListTile(
-            title: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(cafe.tags.name,
-                    style: Theme.of(context).textTheme.displayMedium),
-                const SizedBox(width: 20),
-                OpeningHours(cafe: cafe),
-              ],
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Flexible(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(cafe.tags.name,
+                      style: Theme.of(context).textTheme.displayMedium),
+                  const SizedBox(height: 8),
+                  OpeningHours(cafe: cafe),
+                  const SizedBox(height: 4),
+                  Text(cafe.tags.getAddress() ?? 'Address unknown',
+                      style: Theme.of(context).textTheme.displaySmall)
+                ],
+              ),
             ),
-            subtitle: Text(cafe.tags.getAddress() ?? 'Address unknown',
-                style: Theme.of(context).textTheme.displaySmall),
-            trailing: ElevatedButton(
+            ElevatedButton(
               onPressed: () {
                 context.go(
                     '${CafeSearchScreen.route}${CafeDetailsScreen.route}',
@@ -55,7 +60,9 @@ class CafeListItem extends StatelessWidget {
                 child: Text('Details',
                     style: Theme.of(context).textTheme.displayMedium),
               ),
-            )),
+            )
+          ],
+        ),
       ),
     );
   }
