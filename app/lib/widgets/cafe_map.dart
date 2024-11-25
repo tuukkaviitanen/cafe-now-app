@@ -40,6 +40,9 @@ class CafeMap extends StatelessWidget {
               options: const MapOptions(
                 initialCenter: LatLng(51.5, -0.09),
                 initialZoom: defaultZoom,
+                interactionOptions: InteractionOptions(
+                  flags: InteractiveFlag.all & ~InteractiveFlag.rotate,
+                ),
               ),
               mapController: _animatedMapController.mapController,
               children: [
@@ -70,13 +73,6 @@ class CafeMap extends StatelessWidget {
             Positioned(
               right: 10,
               top: 10,
-              child: FloatingActionButton(
-                  child: const Icon(Icons.north_outlined),
-                  onPressed: () => _animatedMapController.animatedRotateTo(0)),
-            ),
-            Positioned(
-              right: 10,
-              top: 80,
               child: FloatingActionButton(
                   child: const Icon(Icons.gps_fixed),
                   onPressed: () => centerMap()),
