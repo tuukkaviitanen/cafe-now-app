@@ -19,7 +19,7 @@ final GoRouter _router = GoRouter(
           GoRoute(
             path: CafeDetailsScreen.route,
             builder: (context, state) => CafeDetailsScreen(
-              cafe: state.extra as Place,
+              cafe: state.extra as Place?,
             ),
           ),
         ]),

@@ -181,7 +181,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
       ),
       body: Center(
         child: Column(
-          children: <Widget>[
+          children: [
             Expanded(
               flex: 1,
               child: Padding(
@@ -246,7 +246,7 @@ class _CafeSearchScreenState extends State<CafeSearchScreen>
     );
   }
 
-  ScrollablePositionedList cafeList() {
+  Widget cafeList() {
     return ScrollablePositionedList.builder(
       itemScrollController: _itemScrollController,
       itemCount: cafes.length,
