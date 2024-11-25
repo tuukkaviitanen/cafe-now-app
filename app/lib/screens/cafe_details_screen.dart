@@ -57,7 +57,7 @@ class CafeDetailsScreen extends StatelessWidget {
                             ),
                             icon: Icons.navigation,
                           ),
-                          const SizedBox(height: 20), // Separator
+                          const SizedBox(height: 30), // Separator
                           Text(
                               textAlign: TextAlign.center,
                               cafe.tags.openingHours ?? 'Opening hours unknown',
