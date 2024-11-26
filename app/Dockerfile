@@ -1,4 +1,4 @@
-FROM instrumentisto/flutter AS build-stage
+FROM instrumentisto/flutter:3.24 AS build-stage
 
 WORKDIR /app
 
@@ -8,9 +8,6 @@ RUN flutter pub get --enforce-lockfile
 
 RUN flutter build web --release
 
-# Final image
-FROM nginx:1.27
+FROM nginx:1.27-alpine
 
 COPY --from=build-stage /app/build/web /usr/share/nginx/html
-
-COPY nginx.conf /etc/nginx/conf.d/default.conf
